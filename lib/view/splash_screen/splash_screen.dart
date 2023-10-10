@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Future.delayed(Duration(seconds: 3)).then((value) {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => HomePage()));
+          .pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
     });
     super.initState();
   }
@@ -23,8 +23,9 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
-      child: Image(
-        image: AssetImage(ImagesConstants.logo),
+      child: CircleAvatar(
+        radius: 60,
+        backgroundImage: AssetImage(ImagesConstants.logo),
       ),
     ));
   }

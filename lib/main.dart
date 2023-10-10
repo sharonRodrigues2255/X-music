@@ -15,7 +15,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: Colors.black,
+          appBarTheme: AppBarTheme(color: Color.fromARGB(255, 68, 27, 27))),
       themeMode: ThemeMode.dark,
       home: const SplashScreen(),
     );
