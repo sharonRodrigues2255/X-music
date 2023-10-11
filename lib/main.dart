@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: Colors.black,
-          appBarTheme: AppBarTheme(color: Color.fromARGB(255, 68, 27, 27))),
+          appBarTheme: AppBarTheme(color: Color.fromARGB(255, 26, 26, 26))),
       themeMode: ThemeMode.dark,
       home: const SplashScreen(),
     );
