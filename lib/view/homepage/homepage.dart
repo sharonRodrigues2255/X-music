@@ -12,7 +12,8 @@ class HomePage extends StatelessWidget {
     return BlocBuilder<HomepageBloc, HomepageState>(
       bloc: homepagebloc,
       builder: (context, state) {
-        final songs = state.allSongs;
+        final data = state as Initial;
+        final songs = data.mySongs;
         return Scaffold(
           appBar: AppBar(
             title: Text("Xusic"),
@@ -24,7 +25,7 @@ class HomePage extends StatelessWidget {
                 final song = songs[index];
                 return ListTile(
                   title: Text(song.displayName),
-                  subtitle: Text(song.artist!),
+                  subtitle: Text(song.artist),
                   leading:
                       QueryArtworkWidget(id: song.id, type: ArtworkType.AUDIO),
                   trailing: Icon(Icons.more_vert),
