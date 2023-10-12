@@ -166,43 +166,42 @@ abstract class _Started implements HomepageEvent {
 
 /// @nodoc
 mixin _$HomepageState {
+  List<MySongModel> get mySongs => throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(List<MySongModel> mySongs) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<MySongModel> mySongs)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<MySongModel> mySongs)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_HomepageState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_HomepageState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_HomepageState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $HomepageStateCopyWith<HomepageState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -211,6 +210,8 @@ abstract class $HomepageStateCopyWith<$Res> {
   factory $HomepageStateCopyWith(
           HomepageState value, $Res Function(HomepageState) then) =
       _$HomepageStateCopyWithImpl<$Res, HomepageState>;
+  @useResult
+  $Res call({List<MySongModel> mySongs});
 }
 
 /// @nodoc
@@ -222,115 +223,28 @@ class _$HomepageStateCopyWithImpl<$Res, $Val extends HomepageState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? mySongs = null,
+  }) {
+    return _then(_value.copyWith(
+      mySongs: null == mySongs
+          ? _value.mySongs
+          : mySongs // ignore: cast_nullable_to_non_nullable
+              as List<MySongModel>,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$HomepageStateImplCopyWith<$Res> {
-  factory _$$HomepageStateImplCopyWith(
-          _$HomepageStateImpl value, $Res Function(_$HomepageStateImpl) then) =
-      __$$HomepageStateImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$HomepageStateImplCopyWithImpl<$Res>
-    extends _$HomepageStateCopyWithImpl<$Res, _$HomepageStateImpl>
-    implements _$$HomepageStateImplCopyWith<$Res> {
-  __$$HomepageStateImplCopyWithImpl(
-      _$HomepageStateImpl _value, $Res Function(_$HomepageStateImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$HomepageStateImpl implements _HomepageState {
-  const _$HomepageStateImpl();
-
-  @override
-  String toString() {
-    return 'HomepageState()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HomepageStateImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function(List<MySongModel> mySongs) initial,
-  }) {
-    return $default();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function(List<MySongModel> mySongs)? initial,
-  }) {
-    return $default?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(List<MySongModel> mySongs)? initial,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_HomepageState value) $default, {
-    required TResult Function(Initial value) initial,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_HomepageState value)? $default, {
-    TResult? Function(Initial value)? initial,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_HomepageState value)? $default, {
-    TResult Function(Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _HomepageState implements HomepageState {
-  const factory _HomepageState() = _$HomepageStateImpl;
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
+abstract class _$$InitialImplCopyWith<$Res>
+    implements $HomepageStateCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
           _$InitialImpl value, $Res Function(_$InitialImpl) then) =
       __$$InitialImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({List<MySongModel> mySongs});
 }
@@ -396,8 +310,7 @@ class _$InitialImpl implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(List<MySongModel> mySongs) initial,
   }) {
     return initial(mySongs);
@@ -405,8 +318,7 @@ class _$InitialImpl implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<MySongModel> mySongs)? initial,
   }) {
     return initial?.call(mySongs);
@@ -414,8 +326,7 @@ class _$InitialImpl implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<MySongModel> mySongs)? initial,
     required TResult orElse(),
   }) {
@@ -427,8 +338,7 @@ class _$InitialImpl implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_HomepageState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
   }) {
     return initial(this);
@@ -436,8 +346,7 @@ class _$InitialImpl implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_HomepageState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
   }) {
     return initial?.call(this);
@@ -445,8 +354,7 @@ class _$InitialImpl implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_HomepageState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     required TResult orElse(),
   }) {
@@ -460,7 +368,9 @@ class _$InitialImpl implements Initial {
 abstract class Initial implements HomepageState {
   factory Initial({required final List<MySongModel> mySongs}) = _$InitialImpl;
 
+  @override
   List<MySongModel> get mySongs;
+  @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;

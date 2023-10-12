@@ -4,7 +4,7 @@ import 'package:musicplayer_project/bloc/homepagebloc/homepage_bloc.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,17 +12,16 @@ class HomePage extends StatelessWidget {
     return BlocBuilder<HomepageBloc, HomepageState>(
       bloc: homepagebloc,
       builder: (context, state) {
-        final data = state as Initial;
-        final songs = data.mySongs;
-        return Scaffold(
-          appBar: AppBar(
-            title: Text("Xusic"),
-            centerTitle: true,
-          ),
-          body: ListView.builder(
-              itemCount: songs.length,
+        return state.when(initial: (mySongs) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text("Xusic"),
+              centerTitle: true,
+            ),
+            body: ListView.builder(
+              itemCount: mySongs.length,
               itemBuilder: (context, index) {
-                final song = songs[index];
+                final song = mySongs[index];
                 return ListTile(
                   title: Text(song.displayName),
                   subtitle: Text(song.artist),
@@ -30,8 +29,10 @@ class HomePage extends StatelessWidget {
                       QueryArtworkWidget(id: song.id, type: ArtworkType.AUDIO),
                   trailing: Icon(Icons.more_vert),
                 );
-              }),
-        );
+              },
+            ),
+          );
+        });
       },
     );
   }
