@@ -28,7 +28,7 @@ class SplashScreen extends StatelessWidget {
     final status = await Permission.storage.status;
 
     if (status.isDenied) {
-      final request = await Permission.storage.request();
+      await Permission.storage.request();
       checkPermission();
     } else if (status.isGranted) {}
     final List<SongModel> externalSongs = await audioQuery.querySongs(

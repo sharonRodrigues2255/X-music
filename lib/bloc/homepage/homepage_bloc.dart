@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:musicplayer_project/model/mysongmodel.dart';
+import 'package:musicplayer_project/view/player_screen/player_screen.dart';
 import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
 
 part 'homepage_event.dart';
@@ -8,7 +10,7 @@ part 'homepage_state.dart';
 part 'homepage_bloc.freezed.dart';
 
 class HomepageBloc extends Bloc<HomepageEvent, HomepageState> {
-  HomepageBloc()
+  HomepageBloc(BuildContext context)
       : super(HomepageState.initial(
             mySongs: allSongsList
                 .map((e) => MySongModel(
@@ -17,5 +19,12 @@ class HomepageBloc extends Bloc<HomepageEvent, HomepageState> {
                     displayName: e.displayName,
                     artist: e.artist!,
                     url: e.uri))
-                .toList())) {}
+                .toList())) {
+    on<NavigateEvent>((event, emit) {
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => PlayerScreen(
+                mysong: event.song,
+              )));
+    });
+  }
 }
