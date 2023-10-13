@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:musicplayer_project/bloc/homepage/homepage_bloc.dart';
+import 'package:musicplayer_project/bloc/player/player_bloc.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class HomePage extends StatelessWidget {
@@ -28,7 +29,12 @@ class HomePage extends StatelessWidget {
                       tileColor: Colors.black45,
                       style: ListTileStyle.list,
                       onTap: () {
-                        homepagebloc.add(NavigateEvent(song: song));
+                        homepagebloc.add(NavigateEvent(
+                          songs: mySongs,
+                        ));
+
+                        context.read<PlayerBloc>().add(PlayerEvent.playSong(
+                            index: index, mysongs: mySongs));
                       },
                       title: Text(song.displayName),
                       subtitle: Text(song.artist),

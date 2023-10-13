@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:musicplayer_project/utils/images/images_constants.dart';
 import 'package:musicplayer_project/view/homepage/homepage.dart';
 import 'package:on_audio_query/on_audio_query.dart';
@@ -50,3 +51,4 @@ class SplashScreen extends StatelessWidget {
 
 final OnAudioQuery audioQuery = OnAudioQuery();
 List<SongModel> allSongsList = [];
+final player = AudioPlayer();

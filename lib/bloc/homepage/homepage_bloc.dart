@@ -17,13 +17,14 @@ class HomepageBloc extends Bloc<HomepageEvent, HomepageState> {
                     id: e.id,
                     title: e.title,
                     displayName: e.displayName,
+                    duration: e.duration,
                     artist: e.artist!,
                     url: e.uri))
                 .toList())) {
     on<NavigateEvent>((event, emit) {
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => PlayerScreen(
-                mysong: event.song,
+                mysongs: event.songs,
               )));
     });
   }

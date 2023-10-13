@@ -16,20 +16,20 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HomepageEvent {
-  MySongModel get song => throw _privateConstructorUsedError;
+  List<MySongModel> get songs => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(MySongModel song) navigateEvent,
+    required TResult Function(List<MySongModel> songs) navigateEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(MySongModel song)? navigateEvent,
+    TResult? Function(List<MySongModel> songs)? navigateEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(MySongModel song)? navigateEvent,
+    TResult Function(List<MySongModel> songs)? navigateEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +61,7 @@ abstract class $HomepageEventCopyWith<$Res> {
           HomepageEvent value, $Res Function(HomepageEvent) then) =
       _$HomepageEventCopyWithImpl<$Res, HomepageEvent>;
   @useResult
-  $Res call({MySongModel song});
+  $Res call({List<MySongModel> songs});
 }
 
 /// @nodoc
@@ -77,13 +77,13 @@ class _$HomepageEventCopyWithImpl<$Res, $Val extends HomepageEvent>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? song = null,
+    Object? songs = null,
   }) {
     return _then(_value.copyWith(
-      song: null == song
-          ? _value.song
-          : song // ignore: cast_nullable_to_non_nullable
-              as MySongModel,
+      songs: null == songs
+          ? _value.songs
+          : songs // ignore: cast_nullable_to_non_nullable
+              as List<MySongModel>,
     ) as $Val);
   }
 }
@@ -96,7 +96,7 @@ abstract class _$$NavigateEventImplCopyWith<$Res>
       __$$NavigateEventImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({MySongModel song});
+  $Res call({List<MySongModel> songs});
 }
 
 /// @nodoc
@@ -110,13 +110,13 @@ class __$$NavigateEventImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? song = null,
+    Object? songs = null,
   }) {
     return _then(_$NavigateEventImpl(
-      song: null == song
-          ? _value.song
-          : song // ignore: cast_nullable_to_non_nullable
-              as MySongModel,
+      songs: null == songs
+          ? _value._songs
+          : songs // ignore: cast_nullable_to_non_nullable
+              as List<MySongModel>,
     ));
   }
 }
@@ -124,14 +124,20 @@ class __$$NavigateEventImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$NavigateEventImpl implements NavigateEvent {
-  const _$NavigateEventImpl({required this.song});
+  const _$NavigateEventImpl({required final List<MySongModel> songs})
+      : _songs = songs;
 
+  final List<MySongModel> _songs;
   @override
-  final MySongModel song;
+  List<MySongModel> get songs {
+    if (_songs is EqualUnmodifiableListView) return _songs;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_songs);
+  }
 
   @override
   String toString() {
-    return 'HomepageEvent.navigateEvent(song: $song)';
+    return 'HomepageEvent.navigateEvent(songs: $songs)';
   }
 
   @override
@@ -139,11 +145,12 @@ class _$NavigateEventImpl implements NavigateEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NavigateEventImpl &&
-            (identical(other.song, song) || other.song == song));
+            const DeepCollectionEquality().equals(other._songs, _songs));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, song);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_songs));
 
   @JsonKey(ignore: true)
   @override
@@ -154,27 +161,27 @@ class _$NavigateEventImpl implements NavigateEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(MySongModel song) navigateEvent,
+    required TResult Function(List<MySongModel> songs) navigateEvent,
   }) {
-    return navigateEvent(song);
+    return navigateEvent(songs);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(MySongModel song)? navigateEvent,
+    TResult? Function(List<MySongModel> songs)? navigateEvent,
   }) {
-    return navigateEvent?.call(song);
+    return navigateEvent?.call(songs);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(MySongModel song)? navigateEvent,
+    TResult Function(List<MySongModel> songs)? navigateEvent,
     required TResult orElse(),
   }) {
     if (navigateEvent != null) {
-      return navigateEvent(song);
+      return navigateEvent(songs);
     }
     return orElse();
   }
@@ -209,11 +216,11 @@ class _$NavigateEventImpl implements NavigateEvent {
 }
 
 abstract class NavigateEvent implements HomepageEvent {
-  const factory NavigateEvent({required final MySongModel song}) =
+  const factory NavigateEvent({required final List<MySongModel> songs}) =
       _$NavigateEventImpl;
 
   @override
-  MySongModel get song;
+  List<MySongModel> get songs;
   @override
   @JsonKey(ignore: true)
   _$$NavigateEventImplCopyWith<_$NavigateEventImpl> get copyWith =>
