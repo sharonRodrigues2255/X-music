@@ -1,3 +1,4 @@
+import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
@@ -29,6 +30,7 @@ class PlayerScreen extends StatelessWidget {
           bloc: playerBloc,
           builder: (context, state) {
             return Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
                   width: mediaSize.width * .8,
@@ -38,12 +40,18 @@ class PlayerScreen extends StatelessWidget {
                     type: ArtworkType.AUDIO,
                   ),
                 ),
+                Text(
+                  mysongs[state.index!].title,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                Text(mysongs[state.index!].artist),
                 kheight20,
-                kwidth20,
                 PlayerActionRow(
                   state: state,
                   songs: mysongs,
                 ),
+                kheight10,
+                kheight20
               ],
             );
           },
