@@ -11,7 +11,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
   PlayerBloc() : super(PlayerState.playsong()) {
     on<PlaySong>((event, emit) {
       print(event.index);
-      emit(state.copyWith(index: event.index));
+      emit(state.copyWith(index: event.index, playing: true));
 
       playSong(event.mysongs[event.index].url);
       positionStream();
@@ -29,6 +29,10 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
 
     on<OnSeek>((event, emit) {
       player.seek(Duration(seconds: event.seektime));
+    });
+
+    on<LoopAndShuffle>((event, emit) {
+      emit(state.copyWith(loop: event.loop, shuffle: event.shuffle));
     });
   }
 

@@ -6,7 +6,15 @@ class PlayerState with _$PlayerState {
     required int? index,
     required bool playing,
     required int position,
+    required bool loop,
+    required bool shuffle,
+    required bool favorite,
   }) = _PlayerState;
-  factory PlayerState.playsong() =>
-      PlayerState(index: 0, playing: true, position: 0);
+  factory PlayerState.playsong() => PlayerState(
+      index: 0,
+      playing: true,
+      position: 0,
+      loop: false,
+      shuffle: false,
+      favorite: false);
 }

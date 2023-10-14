@@ -7,4 +7,6 @@ class PlayerEvent with _$PlayerEvent {
   factory PlayerEvent.pauseSong() = PauseSong;
   factory PlayerEvent.continueSong() = ContinueSong;
   factory PlayerEvent.onSeek(int seektime) = OnSeek;
+  factory PlayerEvent.loopAndShuffle(
+      {required bool loop, required bool shuffle}) = LoopAndShuffle;
 }

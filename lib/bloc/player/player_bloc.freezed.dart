@@ -22,6 +22,7 @@ mixin _$PlayerEvent {
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
+    required TResult Function(bool loop, bool shuffle) loopAndShuffle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$PlayerEvent {
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
+    TResult? Function(bool loop, bool shuffle)? loopAndShuffle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$PlayerEvent {
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
+    TResult Function(bool loop, bool shuffle)? loopAndShuffle,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$PlayerEvent {
     required TResult Function(PauseSong value) pauseSong,
     required TResult Function(ContinueSong value) continueSong,
     required TResult Function(OnSeek value) onSeek,
+    required TResult Function(LoopAndShuffle value) loopAndShuffle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$PlayerEvent {
     TResult? Function(PauseSong value)? pauseSong,
     TResult? Function(ContinueSong value)? continueSong,
     TResult? Function(OnSeek value)? onSeek,
+    TResult? Function(LoopAndShuffle value)? loopAndShuffle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$PlayerEvent {
     TResult Function(PauseSong value)? pauseSong,
     TResult Function(ContinueSong value)? continueSong,
     TResult Function(OnSeek value)? onSeek,
+    TResult Function(LoopAndShuffle value)? loopAndShuffle,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -170,6 +176,7 @@ class _$PlaySongImpl implements PlaySong {
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
+    required TResult Function(bool loop, bool shuffle) loopAndShuffle,
   }) {
     return playSong(index, mysongs);
   }
@@ -181,6 +188,7 @@ class _$PlaySongImpl implements PlaySong {
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
+    TResult? Function(bool loop, bool shuffle)? loopAndShuffle,
   }) {
     return playSong?.call(index, mysongs);
   }
@@ -192,6 +200,7 @@ class _$PlaySongImpl implements PlaySong {
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
+    TResult Function(bool loop, bool shuffle)? loopAndShuffle,
     required TResult orElse(),
   }) {
     if (playSong != null) {
@@ -207,6 +216,7 @@ class _$PlaySongImpl implements PlaySong {
     required TResult Function(PauseSong value) pauseSong,
     required TResult Function(ContinueSong value) continueSong,
     required TResult Function(OnSeek value) onSeek,
+    required TResult Function(LoopAndShuffle value) loopAndShuffle,
   }) {
     return playSong(this);
   }
@@ -218,6 +228,7 @@ class _$PlaySongImpl implements PlaySong {
     TResult? Function(PauseSong value)? pauseSong,
     TResult? Function(ContinueSong value)? continueSong,
     TResult? Function(OnSeek value)? onSeek,
+    TResult? Function(LoopAndShuffle value)? loopAndShuffle,
   }) {
     return playSong?.call(this);
   }
@@ -229,6 +240,7 @@ class _$PlaySongImpl implements PlaySong {
     TResult Function(PauseSong value)? pauseSong,
     TResult Function(ContinueSong value)? continueSong,
     TResult Function(OnSeek value)? onSeek,
+    TResult Function(LoopAndShuffle value)? loopAndShuffle,
     required TResult orElse(),
   }) {
     if (playSong != null) {
@@ -292,6 +304,7 @@ class _$PauseSongImpl implements PauseSong {
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
+    required TResult Function(bool loop, bool shuffle) loopAndShuffle,
   }) {
     return pauseSong();
   }
@@ -303,6 +316,7 @@ class _$PauseSongImpl implements PauseSong {
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
+    TResult? Function(bool loop, bool shuffle)? loopAndShuffle,
   }) {
     return pauseSong?.call();
   }
@@ -314,6 +328,7 @@ class _$PauseSongImpl implements PauseSong {
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
+    TResult Function(bool loop, bool shuffle)? loopAndShuffle,
     required TResult orElse(),
   }) {
     if (pauseSong != null) {
@@ -329,6 +344,7 @@ class _$PauseSongImpl implements PauseSong {
     required TResult Function(PauseSong value) pauseSong,
     required TResult Function(ContinueSong value) continueSong,
     required TResult Function(OnSeek value) onSeek,
+    required TResult Function(LoopAndShuffle value) loopAndShuffle,
   }) {
     return pauseSong(this);
   }
@@ -340,6 +356,7 @@ class _$PauseSongImpl implements PauseSong {
     TResult? Function(PauseSong value)? pauseSong,
     TResult? Function(ContinueSong value)? continueSong,
     TResult? Function(OnSeek value)? onSeek,
+    TResult? Function(LoopAndShuffle value)? loopAndShuffle,
   }) {
     return pauseSong?.call(this);
   }
@@ -351,6 +368,7 @@ class _$PauseSongImpl implements PauseSong {
     TResult Function(PauseSong value)? pauseSong,
     TResult Function(ContinueSong value)? continueSong,
     TResult Function(OnSeek value)? onSeek,
+    TResult Function(LoopAndShuffle value)? loopAndShuffle,
     required TResult orElse(),
   }) {
     if (pauseSong != null) {
@@ -406,6 +424,7 @@ class _$ContinueSongImpl implements ContinueSong {
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
+    required TResult Function(bool loop, bool shuffle) loopAndShuffle,
   }) {
     return continueSong();
   }
@@ -417,6 +436,7 @@ class _$ContinueSongImpl implements ContinueSong {
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
+    TResult? Function(bool loop, bool shuffle)? loopAndShuffle,
   }) {
     return continueSong?.call();
   }
@@ -428,6 +448,7 @@ class _$ContinueSongImpl implements ContinueSong {
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
+    TResult Function(bool loop, bool shuffle)? loopAndShuffle,
     required TResult orElse(),
   }) {
     if (continueSong != null) {
@@ -443,6 +464,7 @@ class _$ContinueSongImpl implements ContinueSong {
     required TResult Function(PauseSong value) pauseSong,
     required TResult Function(ContinueSong value) continueSong,
     required TResult Function(OnSeek value) onSeek,
+    required TResult Function(LoopAndShuffle value) loopAndShuffle,
   }) {
     return continueSong(this);
   }
@@ -454,6 +476,7 @@ class _$ContinueSongImpl implements ContinueSong {
     TResult? Function(PauseSong value)? pauseSong,
     TResult? Function(ContinueSong value)? continueSong,
     TResult? Function(OnSeek value)? onSeek,
+    TResult? Function(LoopAndShuffle value)? loopAndShuffle,
   }) {
     return continueSong?.call(this);
   }
@@ -465,6 +488,7 @@ class _$ContinueSongImpl implements ContinueSong {
     TResult Function(PauseSong value)? pauseSong,
     TResult Function(ContinueSong value)? continueSong,
     TResult Function(OnSeek value)? onSeek,
+    TResult Function(LoopAndShuffle value)? loopAndShuffle,
     required TResult orElse(),
   }) {
     if (continueSong != null) {
@@ -547,6 +571,7 @@ class _$OnSeekImpl implements OnSeek {
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
+    required TResult Function(bool loop, bool shuffle) loopAndShuffle,
   }) {
     return onSeek(seektime);
   }
@@ -558,6 +583,7 @@ class _$OnSeekImpl implements OnSeek {
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
+    TResult? Function(bool loop, bool shuffle)? loopAndShuffle,
   }) {
     return onSeek?.call(seektime);
   }
@@ -569,6 +595,7 @@ class _$OnSeekImpl implements OnSeek {
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
+    TResult Function(bool loop, bool shuffle)? loopAndShuffle,
     required TResult orElse(),
   }) {
     if (onSeek != null) {
@@ -584,6 +611,7 @@ class _$OnSeekImpl implements OnSeek {
     required TResult Function(PauseSong value) pauseSong,
     required TResult Function(ContinueSong value) continueSong,
     required TResult Function(OnSeek value) onSeek,
+    required TResult Function(LoopAndShuffle value) loopAndShuffle,
   }) {
     return onSeek(this);
   }
@@ -595,6 +623,7 @@ class _$OnSeekImpl implements OnSeek {
     TResult? Function(PauseSong value)? pauseSong,
     TResult? Function(ContinueSong value)? continueSong,
     TResult? Function(OnSeek value)? onSeek,
+    TResult? Function(LoopAndShuffle value)? loopAndShuffle,
   }) {
     return onSeek?.call(this);
   }
@@ -606,6 +635,7 @@ class _$OnSeekImpl implements OnSeek {
     TResult Function(PauseSong value)? pauseSong,
     TResult Function(ContinueSong value)? continueSong,
     TResult Function(OnSeek value)? onSeek,
+    TResult Function(LoopAndShuffle value)? loopAndShuffle,
     required TResult orElse(),
   }) {
     if (onSeek != null) {
@@ -625,10 +655,176 @@ abstract class OnSeek implements PlayerEvent {
 }
 
 /// @nodoc
+abstract class _$$LoopAndShuffleImplCopyWith<$Res> {
+  factory _$$LoopAndShuffleImplCopyWith(_$LoopAndShuffleImpl value,
+          $Res Function(_$LoopAndShuffleImpl) then) =
+      __$$LoopAndShuffleImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool loop, bool shuffle});
+}
+
+/// @nodoc
+class __$$LoopAndShuffleImplCopyWithImpl<$Res>
+    extends _$PlayerEventCopyWithImpl<$Res, _$LoopAndShuffleImpl>
+    implements _$$LoopAndShuffleImplCopyWith<$Res> {
+  __$$LoopAndShuffleImplCopyWithImpl(
+      _$LoopAndShuffleImpl _value, $Res Function(_$LoopAndShuffleImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? loop = null,
+    Object? shuffle = null,
+  }) {
+    return _then(_$LoopAndShuffleImpl(
+      loop: null == loop
+          ? _value.loop
+          : loop // ignore: cast_nullable_to_non_nullable
+              as bool,
+      shuffle: null == shuffle
+          ? _value.shuffle
+          : shuffle // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoopAndShuffleImpl implements LoopAndShuffle {
+  _$LoopAndShuffleImpl({required this.loop, required this.shuffle});
+
+  @override
+  final bool loop;
+  @override
+  final bool shuffle;
+
+  @override
+  String toString() {
+    return 'PlayerEvent.loopAndShuffle(loop: $loop, shuffle: $shuffle)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoopAndShuffleImpl &&
+            (identical(other.loop, loop) || other.loop == loop) &&
+            (identical(other.shuffle, shuffle) || other.shuffle == shuffle));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, loop, shuffle);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoopAndShuffleImplCopyWith<_$LoopAndShuffleImpl> get copyWith =>
+      __$$LoopAndShuffleImplCopyWithImpl<_$LoopAndShuffleImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int index, List<MySongModel> mysongs) playSong,
+    required TResult Function() pauseSong,
+    required TResult Function() continueSong,
+    required TResult Function(int seektime) onSeek,
+    required TResult Function(bool loop, bool shuffle) loopAndShuffle,
+  }) {
+    return loopAndShuffle(loop, shuffle);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult? Function()? pauseSong,
+    TResult? Function()? continueSong,
+    TResult? Function(int seektime)? onSeek,
+    TResult? Function(bool loop, bool shuffle)? loopAndShuffle,
+  }) {
+    return loopAndShuffle?.call(loop, shuffle);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult Function()? pauseSong,
+    TResult Function()? continueSong,
+    TResult Function(int seektime)? onSeek,
+    TResult Function(bool loop, bool shuffle)? loopAndShuffle,
+    required TResult orElse(),
+  }) {
+    if (loopAndShuffle != null) {
+      return loopAndShuffle(loop, shuffle);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PlaySong value) playSong,
+    required TResult Function(PauseSong value) pauseSong,
+    required TResult Function(ContinueSong value) continueSong,
+    required TResult Function(OnSeek value) onSeek,
+    required TResult Function(LoopAndShuffle value) loopAndShuffle,
+  }) {
+    return loopAndShuffle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PlaySong value)? playSong,
+    TResult? Function(PauseSong value)? pauseSong,
+    TResult? Function(ContinueSong value)? continueSong,
+    TResult? Function(OnSeek value)? onSeek,
+    TResult? Function(LoopAndShuffle value)? loopAndShuffle,
+  }) {
+    return loopAndShuffle?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PlaySong value)? playSong,
+    TResult Function(PauseSong value)? pauseSong,
+    TResult Function(ContinueSong value)? continueSong,
+    TResult Function(OnSeek value)? onSeek,
+    TResult Function(LoopAndShuffle value)? loopAndShuffle,
+    required TResult orElse(),
+  }) {
+    if (loopAndShuffle != null) {
+      return loopAndShuffle(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoopAndShuffle implements PlayerEvent {
+  factory LoopAndShuffle(
+      {required final bool loop,
+      required final bool shuffle}) = _$LoopAndShuffleImpl;
+
+  bool get loop;
+  bool get shuffle;
+  @JsonKey(ignore: true)
+  _$$LoopAndShuffleImplCopyWith<_$LoopAndShuffleImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$PlayerState {
   int? get index => throw _privateConstructorUsedError;
   bool get playing => throw _privateConstructorUsedError;
   int get position => throw _privateConstructorUsedError;
+  bool get loop => throw _privateConstructorUsedError;
+  bool get shuffle => throw _privateConstructorUsedError;
+  bool get favorite => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlayerStateCopyWith<PlayerState> get copyWith =>
@@ -641,7 +837,13 @@ abstract class $PlayerStateCopyWith<$Res> {
           PlayerState value, $Res Function(PlayerState) then) =
       _$PlayerStateCopyWithImpl<$Res, PlayerState>;
   @useResult
-  $Res call({int? index, bool playing, int position});
+  $Res call(
+      {int? index,
+      bool playing,
+      int position,
+      bool loop,
+      bool shuffle,
+      bool favorite});
 }
 
 /// @nodoc
@@ -660,6 +862,9 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
     Object? index = freezed,
     Object? playing = null,
     Object? position = null,
+    Object? loop = null,
+    Object? shuffle = null,
+    Object? favorite = null,
   }) {
     return _then(_value.copyWith(
       index: freezed == index
@@ -674,6 +879,18 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
               as int,
+      loop: null == loop
+          ? _value.loop
+          : loop // ignore: cast_nullable_to_non_nullable
+              as bool,
+      shuffle: null == shuffle
+          ? _value.shuffle
+          : shuffle // ignore: cast_nullable_to_non_nullable
+              as bool,
+      favorite: null == favorite
+          ? _value.favorite
+          : favorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -686,7 +903,13 @@ abstract class _$$PlayerStateImplCopyWith<$Res>
       __$$PlayerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? index, bool playing, int position});
+  $Res call(
+      {int? index,
+      bool playing,
+      int position,
+      bool loop,
+      bool shuffle,
+      bool favorite});
 }
 
 /// @nodoc
@@ -703,6 +926,9 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
     Object? index = freezed,
     Object? playing = null,
     Object? position = null,
+    Object? loop = null,
+    Object? shuffle = null,
+    Object? favorite = null,
   }) {
     return _then(_$PlayerStateImpl(
       index: freezed == index
@@ -717,6 +943,18 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
               as int,
+      loop: null == loop
+          ? _value.loop
+          : loop // ignore: cast_nullable_to_non_nullable
+              as bool,
+      shuffle: null == shuffle
+          ? _value.shuffle
+          : shuffle // ignore: cast_nullable_to_non_nullable
+              as bool,
+      favorite: null == favorite
+          ? _value.favorite
+          : favorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -725,7 +963,12 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
 
 class _$PlayerStateImpl implements _PlayerState {
   const _$PlayerStateImpl(
-      {required this.index, required this.playing, required this.position});
+      {required this.index,
+      required this.playing,
+      required this.position,
+      required this.loop,
+      required this.shuffle,
+      required this.favorite});
 
   @override
   final int? index;
@@ -733,10 +976,16 @@ class _$PlayerStateImpl implements _PlayerState {
   final bool playing;
   @override
   final int position;
+  @override
+  final bool loop;
+  @override
+  final bool shuffle;
+  @override
+  final bool favorite;
 
   @override
   String toString() {
-    return 'PlayerState(index: $index, playing: $playing, position: $position)';
+    return 'PlayerState(index: $index, playing: $playing, position: $position, loop: $loop, shuffle: $shuffle, favorite: $favorite)';
   }
 
   @override
@@ -747,11 +996,16 @@ class _$PlayerStateImpl implements _PlayerState {
             (identical(other.index, index) || other.index == index) &&
             (identical(other.playing, playing) || other.playing == playing) &&
             (identical(other.position, position) ||
-                other.position == position));
+                other.position == position) &&
+            (identical(other.loop, loop) || other.loop == loop) &&
+            (identical(other.shuffle, shuffle) || other.shuffle == shuffle) &&
+            (identical(other.favorite, favorite) ||
+                other.favorite == favorite));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, index, playing, position);
+  int get hashCode => Object.hash(
+      runtimeType, index, playing, position, loop, shuffle, favorite);
 
   @JsonKey(ignore: true)
   @override
@@ -764,7 +1018,10 @@ abstract class _PlayerState implements PlayerState {
   const factory _PlayerState(
       {required final int? index,
       required final bool playing,
-      required final int position}) = _$PlayerStateImpl;
+      required final int position,
+      required final bool loop,
+      required final bool shuffle,
+      required final bool favorite}) = _$PlayerStateImpl;
 
   @override
   int? get index;
@@ -772,6 +1029,12 @@ abstract class _PlayerState implements PlayerState {
   bool get playing;
   @override
   int get position;
+  @override
+  bool get loop;
+  @override
+  bool get shuffle;
+  @override
+  bool get favorite;
   @override
   @JsonKey(ignore: true)
   _$$PlayerStateImplCopyWith<_$PlayerStateImpl> get copyWith =>

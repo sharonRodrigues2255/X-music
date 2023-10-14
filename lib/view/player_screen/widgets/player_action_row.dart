@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
 import 'package:musicplayer_project/model/mysongmodel.dart';
+import 'package:musicplayer_project/utils/constants/sizes.dart';
 
 class PlayerActionRow extends StatelessWidget {
   const PlayerActionRow({Key? key, required this.state, required this.songs})
@@ -14,8 +15,9 @@ class PlayerActionRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final playerBloc = BlocProvider.of<PlayerBloc>(context);
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
+        kwidth10,
         IconButton.filled(
           onPressed: () {
             playerBloc.add(PlaySong(
@@ -53,6 +55,7 @@ class PlayerActionRow extends StatelessWidget {
           icon: Icon(Icons.skip_next),
           iconSize: 50,
         ),
+        kwidth10
       ],
     );
   }
