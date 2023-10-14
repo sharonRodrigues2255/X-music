@@ -14,7 +14,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
       emit(state.copyWith(index: event.index, playing: true));
 
       playSong(event.mysongs[event.index].url);
-      await positionStream(event.mysongs);
+      positionStream(event.mysongs);
     });
 
     on<PauseSong>((event, emit) async {
@@ -41,10 +41,10 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     await player.play();
   }
 
-  positionStream(List<MySongModel> songs) async {
+  positionStream(List<MySongModel> songs) {
     var position;
     try {
-      await Future.sync(() {
+      Future.sync(() {
         player.positionStream.listen((event) {
           position = event.inMilliseconds + 100;
           emit(state.copyWith(position: position));
@@ -53,7 +53,9 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
             add(PlaySong(
               index: state.loop == true
                   ? state.index!
-                  : songs.length % state.index!,
+                  : state.index == songs.length - 1
+                      ? 0
+                      : state.index! + 1,
               mysongs: songs,
             ));
           }
