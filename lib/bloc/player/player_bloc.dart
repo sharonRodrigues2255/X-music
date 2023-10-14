@@ -12,20 +12,32 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     on<PlaySong>((event, emit) {
       print(event.index);
       emit(state.copyWith(index: event.index));
+
       playSong(event.mysongs[event.index].url);
+      positionStream();
     });
     on<PauseSong>((event, emit) async {
       emit(state.copyWith(playing: false));
       await player.pause();
+      positionStream();
     });
     on<ContinueSong>((event, emit) async {
       emit(state.copyWith(playing: true));
       await player.play();
+      positionStream();
     });
   }
 
   playSong(String? url) async {
     await player.setUrl(url!);
     await player.play();
+  }
+
+  positionStream() async {
+    var position;
+    player.positionStream.listen((event) {
+      position = event.inSeconds;
+      emit(state.copyWith(position: position));
+    });
   }
 }

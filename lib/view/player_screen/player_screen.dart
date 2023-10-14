@@ -26,35 +26,62 @@ class PlayerScreen extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: BlocBuilder<PlayerBloc, PlayerState>(
-          bloc: playerBloc,
-          builder: (context, state) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            BlocBuilder<PlayerBloc, PlayerState>(
+              buildWhen: (previous, current) {
+                return previous.index != current.index;
+              },
+              builder: (context, state) {
+                return Container(
                   width: mediaSize.width * .8,
                   height: mediaSize.width * .8,
                   child: QueryArtworkWidget(
                     id: mysongs[state.index!].id,
                     type: ArtworkType.AUDIO,
                   ),
-                ),
-                Text(
+                );
+              },
+            ),
+            BlocBuilder<PlayerBloc, PlayerState>(
+              builder: (context, state) {
+                return Text(
                   mysongs[state.index!].title,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                Text(mysongs[state.index!].artist),
-                kheight20,
-                PlayerActionRow(
+                );
+              },
+            ),
+            BlocBuilder<PlayerBloc, PlayerState>(
+              builder: (context, state) {
+                return Text(mysongs[state.index!].artist);
+              },
+            ),
+            kheight20,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: BlocBuilder<PlayerBloc, PlayerState>(
+                builder: (context, state) {
+                  return ProgressBar(
+                      progressBarColor: Colors.red,
+                      thumbColor: Colors.red,
+                      progress: Duration(seconds: state.position),
+                      total: Duration(
+                          milliseconds: mysongs[state.index!].duration!));
+                },
+              ),
+            ),
+            BlocBuilder<PlayerBloc, PlayerState>(
+              builder: (context, state) {
+                return PlayerActionRow(
                   state: state,
                   songs: mysongs,
-                ),
-                kheight10,
-                kheight20
-              ],
-            );
-          },
+                );
+              },
+            ),
+            kheight10,
+            kheight20
+          ],
         ),
       ),
     );

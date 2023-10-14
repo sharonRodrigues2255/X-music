@@ -458,6 +458,7 @@ abstract class ContinueSong implements PlayerEvent {
 mixin _$PlayerState {
   int? get index => throw _privateConstructorUsedError;
   bool get playing => throw _privateConstructorUsedError;
+  int get position => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlayerStateCopyWith<PlayerState> get copyWith =>
@@ -470,7 +471,7 @@ abstract class $PlayerStateCopyWith<$Res> {
           PlayerState value, $Res Function(PlayerState) then) =
       _$PlayerStateCopyWithImpl<$Res, PlayerState>;
   @useResult
-  $Res call({int? index, bool playing});
+  $Res call({int? index, bool playing, int position});
 }
 
 /// @nodoc
@@ -488,6 +489,7 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
   $Res call({
     Object? index = freezed,
     Object? playing = null,
+    Object? position = null,
   }) {
     return _then(_value.copyWith(
       index: freezed == index
@@ -498,6 +500,10 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
           ? _value.playing
           : playing // ignore: cast_nullable_to_non_nullable
               as bool,
+      position: null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -510,7 +516,7 @@ abstract class _$$PlayerStateImplCopyWith<$Res>
       __$$PlayerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? index, bool playing});
+  $Res call({int? index, bool playing, int position});
 }
 
 /// @nodoc
@@ -526,6 +532,7 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
   $Res call({
     Object? index = freezed,
     Object? playing = null,
+    Object? position = null,
   }) {
     return _then(_$PlayerStateImpl(
       index: freezed == index
@@ -536,6 +543,10 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
           ? _value.playing
           : playing // ignore: cast_nullable_to_non_nullable
               as bool,
+      position: null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -543,16 +554,19 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PlayerStateImpl implements _PlayerState {
-  const _$PlayerStateImpl({required this.index, required this.playing});
+  const _$PlayerStateImpl(
+      {required this.index, required this.playing, required this.position});
 
   @override
   final int? index;
   @override
   final bool playing;
+  @override
+  final int position;
 
   @override
   String toString() {
-    return 'PlayerState(index: $index, playing: $playing)';
+    return 'PlayerState(index: $index, playing: $playing, position: $position)';
   }
 
   @override
@@ -561,11 +575,13 @@ class _$PlayerStateImpl implements _PlayerState {
         (other.runtimeType == runtimeType &&
             other is _$PlayerStateImpl &&
             (identical(other.index, index) || other.index == index) &&
-            (identical(other.playing, playing) || other.playing == playing));
+            (identical(other.playing, playing) || other.playing == playing) &&
+            (identical(other.position, position) ||
+                other.position == position));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, index, playing);
+  int get hashCode => Object.hash(runtimeType, index, playing, position);
 
   @JsonKey(ignore: true)
   @override
@@ -577,12 +593,15 @@ class _$PlayerStateImpl implements _PlayerState {
 abstract class _PlayerState implements PlayerState {
   const factory _PlayerState(
       {required final int? index,
-      required final bool playing}) = _$PlayerStateImpl;
+      required final bool playing,
+      required final int position}) = _$PlayerStateImpl;
 
   @override
   int? get index;
   @override
   bool get playing;
+  @override
+  int get position;
   @override
   @JsonKey(ignore: true)
   _$$PlayerStateImplCopyWith<_$PlayerStateImpl> get copyWith =>

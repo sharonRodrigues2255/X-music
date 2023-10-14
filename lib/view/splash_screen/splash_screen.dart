@@ -45,7 +45,6 @@ class SplashScreen extends StatelessWidget {
         ignoreCase: true);
 
     allSongsList.addAll(externalSongs);
-    allSongsList.addAll(internalSongs);
   }
 }
 

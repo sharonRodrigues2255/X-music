@@ -25,18 +25,22 @@ class PlayerActionRow extends StatelessWidget {
           icon: Icon(Icons.skip_previous),
           iconSize: 50,
         ),
-        IconButton.filled(
-          onPressed: () {
-            if (state.playing == true) {
-              playerBloc.add(PauseSong());
-            } else {
-              playerBloc.add(ContinueSong());
-            }
+        BlocBuilder<PlayerBloc, PlayerState>(
+          builder: (context, state) {
+            return IconButton.filled(
+              onPressed: () {
+                if (state.playing == true) {
+                  playerBloc.add(PauseSong());
+                } else {
+                  playerBloc.add(ContinueSong());
+                }
+              },
+              icon: state.playing == false
+                  ? Icon(Icons.play_circle)
+                  : Icon(Icons.pause_circle),
+              iconSize: 50,
+            );
           },
-          icon: state.playing == false
-              ? Icon(Icons.play_circle)
-              : Icon(Icons.pause_circle),
-          iconSize: 50,
         ),
         IconButton.filled(
           onPressed: () {
