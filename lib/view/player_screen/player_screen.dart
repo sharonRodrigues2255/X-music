@@ -103,11 +103,12 @@ class PlayerScreen extends StatelessWidget {
               child: BlocBuilder<PlayerBloc, PlayerState>(
                 builder: (context, state) {
                   return ProgressBar(
-                      onSeek: (value) =>
-                          playerBloc.add(OnSeek(value.inSeconds)),
+                      onSeek: (value) {
+                        return playerBloc.add(OnSeek(value.inSeconds));
+                      },
                       progressBarColor: Colors.red,
                       thumbColor: Colors.red,
-                      progress: Duration(seconds: state.position),
+                      progress: Duration(milliseconds: state.position),
                       total: Duration(
                           milliseconds: mysongs[state.index!].duration!));
                 },

@@ -10,7 +10,7 @@ class PlayerState with _$PlayerState {
     required bool shuffle,
     required bool favorite,
   }) = _PlayerState;
-  factory PlayerState.playsong() => PlayerState(
+  factory PlayerState.playsong() => const PlayerState(
       index: 0,
       playing: true,
       position: 0,
