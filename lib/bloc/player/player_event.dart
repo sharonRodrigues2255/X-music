@@ -6,4 +6,5 @@ class PlayerEvent with _$PlayerEvent {
       {required int index, required List<MySongModel> mysongs}) = PlaySong;
   factory PlayerEvent.pauseSong() = PauseSong;
   factory PlayerEvent.continueSong() = ContinueSong;
+  factory PlayerEvent.onSeek(int seektime) = OnSeek;
 }

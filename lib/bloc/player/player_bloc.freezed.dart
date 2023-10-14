@@ -21,6 +21,7 @@ mixin _$PlayerEvent {
     required TResult Function(int index, List<MySongModel> mysongs) playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
+    required TResult Function(int seektime) onSeek,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$PlayerEvent {
     TResult? Function(int index, List<MySongModel> mysongs)? playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
+    TResult? Function(int seektime)? onSeek,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$PlayerEvent {
     TResult Function(int index, List<MySongModel> mysongs)? playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
+    TResult Function(int seektime)? onSeek,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$PlayerEvent {
     required TResult Function(PlaySong value) playSong,
     required TResult Function(PauseSong value) pauseSong,
     required TResult Function(ContinueSong value) continueSong,
+    required TResult Function(OnSeek value) onSeek,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$PlayerEvent {
     TResult? Function(PlaySong value)? playSong,
     TResult? Function(PauseSong value)? pauseSong,
     TResult? Function(ContinueSong value)? continueSong,
+    TResult? Function(OnSeek value)? onSeek,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$PlayerEvent {
     TResult Function(PlaySong value)? playSong,
     TResult Function(PauseSong value)? pauseSong,
     TResult Function(ContinueSong value)? continueSong,
+    TResult Function(OnSeek value)? onSeek,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -163,6 +169,7 @@ class _$PlaySongImpl implements PlaySong {
     required TResult Function(int index, List<MySongModel> mysongs) playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
+    required TResult Function(int seektime) onSeek,
   }) {
     return playSong(index, mysongs);
   }
@@ -173,6 +180,7 @@ class _$PlaySongImpl implements PlaySong {
     TResult? Function(int index, List<MySongModel> mysongs)? playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
+    TResult? Function(int seektime)? onSeek,
   }) {
     return playSong?.call(index, mysongs);
   }
@@ -183,6 +191,7 @@ class _$PlaySongImpl implements PlaySong {
     TResult Function(int index, List<MySongModel> mysongs)? playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
+    TResult Function(int seektime)? onSeek,
     required TResult orElse(),
   }) {
     if (playSong != null) {
@@ -197,6 +206,7 @@ class _$PlaySongImpl implements PlaySong {
     required TResult Function(PlaySong value) playSong,
     required TResult Function(PauseSong value) pauseSong,
     required TResult Function(ContinueSong value) continueSong,
+    required TResult Function(OnSeek value) onSeek,
   }) {
     return playSong(this);
   }
@@ -207,6 +217,7 @@ class _$PlaySongImpl implements PlaySong {
     TResult? Function(PlaySong value)? playSong,
     TResult? Function(PauseSong value)? pauseSong,
     TResult? Function(ContinueSong value)? continueSong,
+    TResult? Function(OnSeek value)? onSeek,
   }) {
     return playSong?.call(this);
   }
@@ -217,6 +228,7 @@ class _$PlaySongImpl implements PlaySong {
     TResult Function(PlaySong value)? playSong,
     TResult Function(PauseSong value)? pauseSong,
     TResult Function(ContinueSong value)? continueSong,
+    TResult Function(OnSeek value)? onSeek,
     required TResult orElse(),
   }) {
     if (playSong != null) {
@@ -279,6 +291,7 @@ class _$PauseSongImpl implements PauseSong {
     required TResult Function(int index, List<MySongModel> mysongs) playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
+    required TResult Function(int seektime) onSeek,
   }) {
     return pauseSong();
   }
@@ -289,6 +302,7 @@ class _$PauseSongImpl implements PauseSong {
     TResult? Function(int index, List<MySongModel> mysongs)? playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
+    TResult? Function(int seektime)? onSeek,
   }) {
     return pauseSong?.call();
   }
@@ -299,6 +313,7 @@ class _$PauseSongImpl implements PauseSong {
     TResult Function(int index, List<MySongModel> mysongs)? playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
+    TResult Function(int seektime)? onSeek,
     required TResult orElse(),
   }) {
     if (pauseSong != null) {
@@ -313,6 +328,7 @@ class _$PauseSongImpl implements PauseSong {
     required TResult Function(PlaySong value) playSong,
     required TResult Function(PauseSong value) pauseSong,
     required TResult Function(ContinueSong value) continueSong,
+    required TResult Function(OnSeek value) onSeek,
   }) {
     return pauseSong(this);
   }
@@ -323,6 +339,7 @@ class _$PauseSongImpl implements PauseSong {
     TResult? Function(PlaySong value)? playSong,
     TResult? Function(PauseSong value)? pauseSong,
     TResult? Function(ContinueSong value)? continueSong,
+    TResult? Function(OnSeek value)? onSeek,
   }) {
     return pauseSong?.call(this);
   }
@@ -333,6 +350,7 @@ class _$PauseSongImpl implements PauseSong {
     TResult Function(PlaySong value)? playSong,
     TResult Function(PauseSong value)? pauseSong,
     TResult Function(ContinueSong value)? continueSong,
+    TResult Function(OnSeek value)? onSeek,
     required TResult orElse(),
   }) {
     if (pauseSong != null) {
@@ -387,6 +405,7 @@ class _$ContinueSongImpl implements ContinueSong {
     required TResult Function(int index, List<MySongModel> mysongs) playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
+    required TResult Function(int seektime) onSeek,
   }) {
     return continueSong();
   }
@@ -397,6 +416,7 @@ class _$ContinueSongImpl implements ContinueSong {
     TResult? Function(int index, List<MySongModel> mysongs)? playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
+    TResult? Function(int seektime)? onSeek,
   }) {
     return continueSong?.call();
   }
@@ -407,6 +427,7 @@ class _$ContinueSongImpl implements ContinueSong {
     TResult Function(int index, List<MySongModel> mysongs)? playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
+    TResult Function(int seektime)? onSeek,
     required TResult orElse(),
   }) {
     if (continueSong != null) {
@@ -421,6 +442,7 @@ class _$ContinueSongImpl implements ContinueSong {
     required TResult Function(PlaySong value) playSong,
     required TResult Function(PauseSong value) pauseSong,
     required TResult Function(ContinueSong value) continueSong,
+    required TResult Function(OnSeek value) onSeek,
   }) {
     return continueSong(this);
   }
@@ -431,6 +453,7 @@ class _$ContinueSongImpl implements ContinueSong {
     TResult? Function(PlaySong value)? playSong,
     TResult? Function(PauseSong value)? pauseSong,
     TResult? Function(ContinueSong value)? continueSong,
+    TResult? Function(OnSeek value)? onSeek,
   }) {
     return continueSong?.call(this);
   }
@@ -441,6 +464,7 @@ class _$ContinueSongImpl implements ContinueSong {
     TResult Function(PlaySong value)? playSong,
     TResult Function(PauseSong value)? pauseSong,
     TResult Function(ContinueSong value)? continueSong,
+    TResult Function(OnSeek value)? onSeek,
     required TResult orElse(),
   }) {
     if (continueSong != null) {
@@ -452,6 +476,152 @@ class _$ContinueSongImpl implements ContinueSong {
 
 abstract class ContinueSong implements PlayerEvent {
   factory ContinueSong() = _$ContinueSongImpl;
+}
+
+/// @nodoc
+abstract class _$$OnSeekImplCopyWith<$Res> {
+  factory _$$OnSeekImplCopyWith(
+          _$OnSeekImpl value, $Res Function(_$OnSeekImpl) then) =
+      __$$OnSeekImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int seektime});
+}
+
+/// @nodoc
+class __$$OnSeekImplCopyWithImpl<$Res>
+    extends _$PlayerEventCopyWithImpl<$Res, _$OnSeekImpl>
+    implements _$$OnSeekImplCopyWith<$Res> {
+  __$$OnSeekImplCopyWithImpl(
+      _$OnSeekImpl _value, $Res Function(_$OnSeekImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? seektime = null,
+  }) {
+    return _then(_$OnSeekImpl(
+      null == seektime
+          ? _value.seektime
+          : seektime // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OnSeekImpl implements OnSeek {
+  _$OnSeekImpl(this.seektime);
+
+  @override
+  final int seektime;
+
+  @override
+  String toString() {
+    return 'PlayerEvent.onSeek(seektime: $seektime)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OnSeekImpl &&
+            (identical(other.seektime, seektime) ||
+                other.seektime == seektime));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, seektime);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OnSeekImplCopyWith<_$OnSeekImpl> get copyWith =>
+      __$$OnSeekImplCopyWithImpl<_$OnSeekImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int index, List<MySongModel> mysongs) playSong,
+    required TResult Function() pauseSong,
+    required TResult Function() continueSong,
+    required TResult Function(int seektime) onSeek,
+  }) {
+    return onSeek(seektime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult? Function()? pauseSong,
+    TResult? Function()? continueSong,
+    TResult? Function(int seektime)? onSeek,
+  }) {
+    return onSeek?.call(seektime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult Function()? pauseSong,
+    TResult Function()? continueSong,
+    TResult Function(int seektime)? onSeek,
+    required TResult orElse(),
+  }) {
+    if (onSeek != null) {
+      return onSeek(seektime);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PlaySong value) playSong,
+    required TResult Function(PauseSong value) pauseSong,
+    required TResult Function(ContinueSong value) continueSong,
+    required TResult Function(OnSeek value) onSeek,
+  }) {
+    return onSeek(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PlaySong value)? playSong,
+    TResult? Function(PauseSong value)? pauseSong,
+    TResult? Function(ContinueSong value)? continueSong,
+    TResult? Function(OnSeek value)? onSeek,
+  }) {
+    return onSeek?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PlaySong value)? playSong,
+    TResult Function(PauseSong value)? pauseSong,
+    TResult Function(ContinueSong value)? continueSong,
+    TResult Function(OnSeek value)? onSeek,
+    required TResult orElse(),
+  }) {
+    if (onSeek != null) {
+      return onSeek(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class OnSeek implements PlayerEvent {
+  factory OnSeek(final int seektime) = _$OnSeekImpl;
+
+  int get seektime;
+  @JsonKey(ignore: true)
+  _$$OnSeekImplCopyWith<_$OnSeekImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

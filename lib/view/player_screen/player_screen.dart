@@ -45,6 +45,9 @@ class PlayerScreen extends StatelessWidget {
               },
             ),
             BlocBuilder<PlayerBloc, PlayerState>(
+              buildWhen: (previous, current) {
+                return previous.index != current.index;
+              },
               builder: (context, state) {
                 return Text(
                   mysongs[state.index!].title,
@@ -53,6 +56,9 @@ class PlayerScreen extends StatelessWidget {
               },
             ),
             BlocBuilder<PlayerBloc, PlayerState>(
+              buildWhen: (previous, current) {
+                return previous.index != current.index;
+              },
               builder: (context, state) {
                 return Text(mysongs[state.index!].artist);
               },
@@ -63,6 +69,8 @@ class PlayerScreen extends StatelessWidget {
               child: BlocBuilder<PlayerBloc, PlayerState>(
                 builder: (context, state) {
                   return ProgressBar(
+                      onSeek: (value) =>
+                          playerBloc.add(OnSeek(value.inSeconds)),
                       progressBarColor: Colors.red,
                       thumbColor: Colors.red,
                       progress: Duration(seconds: state.position),

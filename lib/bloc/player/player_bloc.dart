@@ -16,15 +16,19 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
       playSong(event.mysongs[event.index].url);
       positionStream();
     });
+
     on<PauseSong>((event, emit) async {
       emit(state.copyWith(playing: false));
       await player.pause();
-      positionStream();
     });
+
     on<ContinueSong>((event, emit) async {
       emit(state.copyWith(playing: true));
       await player.play();
-      positionStream();
+    });
+
+    on<OnSeek>((event, emit) {
+      player.seek(Duration(seconds: event.seektime));
     });
   }
 
