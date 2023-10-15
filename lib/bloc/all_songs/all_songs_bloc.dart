@@ -9,9 +9,9 @@ part 'all_songs_event.dart';
 part 'all_songs_state.dart';
 part 'all_songs_bloc.freezed.dart';
 
-class HomepageBloc extends Bloc<HomepageEvent, HomepageState> {
-  HomepageBloc(BuildContext context)
-      : super(HomepageState.initial(
+class AllSongsBloc extends Bloc<AllSongsEvent, AllSongsState> {
+  AllSongsBloc(BuildContext context)
+      : super(AllSongsState.initial(
             mySongs: allSongsList
                 .map((e) => MySongModel(
                     id: e.id,

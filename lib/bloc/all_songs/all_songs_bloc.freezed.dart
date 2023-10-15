@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$HomepageEvent {
+mixin _$AllSongsEvent {
   List<MySongModel> get songs => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -51,23 +51,23 @@ mixin _$HomepageEvent {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $HomepageEventCopyWith<HomepageEvent> get copyWith =>
+  $AllSongsEventCopyWith<AllSongsEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HomepageEventCopyWith<$Res> {
-  factory $HomepageEventCopyWith(
-          HomepageEvent value, $Res Function(HomepageEvent) then) =
-      _$HomepageEventCopyWithImpl<$Res, HomepageEvent>;
+abstract class $AllSongsEventCopyWith<$Res> {
+  factory $AllSongsEventCopyWith(
+          AllSongsEvent value, $Res Function(AllSongsEvent) then) =
+      _$AllSongsEventCopyWithImpl<$Res, AllSongsEvent>;
   @useResult
   $Res call({List<MySongModel> songs});
 }
 
 /// @nodoc
-class _$HomepageEventCopyWithImpl<$Res, $Val extends HomepageEvent>
-    implements $HomepageEventCopyWith<$Res> {
-  _$HomepageEventCopyWithImpl(this._value, this._then);
+class _$AllSongsEventCopyWithImpl<$Res, $Val extends AllSongsEvent>
+    implements $AllSongsEventCopyWith<$Res> {
+  _$AllSongsEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -90,7 +90,7 @@ class _$HomepageEventCopyWithImpl<$Res, $Val extends HomepageEvent>
 
 /// @nodoc
 abstract class _$$NavigateEventImplCopyWith<$Res>
-    implements $HomepageEventCopyWith<$Res> {
+    implements $AllSongsEventCopyWith<$Res> {
   factory _$$NavigateEventImplCopyWith(
           _$NavigateEventImpl value, $Res Function(_$NavigateEventImpl) then) =
       __$$NavigateEventImplCopyWithImpl<$Res>;
@@ -101,7 +101,7 @@ abstract class _$$NavigateEventImplCopyWith<$Res>
 
 /// @nodoc
 class __$$NavigateEventImplCopyWithImpl<$Res>
-    extends _$HomepageEventCopyWithImpl<$Res, _$NavigateEventImpl>
+    extends _$AllSongsEventCopyWithImpl<$Res, _$NavigateEventImpl>
     implements _$$NavigateEventImplCopyWith<$Res> {
   __$$NavigateEventImplCopyWithImpl(
       _$NavigateEventImpl _value, $Res Function(_$NavigateEventImpl) _then)
@@ -137,7 +137,7 @@ class _$NavigateEventImpl implements NavigateEvent {
 
   @override
   String toString() {
-    return 'HomepageEvent.navigateEvent(songs: $songs)';
+    return 'AllSongsEvent.navigateEvent(songs: $songs)';
   }
 
   @override
@@ -215,7 +215,7 @@ class _$NavigateEventImpl implements NavigateEvent {
   }
 }
 
-abstract class NavigateEvent implements HomepageEvent {
+abstract class NavigateEvent implements AllSongsEvent {
   const factory NavigateEvent({required final List<MySongModel> songs}) =
       _$NavigateEventImpl;
 
@@ -228,7 +228,7 @@ abstract class NavigateEvent implements HomepageEvent {
 }
 
 /// @nodoc
-mixin _$HomepageState {
+mixin _$AllSongsState {
   List<MySongModel> get mySongs => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -264,23 +264,23 @@ mixin _$HomepageState {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $HomepageStateCopyWith<HomepageState> get copyWith =>
+  $AllSongsStateCopyWith<AllSongsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HomepageStateCopyWith<$Res> {
-  factory $HomepageStateCopyWith(
-          HomepageState value, $Res Function(HomepageState) then) =
-      _$HomepageStateCopyWithImpl<$Res, HomepageState>;
+abstract class $AllSongsStateCopyWith<$Res> {
+  factory $AllSongsStateCopyWith(
+          AllSongsState value, $Res Function(AllSongsState) then) =
+      _$AllSongsStateCopyWithImpl<$Res, AllSongsState>;
   @useResult
   $Res call({List<MySongModel> mySongs});
 }
 
 /// @nodoc
-class _$HomepageStateCopyWithImpl<$Res, $Val extends HomepageState>
-    implements $HomepageStateCopyWith<$Res> {
-  _$HomepageStateCopyWithImpl(this._value, this._then);
+class _$AllSongsStateCopyWithImpl<$Res, $Val extends AllSongsState>
+    implements $AllSongsStateCopyWith<$Res> {
+  _$AllSongsStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -303,7 +303,7 @@ class _$HomepageStateCopyWithImpl<$Res, $Val extends HomepageState>
 
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res>
-    implements $HomepageStateCopyWith<$Res> {
+    implements $AllSongsStateCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
           _$InitialImpl value, $Res Function(_$InitialImpl) then) =
       __$$InitialImplCopyWithImpl<$Res>;
@@ -314,7 +314,7 @@ abstract class _$$InitialImplCopyWith<$Res>
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$HomepageStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$AllSongsStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -350,7 +350,7 @@ class _$InitialImpl implements Initial {
 
   @override
   String toString() {
-    return 'HomepageState.initial(mySongs: $mySongs)';
+    return 'AllSongsState.initial(mySongs: $mySongs)';
   }
 
   @override
@@ -428,7 +428,7 @@ class _$InitialImpl implements Initial {
   }
 }
 
-abstract class Initial implements HomepageState {
+abstract class Initial implements AllSongsState {
   factory Initial({required final List<MySongModel> mySongs}) = _$InitialImpl;
 
   @override
