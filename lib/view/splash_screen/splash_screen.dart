@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:musicplayer_project/utils/images/images_constants.dart';
-import 'package:musicplayer_project/view/all_songs/all_songs.dart';
+import 'package:musicplayer_project/view/bottom_navigation/bottom_navigation.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -13,8 +13,8 @@ class SplashScreen extends StatelessWidget {
     checkPermission();
 
     Future.delayed(Duration(seconds: 5)).then((value) {
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => AllSongs()));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => BottomNavigationScreen()));
     });
     return Scaffold(
         body: Center(

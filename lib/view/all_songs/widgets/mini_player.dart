@@ -32,7 +32,7 @@ class MIniPlayer extends StatelessWidget {
               elevation: 10,
               child: Container(
                 color: kblack,
-                height: 85,
+                height: 75,
                 width: double.infinity,
                 child: Column(
                   children: [

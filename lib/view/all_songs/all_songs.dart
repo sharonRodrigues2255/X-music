@@ -47,16 +47,6 @@ class AllSongs extends StatelessWidget {
                   );
                 },
               ),
-              bottomNavigationBar: BlocBuilder<PlayerBloc, PlayerState>(
-                buildWhen: (previous, current) =>
-                    previous.index != current.index!,
-                builder: (context, state) {
-                  return state.miniOn == true
-                      ? SingleChildScrollView(
-                          child: MIniPlayer(mysongs: state.songs))
-                      : SizedBox();
-                },
-              ),
             );
           },
         );
