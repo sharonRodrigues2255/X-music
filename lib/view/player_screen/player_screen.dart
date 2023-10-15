@@ -102,6 +102,17 @@ class PlayerScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: BlocBuilder<PlayerBloc, PlayerState>(
                 builder: (context, state) {
+                  if (state.position >=
+                      mysongs[state.index!].duration!.toInt()) {
+                    playerBloc.add(PlaySong(
+                      index: state.loop == true
+                          ? state.index!
+                          : state.index == mysongs.length - 1
+                              ? 0
+                              : state.index! + 1,
+                      mysongs: mysongs,
+                    ));
+                  }
                   return ProgressBar(
                       onSeek: (value) {
                         return playerBloc.add(OnSeek(value.inSeconds));

@@ -48,17 +48,6 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
         player.positionStream.listen((event) {
           position = event.inMilliseconds + 100;
           emit(state.copyWith(position: position));
-
-          if (position >= songs[state.index!].duration) {
-            add(PlaySong(
-              index: state.loop == true
-                  ? state.index!
-                  : state.index == songs.length - 1
-                      ? 0
-                      : state.index! + 1,
-              mysongs: songs,
-            ));
-          }
         });
       });
     } catch (e) {
