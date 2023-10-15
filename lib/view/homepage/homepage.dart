@@ -46,8 +46,7 @@ class HomePage extends StatelessWidget {
                   );
                 },
               ),
-              bottomNavigationBar: Hero(
-                  tag: "player", child: MIniPlayer(mysongs: state.mySongs)),
+              bottomNavigationBar: MIniPlayer(mysongs: state.mySongs),
             );
           },
         );

@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
@@ -23,7 +22,9 @@ class PlayerScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(Icons.keyboard_arrow_down_outlined),
         ),
       ),
@@ -39,16 +40,6 @@ class PlayerScreen extends StatelessWidget {
                 return Hero(
                   transitionOnUserGestures: true,
                   tag: "player",
-                  flightShuttleBuilder: (flightContext, animation,
-                      flightDirection, fromHeroContext, toHeroContext) {
-                    return AnimatedBuilder(
-                        animation: animation,
-                        builder: (context, child) {
-                          return Container(
-                            color: Colors.black,
-                          );
-                        });
-                  },
                   child: Container(
                     width: mediaSize.width * .8,
                     height: mediaSize.width * .8,
@@ -65,9 +56,12 @@ class PlayerScreen extends StatelessWidget {
                 return previous.index != current.index;
               },
               builder: (context, state) {
-                return Text(
-                  mysongs[state.index!].title,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                return Hero(
+                  tag: "name",
+                  child: Text(
+                    mysongs[state.index!].title,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
                 );
               },
             ),
@@ -117,8 +111,13 @@ class PlayerScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: BlocBuilder<PlayerBloc, PlayerState>(
                 builder: (context, state) {
-                  return ProgressBarWidget(
-                      onmini: false, playerBloc: playerBloc, mysongs: mysongs);
+                  return Hero(
+                    tag: "progress",
+                    child: ProgressBarWidget(
+                        onmini: false,
+                        playerBloc: playerBloc,
+                        mysongs: mysongs),
+                  );
                 },
               ),
             ),
