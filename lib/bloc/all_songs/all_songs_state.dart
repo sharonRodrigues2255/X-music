@@ -1,4 +1,4 @@
-part of 'homepage_bloc.dart';
+part of 'all_songs_bloc.dart';
 
 @freezed
 class HomepageState with _$HomepageState {

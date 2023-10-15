@@ -5,9 +5,9 @@ import 'package:musicplayer_project/model/mysongmodel.dart';
 import 'package:musicplayer_project/view/player_screen/player_screen.dart';
 import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
 
-part 'homepage_event.dart';
-part 'homepage_state.dart';
-part 'homepage_bloc.freezed.dart';
+part 'all_songs_event.dart';
+part 'all_songs_state.dart';
+part 'all_songs_bloc.freezed.dart';
 
 class HomepageBloc extends Bloc<HomepageEvent, HomepageState> {
   HomepageBloc(BuildContext context)
