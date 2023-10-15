@@ -5,11 +5,13 @@ import 'package:musicplayer_project/model/mysongmodel.dart';
 import 'package:musicplayer_project/utils/constants/sizes.dart';
 
 class PlayerActionRow extends StatelessWidget {
-  const PlayerActionRow({Key? key, required this.state, required this.songs})
+  const PlayerActionRow(
+      {Key? key, required this.state, required this.songs, this.size = 50})
       : super(key: key);
 
   final PlayerState state;
   final List<MySongModel> songs;
+  final double size;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class PlayerActionRow extends StatelessWidget {
                 mysongs: songs));
           },
           icon: Icon(Icons.skip_previous),
-          iconSize: 50,
+          iconSize: size,
         ),
         BlocBuilder<PlayerBloc, PlayerState>(
           builder: (context, state) {
@@ -40,7 +42,7 @@ class PlayerActionRow extends StatelessWidget {
               icon: state.playing == false
                   ? Icon(Icons.play_circle)
                   : Icon(Icons.pause_circle),
-              iconSize: 50,
+              iconSize: size,
             );
           },
         ),
@@ -53,7 +55,7 @@ class PlayerActionRow extends StatelessWidget {
                 mysongs: songs));
           },
           icon: Icon(Icons.skip_next),
-          iconSize: 50,
+          iconSize: size,
         ),
         kwidth10
       ],

@@ -11,7 +11,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
   PlayerBloc() : super(PlayerState.playsong()) {
     on<PlaySong>((event, emit) async {
       print(event.index);
-      emit(state.copyWith(index: event.index, playing: true));
+      emit(state.copyWith(index: event.index, playing: true, miniOn: true));
 
       playSong(event.mysongs[event.index].url);
       positionStream(event.mysongs);

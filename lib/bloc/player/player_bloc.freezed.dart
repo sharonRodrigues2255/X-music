@@ -825,6 +825,7 @@ mixin _$PlayerState {
   bool get loop => throw _privateConstructorUsedError;
   bool get shuffle => throw _privateConstructorUsedError;
   bool get favorite => throw _privateConstructorUsedError;
+  bool get miniOn => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlayerStateCopyWith<PlayerState> get copyWith =>
@@ -843,7 +844,8 @@ abstract class $PlayerStateCopyWith<$Res> {
       int position,
       bool loop,
       bool shuffle,
-      bool favorite});
+      bool favorite,
+      bool miniOn});
 }
 
 /// @nodoc
@@ -865,6 +867,7 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
     Object? loop = null,
     Object? shuffle = null,
     Object? favorite = null,
+    Object? miniOn = null,
   }) {
     return _then(_value.copyWith(
       index: freezed == index
@@ -891,6 +894,10 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
           ? _value.favorite
           : favorite // ignore: cast_nullable_to_non_nullable
               as bool,
+      miniOn: null == miniOn
+          ? _value.miniOn
+          : miniOn // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -909,7 +916,8 @@ abstract class _$$PlayerStateImplCopyWith<$Res>
       int position,
       bool loop,
       bool shuffle,
-      bool favorite});
+      bool favorite,
+      bool miniOn});
 }
 
 /// @nodoc
@@ -929,6 +937,7 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
     Object? loop = null,
     Object? shuffle = null,
     Object? favorite = null,
+    Object? miniOn = null,
   }) {
     return _then(_$PlayerStateImpl(
       index: freezed == index
@@ -955,6 +964,10 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
           ? _value.favorite
           : favorite // ignore: cast_nullable_to_non_nullable
               as bool,
+      miniOn: null == miniOn
+          ? _value.miniOn
+          : miniOn // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -968,7 +981,8 @@ class _$PlayerStateImpl implements _PlayerState {
       required this.position,
       required this.loop,
       required this.shuffle,
-      required this.favorite});
+      required this.favorite,
+      required this.miniOn});
 
   @override
   final int? index;
@@ -982,10 +996,12 @@ class _$PlayerStateImpl implements _PlayerState {
   final bool shuffle;
   @override
   final bool favorite;
+  @override
+  final bool miniOn;
 
   @override
   String toString() {
-    return 'PlayerState(index: $index, playing: $playing, position: $position, loop: $loop, shuffle: $shuffle, favorite: $favorite)';
+    return 'PlayerState(index: $index, playing: $playing, position: $position, loop: $loop, shuffle: $shuffle, favorite: $favorite, miniOn: $miniOn)';
   }
 
   @override
@@ -1000,12 +1016,13 @@ class _$PlayerStateImpl implements _PlayerState {
             (identical(other.loop, loop) || other.loop == loop) &&
             (identical(other.shuffle, shuffle) || other.shuffle == shuffle) &&
             (identical(other.favorite, favorite) ||
-                other.favorite == favorite));
+                other.favorite == favorite) &&
+            (identical(other.miniOn, miniOn) || other.miniOn == miniOn));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, index, playing, position, loop, shuffle, favorite);
+      runtimeType, index, playing, position, loop, shuffle, favorite, miniOn);
 
   @JsonKey(ignore: true)
   @override
@@ -1021,7 +1038,8 @@ abstract class _PlayerState implements PlayerState {
       required final int position,
       required final bool loop,
       required final bool shuffle,
-      required final bool favorite}) = _$PlayerStateImpl;
+      required final bool favorite,
+      required final bool miniOn}) = _$PlayerStateImpl;
 
   @override
   int? get index;
@@ -1035,6 +1053,8 @@ abstract class _PlayerState implements PlayerState {
   bool get shuffle;
   @override
   bool get favorite;
+  @override
+  bool get miniOn;
   @override
   @JsonKey(ignore: true)
   _$$PlayerStateImplCopyWith<_$PlayerStateImpl> get copyWith =>

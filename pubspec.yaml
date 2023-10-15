@@ -38,6 +38,7 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   just_audio: ^0.9.35
+  miniplayer: ^1.0.1
   on_audio_query: ^2.9.0
   permission_handler: ^11.0.1
 

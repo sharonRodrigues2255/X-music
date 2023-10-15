@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:musicplayer_project/bloc/homepage/homepage_bloc.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
+import 'package:musicplayer_project/view/homepage/widgets/mini_player.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class HomePage extends StatelessWidget {
@@ -45,6 +46,8 @@ class HomePage extends StatelessWidget {
                   );
                 },
               ),
+              bottomNavigationBar: Hero(
+                  tag: "player", child: MIniPlayer(mysongs: state.mySongs)),
             );
           },
         );

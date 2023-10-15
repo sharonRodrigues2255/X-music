@@ -1,6 +1,4 @@
 import 'dart:math';
-
-import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
@@ -8,6 +6,7 @@ import 'package:musicplayer_project/model/mysongmodel.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
 import 'package:musicplayer_project/utils/constants/sizes.dart';
 import 'package:musicplayer_project/view/player_screen/widgets/player_action_row.dart';
+import 'package:musicplayer_project/view/player_screen/widgets/progress_bar_widget.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class PlayerScreen extends StatelessWidget {
@@ -37,12 +36,28 @@ class PlayerScreen extends StatelessWidget {
                 return previous.index != current.index;
               },
               builder: (context, state) {
-                return Container(
-                  width: mediaSize.width * .8,
-                  height: mediaSize.width * .8,
-                  child: QueryArtworkWidget(
-                    id: mysongs[state.index!].id,
-                    type: ArtworkType.AUDIO,
+                return Hero(
+                  transitionOnUserGestures: true,
+                  tag: "player",
+                  flightShuttleBuilder: (flightContext, animation,
+                      flightDirection, fromHeroContext, toHeroContext) {
+                    return AnimatedBuilder(
+                        animation: animation,
+                        builder: (context, child) {
+                          return Container(
+                            height: 100 + 100 * animation.value,
+                            width: 100 * 100 * animation.value,
+                            color: Colors.black,
+                          );
+                        });
+                  },
+                  child: Container(
+                    width: mediaSize.width * .8,
+                    height: mediaSize.width * .8,
+                    child: QueryArtworkWidget(
+                      id: mysongs[state.index!].id,
+                      type: ArtworkType.AUDIO,
+                    ),
                   ),
                 );
               },
@@ -118,15 +133,8 @@ class PlayerScreen extends StatelessWidget {
                       mysongs: mysongs,
                     ));
                   }
-                  return ProgressBar(
-                      onSeek: (value) {
-                        return playerBloc.add(OnSeek(value.inSeconds));
-                      },
-                      progressBarColor: Colors.red,
-                      thumbColor: Colors.red,
-                      progress: Duration(milliseconds: state.position),
-                      total: Duration(
-                          milliseconds: mysongs[state.index!].duration!));
+                  return ProgressBarWidget(
+                      onmini: false, playerBloc: playerBloc, mysongs: mysongs);
                 },
               ),
             ),

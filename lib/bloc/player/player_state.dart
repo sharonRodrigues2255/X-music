@@ -9,6 +9,7 @@ class PlayerState with _$PlayerState {
     required bool loop,
     required bool shuffle,
     required bool favorite,
+    required bool miniOn,
   }) = _PlayerState;
   factory PlayerState.playsong() => const PlayerState(
       index: 0,
@@ -16,5 +17,6 @@ class PlayerState with _$PlayerState {
       position: 0,
       loop: false,
       shuffle: false,
+      miniOn: false,
       favorite: false);
 }
