@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-myfontBold({size = 20, weight = FontWeight.bold, color = Colors.white}) {
+myfontBold({size = 20.0, weight = FontWeight.bold, color = Colors.white}) {
   return TextStyle(
       fontSize: size,
       fontWeight: FontWeight.bold,
@@ -8,7 +8,7 @@ myfontBold({size = 20, weight = FontWeight.bold, color = Colors.white}) {
       color: color);
 }
 
-myfontNormal({size = 16, weight = FontWeight.normal, color = Colors.white}) {
+myfontNormal({size = 16.0, weight = FontWeight.normal, color = Colors.white}) {
   return TextStyle(
       fontSize: size,
       fontWeight: FontWeight.bold,
