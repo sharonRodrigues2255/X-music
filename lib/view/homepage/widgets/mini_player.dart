@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
@@ -27,7 +25,7 @@ class MIniPlayer extends StatelessWidget {
             elevation: 10,
             child: Container(
               color: kblack,
-              height: 80,
+              height: 85,
               width: double.infinity,
               child: Column(
                 children: [
@@ -51,9 +49,10 @@ class MIniPlayer extends StatelessWidget {
                                 PlayerScreen(mysongs: mysongs)));
                       },
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Hero(
-                            tag: "player",
+                            tag: 'player',
                             child: SizedBox(
                               child: QueryArtworkWidget(
                                   artworkBorder: BorderRadius.circular(5),
@@ -62,25 +61,30 @@ class MIniPlayer extends StatelessWidget {
                                   type: ArtworkType.AUDIO),
                             ),
                           ),
-                          Container(
-                            width: MediaQuery.sizeOf(context).width / 3,
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 15),
-                              child: Hero(
-                                tag: "name",
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      mysongs[state.index!].displayName,
-                                      style: myfontBold(size: 14.0),
+                          Hero(
+                            tag: "name",
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width / 2.7,
+                              child: SingleChildScrollView(
+                                child: Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 5),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          mysongs[state.index!].displayName,
+                                          style: myfontBold(size: 14.0),
+                                        ),
+                                        Text(
+                                          mysongs[state.index!].artist,
+                                          style: myfontNormal(size: 12.0),
+                                        )
+                                      ],
                                     ),
-                                    Text(
-                                      mysongs[state.index!].artist,
-                                      style: myfontNormal(size: 12.0),
-                                    )
-                                  ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -98,10 +102,6 @@ class MIniPlayer extends StatelessWidget {
                             size: 35,
                           ),
                         ),
-                        Icon(
-                          Icons.close_outlined,
-                          size: 20,
-                        )
                       ],
                     )
                   ]),

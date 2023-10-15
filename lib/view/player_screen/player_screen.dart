@@ -38,7 +38,6 @@ class PlayerScreen extends StatelessWidget {
               },
               builder: (context, state) {
                 return Hero(
-                  transitionOnUserGestures: true,
                   tag: "player",
                   child: Container(
                     width: mediaSize.width * .8,

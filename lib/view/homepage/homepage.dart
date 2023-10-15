@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final playerbloc = PlayerBloc();
     final homepagebloc = HomepageBloc(context);
     return BlocBuilder<HomepageBloc, HomepageState>(
       bloc: homepagebloc,
@@ -46,7 +47,16 @@ class HomePage extends StatelessWidget {
                   );
                 },
               ),
-              bottomNavigationBar: MIniPlayer(mysongs: state.mySongs),
+              bottomNavigationBar: BlocBuilder<PlayerBloc, PlayerState>(
+                buildWhen: (previous, current) =>
+                    previous.index != current.index!,
+                builder: (context, state) {
+                  return state.miniOn == true
+                      ? SingleChildScrollView(
+                          child: MIniPlayer(mysongs: state.songs))
+                      : SizedBox();
+                },
+              ),
             );
           },
         );
