@@ -24,7 +24,7 @@ class ProgressBarWidget extends StatelessWidget {
               return playerBloc.add(OnSeek(value.inSeconds));
             },
             progressBarColor: Colors.red,
-            thumbRadius: onmini ? 0 : 7,
+            thumbRadius: onmini ? 3 : 7,
             barHeight: onmini ? 3 : 5,
             timeLabelLocation:
                 onmini ? TimeLabelLocation.none : TimeLabelLocation.sides,

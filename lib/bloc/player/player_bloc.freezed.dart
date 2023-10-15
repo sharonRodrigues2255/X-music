@@ -825,6 +825,7 @@ mixin _$PlayerState {
   bool get loop => throw _privateConstructorUsedError;
   bool get shuffle => throw _privateConstructorUsedError;
   bool get favorite => throw _privateConstructorUsedError;
+  List<MySongModel> get songs => throw _privateConstructorUsedError;
   bool get miniOn => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -845,6 +846,7 @@ abstract class $PlayerStateCopyWith<$Res> {
       bool loop,
       bool shuffle,
       bool favorite,
+      List<MySongModel> songs,
       bool miniOn});
 }
 
@@ -867,6 +869,7 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
     Object? loop = null,
     Object? shuffle = null,
     Object? favorite = null,
+    Object? songs = null,
     Object? miniOn = null,
   }) {
     return _then(_value.copyWith(
@@ -894,6 +897,10 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
           ? _value.favorite
           : favorite // ignore: cast_nullable_to_non_nullable
               as bool,
+      songs: null == songs
+          ? _value.songs
+          : songs // ignore: cast_nullable_to_non_nullable
+              as List<MySongModel>,
       miniOn: null == miniOn
           ? _value.miniOn
           : miniOn // ignore: cast_nullable_to_non_nullable
@@ -917,6 +924,7 @@ abstract class _$$PlayerStateImplCopyWith<$Res>
       bool loop,
       bool shuffle,
       bool favorite,
+      List<MySongModel> songs,
       bool miniOn});
 }
 
@@ -937,6 +945,7 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
     Object? loop = null,
     Object? shuffle = null,
     Object? favorite = null,
+    Object? songs = null,
     Object? miniOn = null,
   }) {
     return _then(_$PlayerStateImpl(
@@ -964,6 +973,10 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
           ? _value.favorite
           : favorite // ignore: cast_nullable_to_non_nullable
               as bool,
+      songs: null == songs
+          ? _value._songs
+          : songs // ignore: cast_nullable_to_non_nullable
+              as List<MySongModel>,
       miniOn: null == miniOn
           ? _value.miniOn
           : miniOn // ignore: cast_nullable_to_non_nullable
@@ -982,7 +995,9 @@ class _$PlayerStateImpl implements _PlayerState {
       required this.loop,
       required this.shuffle,
       required this.favorite,
-      required this.miniOn});
+      required final List<MySongModel> songs,
+      required this.miniOn})
+      : _songs = songs;
 
   @override
   final int? index;
@@ -996,12 +1011,20 @@ class _$PlayerStateImpl implements _PlayerState {
   final bool shuffle;
   @override
   final bool favorite;
+  final List<MySongModel> _songs;
+  @override
+  List<MySongModel> get songs {
+    if (_songs is EqualUnmodifiableListView) return _songs;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_songs);
+  }
+
   @override
   final bool miniOn;
 
   @override
   String toString() {
-    return 'PlayerState(index: $index, playing: $playing, position: $position, loop: $loop, shuffle: $shuffle, favorite: $favorite, miniOn: $miniOn)';
+    return 'PlayerState(index: $index, playing: $playing, position: $position, loop: $loop, shuffle: $shuffle, favorite: $favorite, songs: $songs, miniOn: $miniOn)';
   }
 
   @override
@@ -1017,12 +1040,13 @@ class _$PlayerStateImpl implements _PlayerState {
             (identical(other.shuffle, shuffle) || other.shuffle == shuffle) &&
             (identical(other.favorite, favorite) ||
                 other.favorite == favorite) &&
+            const DeepCollectionEquality().equals(other._songs, _songs) &&
             (identical(other.miniOn, miniOn) || other.miniOn == miniOn));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, index, playing, position, loop, shuffle, favorite, miniOn);
+  int get hashCode => Object.hash(runtimeType, index, playing, position, loop,
+      shuffle, favorite, const DeepCollectionEquality().hash(_songs), miniOn);
 
   @JsonKey(ignore: true)
   @override
@@ -1039,6 +1063,7 @@ abstract class _PlayerState implements PlayerState {
       required final bool loop,
       required final bool shuffle,
       required final bool favorite,
+      required final List<MySongModel> songs,
       required final bool miniOn}) = _$PlayerStateImpl;
 
   @override
@@ -1053,6 +1078,8 @@ abstract class _PlayerState implements PlayerState {
   bool get shuffle;
   @override
   bool get favorite;
+  @override
+  List<MySongModel> get songs;
   @override
   bool get miniOn;
   @override

@@ -1,8 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
 import 'package:musicplayer_project/model/mysongmodel.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
+import 'package:musicplayer_project/utils/constants/text_styles.dart';
 import 'package:musicplayer_project/view/player_screen/widgets/player_action_row.dart';
 import 'package:musicplayer_project/view/player_screen/widgets/progress_bar_widget.dart';
 import 'package:on_audio_query/on_audio_query.dart';
@@ -13,8 +16,9 @@ class MIniPlayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final playerBloc = PlayerBloc();
+
     return BlocBuilder<PlayerBloc, PlayerState>(
-      buildWhen: (previous, current) => previous.index != current.index,
+      buildWhen: (previous, current) => current.index != previous.index,
       builder: (context, state) {
         if (state.miniOn == true) {
           return Card(
@@ -36,7 +40,7 @@ class MIniPlayer extends StatelessWidget {
                   Row(children: [
                     BlocBuilder<PlayerBloc, PlayerState>(
                       buildWhen: (previous, current) =>
-                          current.index != previous.index,
+                          previous.index != current.index,
                       builder: (context, state) {
                         return SizedBox(
                           child: QueryArtworkWidget(
@@ -47,7 +51,25 @@ class MIniPlayer extends StatelessWidget {
                         );
                       },
                     ),
-                    Spacer(),
+                    Container(
+                      width: MediaQuery.sizeOf(context).width / 2.5,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              mysongs[state.index!].displayName,
+                              style: myfontBold(size: 14.0),
+                            ),
+                            Text(
+                              mysongs[state.index!].artist,
+                              style: myfontNormal(size: 12.0),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                     BlocBuilder<PlayerBloc, PlayerState>(
                       builder: (context, state) {
                         return PlayerActionRow(

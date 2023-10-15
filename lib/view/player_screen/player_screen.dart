@@ -45,8 +45,6 @@ class PlayerScreen extends StatelessWidget {
                         animation: animation,
                         builder: (context, child) {
                           return Container(
-                            height: 100 + 100 * animation.value,
-                            width: 100 * 100 * animation.value,
                             color: Colors.black,
                           );
                         });
@@ -119,20 +117,6 @@ class PlayerScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: BlocBuilder<PlayerBloc, PlayerState>(
                 builder: (context, state) {
-                  if (state.position >=
-                      mysongs[state.index!].duration!.toInt()) {
-                    final randomIndex = Random().nextInt(mysongs.length);
-                    playerBloc.add(PlaySong(
-                      index: state.loop == true
-                          ? state.index!
-                          : state.index == mysongs.length - 1
-                              ? 0
-                              : state.shuffle == true
-                                  ? randomIndex
-                                  : state.index! + 1,
-                      mysongs: mysongs,
-                    ));
-                  }
                   return ProgressBarWidget(
                       onmini: false, playerBloc: playerBloc, mysongs: mysongs);
                 },

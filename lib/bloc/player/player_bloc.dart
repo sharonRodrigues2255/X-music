@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:musicplayer_project/model/mysongmodel.dart';
@@ -9,12 +11,12 @@ part 'player_bloc.freezed.dart';
 
 class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
   PlayerBloc() : super(PlayerState.playsong()) {
+    positionStream();
     on<PlaySong>((event, emit) async {
       print(event.index);
       emit(state.copyWith(index: event.index, playing: true, miniOn: true));
 
-      playSong(event.mysongs[event.index].url);
-      positionStream(event.mysongs);
+      playSong(state.songs[event.index].url);
     });
 
     on<PauseSong>((event, emit) async {
@@ -27,8 +29,8 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
       await player.play();
     });
 
-    on<OnSeek>((event, emit) {
-      player.seek(Duration(seconds: event.seektime));
+    on<OnSeek>((event, emit) async {
+      await player.seek(Duration(seconds: event.seektime));
     });
 
     on<LoopAndShuffle>((event, emit) {
@@ -41,13 +43,26 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     await player.play();
   }
 
-  positionStream(List<MySongModel> songs) {
+  positionStream() {
     var position;
     try {
       Future.sync(() {
         player.positionStream.listen((event) {
           position = event.inMilliseconds + 100;
           emit(state.copyWith(position: position));
+          if (state.position >= state.songs[state.index!].duration!.toInt()) {
+            final randomIndex = Random().nextInt(state.songs.length);
+            add(PlaySong(
+              index: state.loop == true
+                  ? state.index!
+                  : state.index == state.songs.length - 1
+                      ? 0
+                      : state.shuffle == true
+                          ? randomIndex
+                          : state.index! + 1,
+              mysongs: state.songs,
+            ));
+          }
         });
       });
     } catch (e) {
