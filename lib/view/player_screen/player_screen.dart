@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -104,12 +106,15 @@ class PlayerScreen extends StatelessWidget {
                 builder: (context, state) {
                   if (state.position >=
                       mysongs[state.index!].duration!.toInt()) {
+                    final randomIndex = Random().nextInt(mysongs.length);
                     playerBloc.add(PlaySong(
                       index: state.loop == true
                           ? state.index!
                           : state.index == mysongs.length - 1
                               ? 0
-                              : state.index! + 1,
+                              : state.shuffle == true
+                                  ? randomIndex
+                                  : state.index! + 1,
                       mysongs: mysongs,
                     ));
                   }
