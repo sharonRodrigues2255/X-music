@@ -12,7 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider<PlayerBloc>(create: (context) => PlayerBloc())],
+      providers: [
+        BlocProvider<PlayerBloc>(create: (context) => PlayerBloc()),
+      ],
       child: MaterialApp(
         title: 'Xusic',
         theme: ThemeData(

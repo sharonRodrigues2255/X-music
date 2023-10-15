@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:musicplayer_project/bloc/homepage/homepage_bloc.dart';
+import 'package:musicplayer_project/bloc/all_songs/all_songs_bloc.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
-import 'package:musicplayer_project/view/homepage/widgets/mini_player.dart';
+import 'package:musicplayer_project/view/all_songs/widgets/mini_player.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key});
+class AllSongs extends StatelessWidget {
+  const AllSongs({Key? key});
 
   @override
   Widget build(BuildContext context) {
     final playerbloc = PlayerBloc();
-    final homepagebloc = HomepageBloc(context);
-    return BlocBuilder<HomepageBloc, HomepageState>(
-      bloc: homepagebloc,
+    final allSongsbloc = AllSongsBloc(context);
+    return BlocBuilder<AllSongsBloc, AllSongsState>(
+      bloc: allSongsbloc,
       builder: (context, state) {
         return state.when(
           initial: (mySongs) {
@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
                       tileColor: Colors.black45,
                       style: ListTileStyle.list,
                       onTap: () {
-                        homepagebloc.add(NavigateEvent(
+                        allSongsbloc.add(NavigateEvent(
                           songs: mySongs,
                         ));
 
