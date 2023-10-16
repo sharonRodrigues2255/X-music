@@ -19,14 +19,6 @@ class PlayerState with _$PlayerState {
       loop: false,
       shuffle: false,
       miniOn: false,
-      songs: allSongsList
-          .map((e) => MySongModel(
-              id: e.id,
-              title: e.title,
-              displayName: e.displayName,
-              duration: e.duration,
-              artist: e.artist!,
-              url: e.uri))
-          .toList(),
+      songs: allSongsList,
       favorite: false);
 }

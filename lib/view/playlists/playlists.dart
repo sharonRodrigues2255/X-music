@@ -16,7 +16,7 @@ class Playlists extends StatelessWidget {
       body: ValueListenableBuilder(
           valueListenable: playlists,
           builder: (context, value, _) {
-            return PlsylistBuilderWidget(
+            return PlaylistBuilderWidget(
               value: value,
             );
           }),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:musicplayer_project/bloc/all_songs/all_songs_bloc.dart';
+import 'package:get/get.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
+import 'package:musicplayer_project/view/player_screen/player_screen.dart';
+import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class AllSongs extends StatelessWidget {
@@ -9,55 +11,42 @@ class AllSongs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final allSongsbloc = AllSongsBloc(context);
-    return BlocBuilder<AllSongsBloc, AllSongsState>(
-      bloc: allSongsbloc,
-      builder: (context, state) {
-        return state.when(
-          initial: (mySongs) {
-            return Scaffold(
-              appBar: AppBar(
-                title: Text("Xusic"),
-                centerTitle: true,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Xusic"),
+        centerTitle: true,
+      ),
+      body: ListView.builder(
+        itemCount: allSongsList.length,
+        itemBuilder: (context, index) {
+          final song = allSongsList[index];
+          return Card(
+            child: ListTile(
+              tileColor: Colors.black45,
+              style: ListTileStyle.list,
+              onTap: () {
+                Get.to(PlayerScreen(mysongs: allSongsList));
+                context.read<PlayerBloc>().add(
+                    PlayerEvent.playSong(index: index, mysongs: allSongsList));
+              },
+              title: Text(song.displayName),
+              subtitle: Text(song.artist),
+              leading: QueryArtworkWidget(
+                id: song.id,
+                type: ArtworkType.AUDIO,
+                nullArtworkWidget: CircleAvatar(
+                  radius: 25,
+                  child: Icon(
+                    Icons.music_note,
+                    size: 20,
+                  ),
+                ),
               ),
-              body: ListView.builder(
-                itemCount: mySongs.length,
-                itemBuilder: (context, index) {
-                  final song = mySongs[index];
-                  return Card(
-                    child: ListTile(
-                      tileColor: Colors.black45,
-                      style: ListTileStyle.list,
-                      onTap: () {
-                        allSongsbloc.add(NavigateEvent(
-                          songs: mySongs,
-                        ));
-
-                        context.read<PlayerBloc>().add(PlayerEvent.playSong(
-                            index: index, mysongs: mySongs));
-                      },
-                      title: Text(song.displayName),
-                      subtitle: Text(song.artist),
-                      leading: QueryArtworkWidget(
-                        id: song.id,
-                        type: ArtworkType.AUDIO,
-                        nullArtworkWidget: CircleAvatar(
-                          radius: 25,
-                          child: Icon(
-                            Icons.music_note,
-                            size: 20,
-                          ),
-                        ),
-                      ),
-                      trailing: Icon(Icons.more_vert),
-                    ),
-                  );
-                },
-              ),
-            );
-          },
-        );
-      },
+              trailing: Icon(Icons.more_vert),
+            ),
+          );
+        },
+      ),
     );
   }
 }

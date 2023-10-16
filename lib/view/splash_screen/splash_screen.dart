@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 import 'package:musicplayer_project/utils/images/images_constants.dart';
 import 'package:musicplayer_project/view/bottom_navigation/bottom_navigation.dart';
 import 'package:on_audio_query/on_audio_query.dart';
@@ -44,10 +45,18 @@ class SplashScreen extends StatelessWidget {
         uriType: UriType.EXTERNAL,
         ignoreCase: true);
 
-    allSongsList.addAll(externalSongs);
+    final songs = externalSongs.map((e) => MySongModel(
+        id: e.id,
+        title: e.title,
+        displayName: e.displayName,
+        artist: e.artist!,
+        duration: e.duration,
+        url: e.uri));
+
+    allSongsList.addAll(songs);
   }
 }
 
 final OnAudioQuery audioQuery = OnAudioQuery();
-List<SongModel> allSongsList = [];
+List<MySongModel> allSongsList = [];
 final player = AudioPlayer();
