@@ -43,14 +43,18 @@ class PlayerScreen extends StatelessWidget {
                   return previous.index != current.index;
                 },
                 builder: (context, state) {
-                  return Hero(
-                    tag: "player",
-                    child: Container(
-                      width: mediaSize.width * .8,
-                      height: mediaSize.width * .8,
-                      child: QueryArtworkWidget(
-                        id: mysongs[state.index!].id,
-                        type: ArtworkType.AUDIO,
+                  return Container(
+                    width: mediaSize.width * .8,
+                    height: mediaSize.width * .8,
+                    child: QueryArtworkWidget(
+                      id: mysongs[state.index!].id,
+                      type: ArtworkType.AUDIO,
+                      nullArtworkWidget: Hero(
+                        tag: "player",
+                        child: Icon(
+                          Icons.music_note_sharp,
+                          size: 100,
+                        ),
                       ),
                     ),
                   );

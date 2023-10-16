@@ -58,14 +58,19 @@ class MIniPlayer extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Hero(
-                              tag: 'player',
-                              child: SizedBox(
-                                child: QueryArtworkWidget(
-                                    artworkBorder: BorderRadius.circular(5),
-                                    artworkFit: BoxFit.cover,
-                                    id: mysongs[state.index!].id,
-                                    type: ArtworkType.AUDIO),
+                            SizedBox(
+                              child: QueryArtworkWidget(
+                                artworkBorder: BorderRadius.circular(5),
+                                artworkFit: BoxFit.cover,
+                                id: mysongs[state.index!].id,
+                                type: ArtworkType.AUDIO,
+                                nullArtworkWidget: Hero(
+                                  tag: "player",
+                                  child: Icon(
+                                    Icons.music_video_rounded,
+                                    size: 20,
+                                  ),
+                                ),
                               ),
                             ),
                             Hero(

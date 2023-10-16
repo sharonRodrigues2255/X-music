@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:musicplayer_project/bloc/all_songs/all_songs_bloc.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
-import 'package:musicplayer_project/view/all_songs/widgets/mini_player.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class AllSongs extends StatelessWidget {
@@ -10,7 +9,6 @@ class AllSongs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final playerbloc = PlayerBloc();
     final allSongsbloc = AllSongsBloc(context);
     return BlocBuilder<AllSongsBloc, AllSongsState>(
       bloc: allSongsbloc,

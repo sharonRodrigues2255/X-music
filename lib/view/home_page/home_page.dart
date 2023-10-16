@@ -49,8 +49,13 @@ class HomePage extends StatelessWidget {
                                       width: 300,
                                       height: 190,
                                       child: QueryArtworkWidget(
-                                          id: state.mySongs[index].id,
-                                          type: ArtworkType.AUDIO),
+                                        id: state.mySongs[index].id,
+                                        type: ArtworkType.AUDIO,
+                                        nullArtworkWidget: Icon(
+                                          Icons.music_note,
+                                          size: 70,
+                                        ),
+                                      ),
                                     ),
                                     kheight10,
                                     Text(
