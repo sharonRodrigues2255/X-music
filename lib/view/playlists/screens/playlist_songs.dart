@@ -13,7 +13,9 @@ class PlaylistSongsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: Text(playlist.name),
+        ),
         floatingActionButton: Card(
           elevation: 3,
           child: TextButton.icon(
@@ -73,7 +75,7 @@ showPLaylistBottomSheet(BuildContext context, String name) {
                           ),
                         ),
                       ),
-                      trailing: Icon(Icons.add),
+                      trailing: InkWell(onTap: () {}, child: Icon(Icons.add)),
                     ),
                   );
                 },

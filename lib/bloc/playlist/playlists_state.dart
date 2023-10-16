@@ -2,5 +2,7 @@ part of 'playlists_bloc.dart';
 
 @freezed
 class PlaylistsState with _$PlaylistsState {
-  const factory PlaylistsState.initial() = _Initial;
+  factory PlaylistsState({required List<MySongModel> playlistsongs}) =
+      _PlaylistsState;
+  factory PlaylistsState.initial() => PlaylistsState(playlistsongs: []);
 }
