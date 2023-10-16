@@ -30,6 +30,7 @@ environment:
 dependencies:
   audio_video_progress_bar: ^2.0.1
   bloc: ^8.1.2
+  carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
