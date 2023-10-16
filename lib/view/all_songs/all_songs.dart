@@ -41,7 +41,16 @@ class AllSongs extends StatelessWidget {
                       title: Text(song.displayName),
                       subtitle: Text(song.artist),
                       leading: QueryArtworkWidget(
-                          id: song.id, type: ArtworkType.AUDIO),
+                        id: song.id,
+                        type: ArtworkType.AUDIO,
+                        nullArtworkWidget: CircleAvatar(
+                          radius: 25,
+                          child: Icon(
+                            Icons.music_note,
+                            size: 20,
+                          ),
+                        ),
+                      ),
                       trailing: Icon(Icons.more_vert),
                     ),
                   );
