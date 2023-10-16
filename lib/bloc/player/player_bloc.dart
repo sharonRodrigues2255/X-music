@@ -49,12 +49,12 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
       Future.sync(() {
         player.positionStream.listen((event) {
           position = event.inMilliseconds + 100;
+          final randomIndex = Random().nextInt(state.songs.length);
           emit(state.copyWith(position: position));
           if (state.position >= state.songs[state.index!].duration!.toInt()) {
             if (state.loop) {
               add(PlaySong(index: state.index!, mysongs: state.songs));
             } else if (state.shuffle) {
-              final randomIndex = Random().nextInt(state.songs.length);
               add(PlaySong(index: randomIndex, mysongs: state.songs));
             } else {
               add(PlaySong(index: state.index! + 1, mysongs: state.songs));
