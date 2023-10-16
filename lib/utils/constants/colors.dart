@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-final kblack = Colors.black;
-final kwhite = Colors.white;
-final KshadowBlack = Colors.black12;
-final kred = Colors.red;
+const kblack = Colors.black;
+const kwhite = Colors.white;
+const kshadowBlack = Colors.black12;
+const kred = Colors.red;
+const kblue = Colors.blue;
+const kyellow = Colors.amber;
