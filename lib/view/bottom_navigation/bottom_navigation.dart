@@ -8,7 +8,7 @@ import 'package:musicplayer_project/view/home_page/home_page.dart';
 import 'package:musicplayer_project/view/playlists/playlists.dart';
 
 final ValueNotifier<int> selectedIndex = ValueNotifier<int>(0);
-final List _pages = [HomePage(), AllSongs(), Playlists()];
+final List _pages = [const HomePage(), const AllSongs(), const Playlists()];
 
 class BottomNavigationScreen extends StatelessWidget {
   const BottomNavigationScreen({super.key});

@@ -2,7 +2,7 @@ import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
-import 'package:musicplayer_project/model/mysongmodel.dart';
+import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 
 class ProgressBarWidget extends StatelessWidget {
   const ProgressBarWidget(
