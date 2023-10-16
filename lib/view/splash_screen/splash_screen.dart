@@ -39,12 +39,6 @@ class SplashScreen extends StatelessWidget {
         uriType: UriType.EXTERNAL,
         ignoreCase: true);
 
-    final List<SongModel> internalSongs = await audioQuery.querySongs(
-        sortType: SongSortType.DATE_ADDED,
-        orderType: OrderType.ASC_OR_SMALLER,
-        uriType: UriType.EXTERNAL,
-        ignoreCase: true);
-
     final songs = externalSongs.map((e) => MySongModel(
         id: e.id,
         title: e.title,
