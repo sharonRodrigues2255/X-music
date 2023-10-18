@@ -7,4 +7,7 @@ class PlaylistsEvent with _$PlaylistsEvent {
 
   factory PlaylistsEvent.addPlaylist({required MyPlaylistModel playlist}) =
       AddPlaylist;
+
+  factory PlaylistsEvent.addSong(
+      {required MySongModel song, required int index}) = AddSong;
 }

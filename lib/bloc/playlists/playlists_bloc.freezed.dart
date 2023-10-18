@@ -20,18 +20,21 @@ mixin _$PlaylistsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(List<MyPlaylistModel> playlists) started,
     required TResult Function(MyPlaylistModel playlist) addPlaylist,
+    required TResult Function(MySongModel song, int index) addSong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<MyPlaylistModel> playlists)? started,
     TResult? Function(MyPlaylistModel playlist)? addPlaylist,
+    TResult? Function(MySongModel song, int index)? addSong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<MyPlaylistModel> playlists)? started,
     TResult Function(MyPlaylistModel playlist)? addPlaylist,
+    TResult Function(MySongModel song, int index)? addSong,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$PlaylistsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
     required TResult Function(AddPlaylist value) addPlaylist,
+    required TResult Function(AddSong value) addSong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
     TResult? Function(AddPlaylist value)? addPlaylist,
+    TResult? Function(AddSong value)? addSong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
     TResult Function(AddPlaylist value)? addPlaylist,
+    TResult Function(AddSong value)? addSong,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,6 +154,7 @@ class _$StartedImpl implements Started {
   TResult when<TResult extends Object?>({
     required TResult Function(List<MyPlaylistModel> playlists) started,
     required TResult Function(MyPlaylistModel playlist) addPlaylist,
+    required TResult Function(MySongModel song, int index) addSong,
   }) {
     return started(playlists);
   }
@@ -157,6 +164,7 @@ class _$StartedImpl implements Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<MyPlaylistModel> playlists)? started,
     TResult? Function(MyPlaylistModel playlist)? addPlaylist,
+    TResult? Function(MySongModel song, int index)? addSong,
   }) {
     return started?.call(playlists);
   }
@@ -166,6 +174,7 @@ class _$StartedImpl implements Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<MyPlaylistModel> playlists)? started,
     TResult Function(MyPlaylistModel playlist)? addPlaylist,
+    TResult Function(MySongModel song, int index)? addSong,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -179,6 +188,7 @@ class _$StartedImpl implements Started {
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
     required TResult Function(AddPlaylist value) addPlaylist,
+    required TResult Function(AddSong value) addSong,
   }) {
     return started(this);
   }
@@ -188,6 +198,7 @@ class _$StartedImpl implements Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
     TResult? Function(AddPlaylist value)? addPlaylist,
+    TResult? Function(AddSong value)? addSong,
   }) {
     return started?.call(this);
   }
@@ -197,6 +208,7 @@ class _$StartedImpl implements Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
     TResult Function(AddPlaylist value)? addPlaylist,
+    TResult Function(AddSong value)? addSong,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -283,6 +295,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
   TResult when<TResult extends Object?>({
     required TResult Function(List<MyPlaylistModel> playlists) started,
     required TResult Function(MyPlaylistModel playlist) addPlaylist,
+    required TResult Function(MySongModel song, int index) addSong,
   }) {
     return addPlaylist(playlist);
   }
@@ -292,6 +305,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<MyPlaylistModel> playlists)? started,
     TResult? Function(MyPlaylistModel playlist)? addPlaylist,
+    TResult? Function(MySongModel song, int index)? addSong,
   }) {
     return addPlaylist?.call(playlist);
   }
@@ -301,6 +315,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<MyPlaylistModel> playlists)? started,
     TResult Function(MyPlaylistModel playlist)? addPlaylist,
+    TResult Function(MySongModel song, int index)? addSong,
     required TResult orElse(),
   }) {
     if (addPlaylist != null) {
@@ -314,6 +329,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
     required TResult Function(AddPlaylist value) addPlaylist,
+    required TResult Function(AddSong value) addSong,
   }) {
     return addPlaylist(this);
   }
@@ -323,6 +339,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
     TResult? Function(AddPlaylist value)? addPlaylist,
+    TResult? Function(AddSong value)? addSong,
   }) {
     return addPlaylist?.call(this);
   }
@@ -332,6 +349,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
     TResult Function(AddPlaylist value)? addPlaylist,
+    TResult Function(AddSong value)? addSong,
     required TResult orElse(),
   }) {
     if (addPlaylist != null) {
@@ -352,9 +370,159 @@ abstract class AddPlaylist implements PlaylistsEvent {
 }
 
 /// @nodoc
+abstract class _$$AddSongImplCopyWith<$Res> {
+  factory _$$AddSongImplCopyWith(
+          _$AddSongImpl value, $Res Function(_$AddSongImpl) then) =
+      __$$AddSongImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MySongModel song, int index});
+}
+
+/// @nodoc
+class __$$AddSongImplCopyWithImpl<$Res>
+    extends _$PlaylistsEventCopyWithImpl<$Res, _$AddSongImpl>
+    implements _$$AddSongImplCopyWith<$Res> {
+  __$$AddSongImplCopyWithImpl(
+      _$AddSongImpl _value, $Res Function(_$AddSongImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? song = null,
+    Object? index = null,
+  }) {
+    return _then(_$AddSongImpl(
+      song: null == song
+          ? _value.song
+          : song // ignore: cast_nullable_to_non_nullable
+              as MySongModel,
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddSongImpl implements AddSong {
+  _$AddSongImpl({required this.song, required this.index});
+
+  @override
+  final MySongModel song;
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'PlaylistsEvent.addSong(song: $song, index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddSongImpl &&
+            (identical(other.song, song) || other.song == song) &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, song, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddSongImplCopyWith<_$AddSongImpl> get copyWith =>
+      __$$AddSongImplCopyWithImpl<_$AddSongImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<MyPlaylistModel> playlists) started,
+    required TResult Function(MyPlaylistModel playlist) addPlaylist,
+    required TResult Function(MySongModel song, int index) addSong,
+  }) {
+    return addSong(song, index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<MyPlaylistModel> playlists)? started,
+    TResult? Function(MyPlaylistModel playlist)? addPlaylist,
+    TResult? Function(MySongModel song, int index)? addSong,
+  }) {
+    return addSong?.call(song, index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<MyPlaylistModel> playlists)? started,
+    TResult Function(MyPlaylistModel playlist)? addPlaylist,
+    TResult Function(MySongModel song, int index)? addSong,
+    required TResult orElse(),
+  }) {
+    if (addSong != null) {
+      return addSong(song, index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(AddPlaylist value) addPlaylist,
+    required TResult Function(AddSong value) addSong,
+  }) {
+    return addSong(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(AddPlaylist value)? addPlaylist,
+    TResult? Function(AddSong value)? addSong,
+  }) {
+    return addSong?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(AddPlaylist value)? addPlaylist,
+    TResult Function(AddSong value)? addSong,
+    required TResult orElse(),
+  }) {
+    if (addSong != null) {
+      return addSong(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddSong implements PlaylistsEvent {
+  factory AddSong({required final MySongModel song, required final int index}) =
+      _$AddSongImpl;
+
+  MySongModel get song;
+  int get index;
+  @JsonKey(ignore: true)
+  _$$AddSongImplCopyWith<_$AddSongImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$PlaylistsState {
   List<MyPlaylistModel> get playlistModels =>
       throw _privateConstructorUsedError;
+  bool get added => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlaylistsStateCopyWith<PlaylistsState> get copyWith =>
@@ -367,7 +535,7 @@ abstract class $PlaylistsStateCopyWith<$Res> {
           PlaylistsState value, $Res Function(PlaylistsState) then) =
       _$PlaylistsStateCopyWithImpl<$Res, PlaylistsState>;
   @useResult
-  $Res call({List<MyPlaylistModel> playlistModels});
+  $Res call({List<MyPlaylistModel> playlistModels, bool added});
 }
 
 /// @nodoc
@@ -384,12 +552,17 @@ class _$PlaylistsStateCopyWithImpl<$Res, $Val extends PlaylistsState>
   @override
   $Res call({
     Object? playlistModels = null,
+    Object? added = null,
   }) {
     return _then(_value.copyWith(
       playlistModels: null == playlistModels
           ? _value.playlistModels
           : playlistModels // ignore: cast_nullable_to_non_nullable
               as List<MyPlaylistModel>,
+      added: null == added
+          ? _value.added
+          : added // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -402,7 +575,7 @@ abstract class _$$PlaylistsStateImplCopyWith<$Res>
       __$$PlaylistsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<MyPlaylistModel> playlistModels});
+  $Res call({List<MyPlaylistModel> playlistModels, bool added});
 }
 
 /// @nodoc
@@ -417,12 +590,17 @@ class __$$PlaylistsStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? playlistModels = null,
+    Object? added = null,
   }) {
     return _then(_$PlaylistsStateImpl(
       playlistModels: null == playlistModels
           ? _value._playlistModels
           : playlistModels // ignore: cast_nullable_to_non_nullable
               as List<MyPlaylistModel>,
+      added: null == added
+          ? _value.added
+          : added // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -431,7 +609,8 @@ class __$$PlaylistsStateImplCopyWithImpl<$Res>
 
 class _$PlaylistsStateImpl implements _PlaylistsState {
   const _$PlaylistsStateImpl(
-      {required final List<MyPlaylistModel> playlistModels})
+      {required final List<MyPlaylistModel> playlistModels,
+      required this.added})
       : _playlistModels = playlistModels;
 
   final List<MyPlaylistModel> _playlistModels;
@@ -443,8 +622,11 @@ class _$PlaylistsStateImpl implements _PlaylistsState {
   }
 
   @override
+  final bool added;
+
+  @override
   String toString() {
-    return 'PlaylistsState(playlistModels: $playlistModels)';
+    return 'PlaylistsState(playlistModels: $playlistModels, added: $added)';
   }
 
   @override
@@ -453,12 +635,13 @@ class _$PlaylistsStateImpl implements _PlaylistsState {
         (other.runtimeType == runtimeType &&
             other is _$PlaylistsStateImpl &&
             const DeepCollectionEquality()
-                .equals(other._playlistModels, _playlistModels));
+                .equals(other._playlistModels, _playlistModels) &&
+            (identical(other.added, added) || other.added == added));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_playlistModels));
+      runtimeType, const DeepCollectionEquality().hash(_playlistModels), added);
 
   @JsonKey(ignore: true)
   @override
@@ -470,11 +653,13 @@ class _$PlaylistsStateImpl implements _PlaylistsState {
 
 abstract class _PlaylistsState implements PlaylistsState {
   const factory _PlaylistsState(
-          {required final List<MyPlaylistModel> playlistModels}) =
-      _$PlaylistsStateImpl;
+      {required final List<MyPlaylistModel> playlistModels,
+      required final bool added}) = _$PlaylistsStateImpl;
 
   @override
   List<MyPlaylistModel> get playlistModels;
+  @override
+  bool get added;
   @override
   @JsonKey(ignore: true)
   _$$PlaylistsStateImplCopyWith<_$PlaylistsStateImpl> get copyWith =>

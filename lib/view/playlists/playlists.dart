@@ -6,6 +6,8 @@ import 'package:musicplayer_project/utils/constants/colors.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
 import 'package:musicplayer_project/view/playlists/screens/create_playlist.dart';
 
+import 'screens/playlist_songs.dart';
+
 class Playlists extends StatelessWidget {
   const Playlists({super.key});
 
@@ -17,7 +19,7 @@ class Playlists extends StatelessWidget {
       ),
       body: BlocBuilder<PlaylistsBloc, PlaylistsState>(
         builder: (context, state) {
-          print(playlistmodels.length);
+          print("sld");
           return ListView.builder(
               itemCount: state.playlistModels.length,
               itemBuilder: (context, index) {
@@ -29,15 +31,11 @@ class Playlists extends StatelessWidget {
                     elevation: 4,
                     child: ListTile(
                       onTap: () {
-                        // Get.to(
-                        //   PlaylistSongsScreen(
-                        //     playlist: playlistmodel,
-                        //     index: index,
-                        //   ),
-                        // );
-
-                        // BlocProvider.of<PlaylistsBloc>(context)
-                        //     .add(PlaylistsEvent.started(playlist: value[index]));
+                        Get.to(
+                          PlaylistSongsScreen(
+                            index: index,
+                          ),
+                        );
                       },
                       tileColor: Colors.black54,
                       leading: CircleAvatar(
