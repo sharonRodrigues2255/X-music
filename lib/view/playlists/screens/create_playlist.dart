@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:musicplayer_project/bloc/playlists/playlists_bloc.dart';
 import 'package:musicplayer_project/model/playlist_model/my_playlist_model.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
@@ -48,9 +49,10 @@ class CreatePlaylist extends StatelessWidget {
                 TextButton(
                     onPressed: () {
                       final text = textEditingController.text;
+                      final id = Hive.box("MySongBox").keys.length;
                       playlistsbloc.add(AddPlaylist(
-                          playlist:
-                              MyPlaylistModel(name: text, playlistSongs: [])));
+                          playlist: MyPlaylistModel(
+                              name: text, playlistSongs: [], id: id)));
 
                       Get.back();
                     },

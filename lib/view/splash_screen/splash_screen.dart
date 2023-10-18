@@ -13,7 +13,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     checkPermission();
 
-    Future.delayed(Duration(seconds: 5)).then((value) {
+    Future.delayed(Duration(seconds: 2)).then((value) {
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => BottomNavigationScreen()));
     });

@@ -18,23 +18,26 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PlaylistsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<MyPlaylistModel> playlists) started,
+    required TResult Function() started,
     required TResult Function(MyPlaylistModel playlist) addPlaylist,
     required TResult Function(MySongModel song, int index) addSong,
+    required TResult Function(int index) deletePlaylist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<MyPlaylistModel> playlists)? started,
+    TResult? Function()? started,
     TResult? Function(MyPlaylistModel playlist)? addPlaylist,
     TResult? Function(MySongModel song, int index)? addSong,
+    TResult? Function(int index)? deletePlaylist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<MyPlaylistModel> playlists)? started,
+    TResult Function()? started,
     TResult Function(MyPlaylistModel playlist)? addPlaylist,
     TResult Function(MySongModel song, int index)? addSong,
+    TResult Function(int index)? deletePlaylist,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$PlaylistsEvent {
     required TResult Function(Started value) started,
     required TResult Function(AddPlaylist value) addPlaylist,
     required TResult Function(AddSong value) addSong,
+    required TResult Function(DeletePlaylist value) deletePlaylist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$PlaylistsEvent {
     TResult? Function(Started value)? started,
     TResult? Function(AddPlaylist value)? addPlaylist,
     TResult? Function(AddSong value)? addSong,
+    TResult? Function(DeletePlaylist value)? deletePlaylist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$PlaylistsEvent {
     TResult Function(Started value)? started,
     TResult Function(AddPlaylist value)? addPlaylist,
     TResult Function(AddSong value)? addSong,
+    TResult Function(DeletePlaylist value)? deletePlaylist,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -85,8 +91,6 @@ abstract class _$$StartedImplCopyWith<$Res> {
   factory _$$StartedImplCopyWith(
           _$StartedImpl value, $Res Function(_$StartedImpl) then) =
       __$$StartedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<MyPlaylistModel> playlists});
 }
 
 /// @nodoc
@@ -96,89 +100,60 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? playlists = null,
-  }) {
-    return _then(_$StartedImpl(
-      playlists: null == playlists
-          ? _value._playlists
-          : playlists // ignore: cast_nullable_to_non_nullable
-              as List<MyPlaylistModel>,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$StartedImpl implements Started {
-  const _$StartedImpl({required final List<MyPlaylistModel> playlists})
-      : _playlists = playlists;
-
-  final List<MyPlaylistModel> _playlists;
-  @override
-  List<MyPlaylistModel> get playlists {
-    if (_playlists is EqualUnmodifiableListView) return _playlists;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_playlists);
-  }
+  const _$StartedImpl();
 
   @override
   String toString() {
-    return 'PlaylistsEvent.started(playlists: $playlists)';
+    return 'PlaylistsEvent.started()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$StartedImpl &&
-            const DeepCollectionEquality()
-                .equals(other._playlists, _playlists));
+        (other.runtimeType == runtimeType && other is _$StartedImpl);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_playlists));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
-      __$$StartedImplCopyWithImpl<_$StartedImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<MyPlaylistModel> playlists) started,
+    required TResult Function() started,
     required TResult Function(MyPlaylistModel playlist) addPlaylist,
     required TResult Function(MySongModel song, int index) addSong,
+    required TResult Function(int index) deletePlaylist,
   }) {
-    return started(playlists);
+    return started();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<MyPlaylistModel> playlists)? started,
+    TResult? Function()? started,
     TResult? Function(MyPlaylistModel playlist)? addPlaylist,
     TResult? Function(MySongModel song, int index)? addSong,
+    TResult? Function(int index)? deletePlaylist,
   }) {
-    return started?.call(playlists);
+    return started?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<MyPlaylistModel> playlists)? started,
+    TResult Function()? started,
     TResult Function(MyPlaylistModel playlist)? addPlaylist,
     TResult Function(MySongModel song, int index)? addSong,
+    TResult Function(int index)? deletePlaylist,
     required TResult orElse(),
   }) {
     if (started != null) {
-      return started(playlists);
+      return started();
     }
     return orElse();
   }
@@ -189,6 +164,7 @@ class _$StartedImpl implements Started {
     required TResult Function(Started value) started,
     required TResult Function(AddPlaylist value) addPlaylist,
     required TResult Function(AddSong value) addSong,
+    required TResult Function(DeletePlaylist value) deletePlaylist,
   }) {
     return started(this);
   }
@@ -199,6 +175,7 @@ class _$StartedImpl implements Started {
     TResult? Function(Started value)? started,
     TResult? Function(AddPlaylist value)? addPlaylist,
     TResult? Function(AddSong value)? addSong,
+    TResult? Function(DeletePlaylist value)? deletePlaylist,
   }) {
     return started?.call(this);
   }
@@ -209,6 +186,7 @@ class _$StartedImpl implements Started {
     TResult Function(Started value)? started,
     TResult Function(AddPlaylist value)? addPlaylist,
     TResult Function(AddSong value)? addSong,
+    TResult Function(DeletePlaylist value)? deletePlaylist,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -219,13 +197,7 @@ class _$StartedImpl implements Started {
 }
 
 abstract class Started implements PlaylistsEvent {
-  const factory Started({required final List<MyPlaylistModel> playlists}) =
-      _$StartedImpl;
-
-  List<MyPlaylistModel> get playlists;
-  @JsonKey(ignore: true)
-  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory Started() = _$StartedImpl;
 }
 
 /// @nodoc
@@ -293,9 +265,10 @@ class _$AddPlaylistImpl implements AddPlaylist {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<MyPlaylistModel> playlists) started,
+    required TResult Function() started,
     required TResult Function(MyPlaylistModel playlist) addPlaylist,
     required TResult Function(MySongModel song, int index) addSong,
+    required TResult Function(int index) deletePlaylist,
   }) {
     return addPlaylist(playlist);
   }
@@ -303,9 +276,10 @@ class _$AddPlaylistImpl implements AddPlaylist {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<MyPlaylistModel> playlists)? started,
+    TResult? Function()? started,
     TResult? Function(MyPlaylistModel playlist)? addPlaylist,
     TResult? Function(MySongModel song, int index)? addSong,
+    TResult? Function(int index)? deletePlaylist,
   }) {
     return addPlaylist?.call(playlist);
   }
@@ -313,9 +287,10 @@ class _$AddPlaylistImpl implements AddPlaylist {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<MyPlaylistModel> playlists)? started,
+    TResult Function()? started,
     TResult Function(MyPlaylistModel playlist)? addPlaylist,
     TResult Function(MySongModel song, int index)? addSong,
+    TResult Function(int index)? deletePlaylist,
     required TResult orElse(),
   }) {
     if (addPlaylist != null) {
@@ -330,6 +305,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
     required TResult Function(Started value) started,
     required TResult Function(AddPlaylist value) addPlaylist,
     required TResult Function(AddSong value) addSong,
+    required TResult Function(DeletePlaylist value) deletePlaylist,
   }) {
     return addPlaylist(this);
   }
@@ -340,6 +316,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
     TResult? Function(Started value)? started,
     TResult? Function(AddPlaylist value)? addPlaylist,
     TResult? Function(AddSong value)? addSong,
+    TResult? Function(DeletePlaylist value)? deletePlaylist,
   }) {
     return addPlaylist?.call(this);
   }
@@ -350,6 +327,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
     TResult Function(Started value)? started,
     TResult Function(AddPlaylist value)? addPlaylist,
     TResult Function(AddSong value)? addSong,
+    TResult Function(DeletePlaylist value)? deletePlaylist,
     required TResult orElse(),
   }) {
     if (addPlaylist != null) {
@@ -441,9 +419,10 @@ class _$AddSongImpl implements AddSong {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<MyPlaylistModel> playlists) started,
+    required TResult Function() started,
     required TResult Function(MyPlaylistModel playlist) addPlaylist,
     required TResult Function(MySongModel song, int index) addSong,
+    required TResult Function(int index) deletePlaylist,
   }) {
     return addSong(song, index);
   }
@@ -451,9 +430,10 @@ class _$AddSongImpl implements AddSong {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<MyPlaylistModel> playlists)? started,
+    TResult? Function()? started,
     TResult? Function(MyPlaylistModel playlist)? addPlaylist,
     TResult? Function(MySongModel song, int index)? addSong,
+    TResult? Function(int index)? deletePlaylist,
   }) {
     return addSong?.call(song, index);
   }
@@ -461,9 +441,10 @@ class _$AddSongImpl implements AddSong {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<MyPlaylistModel> playlists)? started,
+    TResult Function()? started,
     TResult Function(MyPlaylistModel playlist)? addPlaylist,
     TResult Function(MySongModel song, int index)? addSong,
+    TResult Function(int index)? deletePlaylist,
     required TResult orElse(),
   }) {
     if (addSong != null) {
@@ -478,6 +459,7 @@ class _$AddSongImpl implements AddSong {
     required TResult Function(Started value) started,
     required TResult Function(AddPlaylist value) addPlaylist,
     required TResult Function(AddSong value) addSong,
+    required TResult Function(DeletePlaylist value) deletePlaylist,
   }) {
     return addSong(this);
   }
@@ -488,6 +470,7 @@ class _$AddSongImpl implements AddSong {
     TResult? Function(Started value)? started,
     TResult? Function(AddPlaylist value)? addPlaylist,
     TResult? Function(AddSong value)? addSong,
+    TResult? Function(DeletePlaylist value)? deletePlaylist,
   }) {
     return addSong?.call(this);
   }
@@ -498,6 +481,7 @@ class _$AddSongImpl implements AddSong {
     TResult Function(Started value)? started,
     TResult Function(AddPlaylist value)? addPlaylist,
     TResult Function(AddSong value)? addSong,
+    TResult Function(DeletePlaylist value)? deletePlaylist,
     required TResult orElse(),
   }) {
     if (addSong != null) {
@@ -519,9 +503,154 @@ abstract class AddSong implements PlaylistsEvent {
 }
 
 /// @nodoc
-mixin _$PlaylistsState {
-  List<MyPlaylistModel> get playlistModels =>
+abstract class _$$DeletePlaylistImplCopyWith<$Res> {
+  factory _$$DeletePlaylistImplCopyWith(_$DeletePlaylistImpl value,
+          $Res Function(_$DeletePlaylistImpl) then) =
+      __$$DeletePlaylistImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$DeletePlaylistImplCopyWithImpl<$Res>
+    extends _$PlaylistsEventCopyWithImpl<$Res, _$DeletePlaylistImpl>
+    implements _$$DeletePlaylistImplCopyWith<$Res> {
+  __$$DeletePlaylistImplCopyWithImpl(
+      _$DeletePlaylistImpl _value, $Res Function(_$DeletePlaylistImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$DeletePlaylistImpl(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeletePlaylistImpl implements DeletePlaylist {
+  _$DeletePlaylistImpl({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'PlaylistsEvent.deletePlaylist(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeletePlaylistImpl &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeletePlaylistImplCopyWith<_$DeletePlaylistImpl> get copyWith =>
+      __$$DeletePlaylistImplCopyWithImpl<_$DeletePlaylistImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(MyPlaylistModel playlist) addPlaylist,
+    required TResult Function(MySongModel song, int index) addSong,
+    required TResult Function(int index) deletePlaylist,
+  }) {
+    return deletePlaylist(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(MyPlaylistModel playlist)? addPlaylist,
+    TResult? Function(MySongModel song, int index)? addSong,
+    TResult? Function(int index)? deletePlaylist,
+  }) {
+    return deletePlaylist?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(MyPlaylistModel playlist)? addPlaylist,
+    TResult Function(MySongModel song, int index)? addSong,
+    TResult Function(int index)? deletePlaylist,
+    required TResult orElse(),
+  }) {
+    if (deletePlaylist != null) {
+      return deletePlaylist(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(AddPlaylist value) addPlaylist,
+    required TResult Function(AddSong value) addSong,
+    required TResult Function(DeletePlaylist value) deletePlaylist,
+  }) {
+    return deletePlaylist(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(AddPlaylist value)? addPlaylist,
+    TResult? Function(AddSong value)? addSong,
+    TResult? Function(DeletePlaylist value)? deletePlaylist,
+  }) {
+    return deletePlaylist?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(AddPlaylist value)? addPlaylist,
+    TResult Function(AddSong value)? addSong,
+    TResult Function(DeletePlaylist value)? deletePlaylist,
+    required TResult orElse(),
+  }) {
+    if (deletePlaylist != null) {
+      return deletePlaylist(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeletePlaylist implements PlaylistsEvent {
+  factory DeletePlaylist({required final int index}) = _$DeletePlaylistImpl;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$DeletePlaylistImplCopyWith<_$DeletePlaylistImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$PlaylistsState {
+  List<dynamic> get playlistModels => throw _privateConstructorUsedError;
   bool get added => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -535,7 +664,7 @@ abstract class $PlaylistsStateCopyWith<$Res> {
           PlaylistsState value, $Res Function(PlaylistsState) then) =
       _$PlaylistsStateCopyWithImpl<$Res, PlaylistsState>;
   @useResult
-  $Res call({List<MyPlaylistModel> playlistModels, bool added});
+  $Res call({List<dynamic> playlistModels, bool added});
 }
 
 /// @nodoc
@@ -558,7 +687,7 @@ class _$PlaylistsStateCopyWithImpl<$Res, $Val extends PlaylistsState>
       playlistModels: null == playlistModels
           ? _value.playlistModels
           : playlistModels // ignore: cast_nullable_to_non_nullable
-              as List<MyPlaylistModel>,
+              as List<dynamic>,
       added: null == added
           ? _value.added
           : added // ignore: cast_nullable_to_non_nullable
@@ -575,7 +704,7 @@ abstract class _$$PlaylistsStateImplCopyWith<$Res>
       __$$PlaylistsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<MyPlaylistModel> playlistModels, bool added});
+  $Res call({List<dynamic> playlistModels, bool added});
 }
 
 /// @nodoc
@@ -596,7 +725,7 @@ class __$$PlaylistsStateImplCopyWithImpl<$Res>
       playlistModels: null == playlistModels
           ? _value._playlistModels
           : playlistModels // ignore: cast_nullable_to_non_nullable
-              as List<MyPlaylistModel>,
+              as List<dynamic>,
       added: null == added
           ? _value.added
           : added // ignore: cast_nullable_to_non_nullable
@@ -609,13 +738,12 @@ class __$$PlaylistsStateImplCopyWithImpl<$Res>
 
 class _$PlaylistsStateImpl implements _PlaylistsState {
   const _$PlaylistsStateImpl(
-      {required final List<MyPlaylistModel> playlistModels,
-      required this.added})
+      {required final List<dynamic> playlistModels, required this.added})
       : _playlistModels = playlistModels;
 
-  final List<MyPlaylistModel> _playlistModels;
+  final List<dynamic> _playlistModels;
   @override
-  List<MyPlaylistModel> get playlistModels {
+  List<dynamic> get playlistModels {
     if (_playlistModels is EqualUnmodifiableListView) return _playlistModels;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_playlistModels);
@@ -653,11 +781,11 @@ class _$PlaylistsStateImpl implements _PlaylistsState {
 
 abstract class _PlaylistsState implements PlaylistsState {
   const factory _PlaylistsState(
-      {required final List<MyPlaylistModel> playlistModels,
+      {required final List<dynamic> playlistModels,
       required final bool added}) = _$PlaylistsStateImpl;
 
   @override
-  List<MyPlaylistModel> get playlistModels;
+  List<dynamic> get playlistModels;
   @override
   bool get added;
   @override

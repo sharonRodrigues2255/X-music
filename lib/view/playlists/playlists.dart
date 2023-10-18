@@ -13,6 +13,7 @@ class Playlists extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<PlaylistsBloc>(context).add(Started());
     return Scaffold(
       appBar: AppBar(
         title: const Text("Play lists"),
@@ -53,6 +54,15 @@ class Playlists extends StatelessWidget {
                       subtitle: Text(
                           playlistmodel.playlistSongs.length.toString() +
                               " Songs"),
+                      trailing: IconButton(
+                          onPressed: () {
+                            BlocProvider.of<PlaylistsBloc>(context)
+                                .add(DeletePlaylist(index: playlistmodel.id));
+                          },
+                          icon: Icon(
+                            Icons.delete_forever,
+                            color: kred,
+                          )),
                     ),
                   ),
                 );
