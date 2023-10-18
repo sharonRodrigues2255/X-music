@@ -49,7 +49,7 @@ class CreatePlaylist extends StatelessWidget {
                 TextButton(
                     onPressed: () {
                       final text = textEditingController.text;
-                      final id = Hive.box("MySongBox").keys.length;
+                      final id = DateTime.now().millisecond.toInt();
                       playlistsbloc.add(AddPlaylist(
                           playlist: MyPlaylistModel(
                               name: text, playlistSongs: [], id: id)));

@@ -10,14 +10,16 @@ import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class PlaylistSongsScreen extends StatelessWidget {
-  const PlaylistSongsScreen({super.key, required this.playlistindex});
+  const PlaylistSongsScreen(
+      {super.key, required this.playlistindex, required this.dbkey});
   final int playlistindex;
+  final int dbkey;
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<PlaylistsBloc>(context).add(Started());
     return BlocBuilder<PlaylistsBloc, PlaylistsState>(
       builder: (context, state) {
-        final playlist = state.playlistModels[playlistindex];
+        final playlist = state.playlistModels.elementAt(playlistindex);
         return Scaffold(
             appBar: AppBar(
               title: Text(
@@ -61,8 +63,7 @@ class PlaylistSongsScreen extends StatelessWidget {
               elevation: 3,
               child: TextButton.icon(
                   onPressed: () {
-                    showPLaylistBottomSheet(
-                        context, playlist.name, playlistindex);
+                    showPLaylistBottomSheet(context, playlist.name, dbkey);
                   },
                   icon: const Icon(
                     Icons.add_chart,
@@ -81,7 +82,7 @@ class PlaylistSongsScreen extends StatelessWidget {
 showPLaylistBottomSheet(
   BuildContext ctx,
   String name,
-  int playlistIndex,
+  int dbkey,
 ) {
   showModalBottomSheet(
       context: ctx,
@@ -123,8 +124,8 @@ showPLaylistBottomSheet(
                         ),
                         trailing: InkWell(
                             onTap: () {
-                              BlocProvider.of<PlaylistsBloc>(ctx).add(
-                                  AddSong(song: song, index: playlistIndex));
+                              BlocProvider.of<PlaylistsBloc>(ctx)
+                                  .add(AddSong(song: song, index: dbkey));
                             },
                             child: const Icon(Icons.add)),
                       ),

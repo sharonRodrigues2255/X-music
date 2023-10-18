@@ -14,10 +14,7 @@ class PlaylistsBloc extends Bloc<PlaylistsEvent, PlaylistsState> {
   var myDb = Hive.box("MySongBox");
 
   PlaylistsBloc() : super(PlaylistsState.initial()) {
-    on<Started>((event, emit) {
-      Center(
-        child: CircularProgressIndicator(),
-      );
+    on<Started>((event, emit) async {
       final List playlistList = myDb.values.toList();
       emit(state.copyWith(playlistModels: playlistList));
     });
@@ -38,16 +35,14 @@ class PlaylistsBloc extends Bloc<PlaylistsEvent, PlaylistsState> {
     on<AddSong>((event, emit) {
       final song = event.song;
       final MyPlaylistModel playlist = myDb.get(event.index);
-      final updatedPlaylist = playlist
+      final updatedPlaylist = MyPlaylistModel(
+          id: playlist.id,
+          name: playlist.name,
+          playlistSongs: playlist.playlistSongs..add(song));
       myDb.put(playlist.id, updatedPlaylist);
       final List updatedPlaylistModels = myDb.values.toList();
 
-      emit(state.copyWith(playlistModels: updatedPlaylistModels, added: true));
-      emit(state.copyWith(added: false));
+      emit(state.copyWith(playlistModels: updatedPlaylistModels));
     });
-  }
-
-  removefromDatabase(int index) {
-    myDb.delete(index);
   }
 }

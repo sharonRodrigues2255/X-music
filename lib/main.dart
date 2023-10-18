@@ -21,6 +21,7 @@ void main() async {
   }
 
   var box = Hive.openBox("MySongBox");
+
   runApp(const MyApp());
 }
 

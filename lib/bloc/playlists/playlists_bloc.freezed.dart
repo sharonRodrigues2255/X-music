@@ -651,7 +651,6 @@ abstract class DeletePlaylist implements PlaylistsEvent {
 /// @nodoc
 mixin _$PlaylistsState {
   List<dynamic> get playlistModels => throw _privateConstructorUsedError;
-  bool get added => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlaylistsStateCopyWith<PlaylistsState> get copyWith =>
@@ -664,7 +663,7 @@ abstract class $PlaylistsStateCopyWith<$Res> {
           PlaylistsState value, $Res Function(PlaylistsState) then) =
       _$PlaylistsStateCopyWithImpl<$Res, PlaylistsState>;
   @useResult
-  $Res call({List<dynamic> playlistModels, bool added});
+  $Res call({List<dynamic> playlistModels});
 }
 
 /// @nodoc
@@ -681,17 +680,12 @@ class _$PlaylistsStateCopyWithImpl<$Res, $Val extends PlaylistsState>
   @override
   $Res call({
     Object? playlistModels = null,
-    Object? added = null,
   }) {
     return _then(_value.copyWith(
       playlistModels: null == playlistModels
           ? _value.playlistModels
           : playlistModels // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
-      added: null == added
-          ? _value.added
-          : added // ignore: cast_nullable_to_non_nullable
-              as bool,
     ) as $Val);
   }
 }
@@ -704,7 +698,7 @@ abstract class _$$PlaylistsStateImplCopyWith<$Res>
       __$$PlaylistsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<dynamic> playlistModels, bool added});
+  $Res call({List<dynamic> playlistModels});
 }
 
 /// @nodoc
@@ -719,17 +713,12 @@ class __$$PlaylistsStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? playlistModels = null,
-    Object? added = null,
   }) {
     return _then(_$PlaylistsStateImpl(
       playlistModels: null == playlistModels
           ? _value._playlistModels
           : playlistModels // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
-      added: null == added
-          ? _value.added
-          : added // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -737,8 +726,7 @@ class __$$PlaylistsStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PlaylistsStateImpl implements _PlaylistsState {
-  const _$PlaylistsStateImpl(
-      {required final List<dynamic> playlistModels, required this.added})
+  const _$PlaylistsStateImpl({required final List<dynamic> playlistModels})
       : _playlistModels = playlistModels;
 
   final List<dynamic> _playlistModels;
@@ -750,11 +738,8 @@ class _$PlaylistsStateImpl implements _PlaylistsState {
   }
 
   @override
-  final bool added;
-
-  @override
   String toString() {
-    return 'PlaylistsState(playlistModels: $playlistModels, added: $added)';
+    return 'PlaylistsState(playlistModels: $playlistModels)';
   }
 
   @override
@@ -763,13 +748,12 @@ class _$PlaylistsStateImpl implements _PlaylistsState {
         (other.runtimeType == runtimeType &&
             other is _$PlaylistsStateImpl &&
             const DeepCollectionEquality()
-                .equals(other._playlistModels, _playlistModels) &&
-            (identical(other.added, added) || other.added == added));
+                .equals(other._playlistModels, _playlistModels));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_playlistModels), added);
+      runtimeType, const DeepCollectionEquality().hash(_playlistModels));
 
   @JsonKey(ignore: true)
   @override
@@ -780,14 +764,11 @@ class _$PlaylistsStateImpl implements _PlaylistsState {
 }
 
 abstract class _PlaylistsState implements PlaylistsState {
-  const factory _PlaylistsState(
-      {required final List<dynamic> playlistModels,
-      required final bool added}) = _$PlaylistsStateImpl;
+  const factory _PlaylistsState({required final List<dynamic> playlistModels}) =
+      _$PlaylistsStateImpl;
 
   @override
   List<dynamic> get playlistModels;
-  @override
-  bool get added;
   @override
   @JsonKey(ignore: true)
   _$$PlaylistsStateImplCopyWith<_$PlaylistsStateImpl> get copyWith =>
