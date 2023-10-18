@@ -6,27 +6,26 @@ import 'package:musicplayer_project/bloc/playlists/playlists_bloc.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
 import 'package:musicplayer_project/view/player_screen/player_screen.dart';
-import 'package:musicplayer_project/view/playlists/screens/create_playlist.dart';
 import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class PlaylistSongsScreen extends StatelessWidget {
-  const PlaylistSongsScreen({super.key, required this.index});
-  final int index;
+  const PlaylistSongsScreen({super.key, required this.playlistindex});
+  final int playlistindex;
   @override
   Widget build(BuildContext context) {
-    final playlist = playlistmodels[index];
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            playlistmodels[index].name,
-            style: myfontBold(),
-          ),
-        ),
-        body: BlocBuilder<PlaylistsBloc, PlaylistsState>(
-          builder: (context, state) {
-            print('building');
-            return ListView.builder(
+    BlocProvider.of<PlaylistsBloc>(context).add(Started());
+    return BlocBuilder<PlaylistsBloc, PlaylistsState>(
+      builder: (context, state) {
+        final playlist = state.playlistModels[playlistindex];
+        return Scaffold(
+            appBar: AppBar(
+              title: Text(
+                playlist.name,
+                style: myfontBold(),
+              ),
+            ),
+            body: ListView.builder(
               itemCount: playlist.playlistSongs.length,
               itemBuilder: (context, i) {
                 final song = playlist.playlistSongs[i];
@@ -57,34 +56,35 @@ class PlaylistSongsScreen extends StatelessWidget {
                   ),
                 );
               },
-            );
-          },
-        ),
-        floatingActionButton: Card(
-          elevation: 3,
-          child: TextButton.icon(
-              onPressed: () {
-                showPLaylistBottomSheet(context, playlist.name, index);
-              },
-              icon: Icon(
-                Icons.add_chart,
-                color: kwhite,
-              ),
-              label: Text(
-                "Add Songs",
-                style: myfontNormal(color: kwhite),
-              )),
-        ));
+            ),
+            floatingActionButton: Card(
+              elevation: 3,
+              child: TextButton.icon(
+                  onPressed: () {
+                    showPLaylistBottomSheet(
+                        context, playlist.name, playlistindex);
+                  },
+                  icon: const Icon(
+                    Icons.add_chart,
+                    color: kwhite,
+                  ),
+                  label: Text(
+                    "Add Songs",
+                    style: myfontNormal(color: kwhite),
+                  )),
+            ));
+      },
+    );
   }
 }
 
 showPLaylistBottomSheet(
-  BuildContext context,
+  BuildContext ctx,
   String name,
   int playlistIndex,
 ) {
   showModalBottomSheet(
-      context: context,
+      context: ctx,
       builder: (context) {
         return SingleChildScrollView(
           child: Column(
@@ -100,7 +100,7 @@ showPLaylistBottomSheet(
               Container(
                 child: ListView.builder(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: allSongsList.length,
                   itemBuilder: (context, index) {
                     final song = allSongsList[index];
@@ -113,7 +113,7 @@ showPLaylistBottomSheet(
                         leading: QueryArtworkWidget(
                           id: song.id,
                           type: ArtworkType.AUDIO,
-                          nullArtworkWidget: CircleAvatar(
+                          nullArtworkWidget: const CircleAvatar(
                             radius: 25,
                             child: Icon(
                               Icons.music_note,
@@ -123,10 +123,10 @@ showPLaylistBottomSheet(
                         ),
                         trailing: InkWell(
                             onTap: () {
-                              BlocProvider.of<PlaylistsBloc>(context).add(
+                              BlocProvider.of<PlaylistsBloc>(ctx).add(
                                   AddSong(song: song, index: playlistIndex));
                             },
-                            child: Icon(Icons.add)),
+                            child: const Icon(Icons.add)),
                       ),
                     );
                   },

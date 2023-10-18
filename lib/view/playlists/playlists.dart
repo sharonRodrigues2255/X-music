@@ -34,7 +34,7 @@ class Playlists extends StatelessWidget {
                       onTap: () {
                         Get.to(
                           PlaylistSongsScreen(
-                            index: index,
+                            playlistindex: playlistmodel.id,
                           ),
                         );
                       },
