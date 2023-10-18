@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
+import 'package:musicplayer_project/bloc/playlists/playlists_bloc.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
 import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
-import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<PlayerBloc>(create: (context) => PlayerBloc()),
+        BlocProvider<PlaylistsBloc>(create: (context) => PlaylistsBloc()),
       ],
       child: GetMaterialApp(
         title: 'Xusic',

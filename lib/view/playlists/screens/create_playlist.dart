@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:musicplayer_project/bloc/playlists/playlists_bloc.dart';
 import 'package:musicplayer_project/model/playlist_model/my_playlist_model.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
 import 'package:musicplayer_project/utils/constants/sizes.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
-
-ValueNotifier<List<MyPlaylistModel>> playlists =
-    ValueNotifier<List<MyPlaylistModel>>([]);
 
 class CreatePlaylist extends StatelessWidget {
   const CreatePlaylist({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final playlistsbloc = BlocProvider.of<PlaylistsBloc>(context);
     TextEditingController textEditingController = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.black.withOpacity(.75),
@@ -48,10 +48,10 @@ class CreatePlaylist extends StatelessWidget {
                 TextButton(
                     onPressed: () {
                       final text = textEditingController.text;
-                      playlists.value
-                          .add(MyPlaylistModel(name: text, playlistSongs: []));
-                      playlists.notifyListeners();
-                      print(playlists);
+                      playlistsbloc.add(AddPlaylist(
+                          playlist:
+                              MyPlaylistModel(name: text, playlistSongs: [])));
+
                       Get.back();
                     },
                     child: Text(
@@ -66,3 +66,5 @@ class CreatePlaylist extends StatelessWidget {
     );
   }
 }
+
+List<MyPlaylistModel> playlistmodels = [];
