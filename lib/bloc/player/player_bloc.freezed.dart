@@ -23,6 +23,7 @@ mixin _$PlayerEvent {
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
     required TResult Function(bool loop, bool shuffle) loopAndShuffle,
+    required TResult Function(bool isfavorite) isFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$PlayerEvent {
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
     TResult? Function(bool loop, bool shuffle)? loopAndShuffle,
+    TResult? Function(bool isfavorite)? isFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$PlayerEvent {
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
     TResult Function(bool loop, bool shuffle)? loopAndShuffle,
+    TResult Function(bool isfavorite)? isFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ mixin _$PlayerEvent {
     required TResult Function(ContinueSong value) continueSong,
     required TResult Function(OnSeek value) onSeek,
     required TResult Function(LoopAndShuffle value) loopAndShuffle,
+    required TResult Function(Isfavorite value) isFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +64,7 @@ mixin _$PlayerEvent {
     TResult? Function(ContinueSong value)? continueSong,
     TResult? Function(OnSeek value)? onSeek,
     TResult? Function(LoopAndShuffle value)? loopAndShuffle,
+    TResult? Function(Isfavorite value)? isFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$PlayerEvent {
     TResult Function(ContinueSong value)? continueSong,
     TResult Function(OnSeek value)? onSeek,
     TResult Function(LoopAndShuffle value)? loopAndShuffle,
+    TResult Function(Isfavorite value)? isFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -177,6 +183,7 @@ class _$PlaySongImpl implements PlaySong {
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
     required TResult Function(bool loop, bool shuffle) loopAndShuffle,
+    required TResult Function(bool isfavorite) isFavorite,
   }) {
     return playSong(index, mysongs);
   }
@@ -189,6 +196,7 @@ class _$PlaySongImpl implements PlaySong {
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
     TResult? Function(bool loop, bool shuffle)? loopAndShuffle,
+    TResult? Function(bool isfavorite)? isFavorite,
   }) {
     return playSong?.call(index, mysongs);
   }
@@ -201,6 +209,7 @@ class _$PlaySongImpl implements PlaySong {
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
     TResult Function(bool loop, bool shuffle)? loopAndShuffle,
+    TResult Function(bool isfavorite)? isFavorite,
     required TResult orElse(),
   }) {
     if (playSong != null) {
@@ -217,6 +226,7 @@ class _$PlaySongImpl implements PlaySong {
     required TResult Function(ContinueSong value) continueSong,
     required TResult Function(OnSeek value) onSeek,
     required TResult Function(LoopAndShuffle value) loopAndShuffle,
+    required TResult Function(Isfavorite value) isFavorite,
   }) {
     return playSong(this);
   }
@@ -229,6 +239,7 @@ class _$PlaySongImpl implements PlaySong {
     TResult? Function(ContinueSong value)? continueSong,
     TResult? Function(OnSeek value)? onSeek,
     TResult? Function(LoopAndShuffle value)? loopAndShuffle,
+    TResult? Function(Isfavorite value)? isFavorite,
   }) {
     return playSong?.call(this);
   }
@@ -241,6 +252,7 @@ class _$PlaySongImpl implements PlaySong {
     TResult Function(ContinueSong value)? continueSong,
     TResult Function(OnSeek value)? onSeek,
     TResult Function(LoopAndShuffle value)? loopAndShuffle,
+    TResult Function(Isfavorite value)? isFavorite,
     required TResult orElse(),
   }) {
     if (playSong != null) {
@@ -305,6 +317,7 @@ class _$PauseSongImpl implements PauseSong {
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
     required TResult Function(bool loop, bool shuffle) loopAndShuffle,
+    required TResult Function(bool isfavorite) isFavorite,
   }) {
     return pauseSong();
   }
@@ -317,6 +330,7 @@ class _$PauseSongImpl implements PauseSong {
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
     TResult? Function(bool loop, bool shuffle)? loopAndShuffle,
+    TResult? Function(bool isfavorite)? isFavorite,
   }) {
     return pauseSong?.call();
   }
@@ -329,6 +343,7 @@ class _$PauseSongImpl implements PauseSong {
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
     TResult Function(bool loop, bool shuffle)? loopAndShuffle,
+    TResult Function(bool isfavorite)? isFavorite,
     required TResult orElse(),
   }) {
     if (pauseSong != null) {
@@ -345,6 +360,7 @@ class _$PauseSongImpl implements PauseSong {
     required TResult Function(ContinueSong value) continueSong,
     required TResult Function(OnSeek value) onSeek,
     required TResult Function(LoopAndShuffle value) loopAndShuffle,
+    required TResult Function(Isfavorite value) isFavorite,
   }) {
     return pauseSong(this);
   }
@@ -357,6 +373,7 @@ class _$PauseSongImpl implements PauseSong {
     TResult? Function(ContinueSong value)? continueSong,
     TResult? Function(OnSeek value)? onSeek,
     TResult? Function(LoopAndShuffle value)? loopAndShuffle,
+    TResult? Function(Isfavorite value)? isFavorite,
   }) {
     return pauseSong?.call(this);
   }
@@ -369,6 +386,7 @@ class _$PauseSongImpl implements PauseSong {
     TResult Function(ContinueSong value)? continueSong,
     TResult Function(OnSeek value)? onSeek,
     TResult Function(LoopAndShuffle value)? loopAndShuffle,
+    TResult Function(Isfavorite value)? isFavorite,
     required TResult orElse(),
   }) {
     if (pauseSong != null) {
@@ -425,6 +443,7 @@ class _$ContinueSongImpl implements ContinueSong {
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
     required TResult Function(bool loop, bool shuffle) loopAndShuffle,
+    required TResult Function(bool isfavorite) isFavorite,
   }) {
     return continueSong();
   }
@@ -437,6 +456,7 @@ class _$ContinueSongImpl implements ContinueSong {
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
     TResult? Function(bool loop, bool shuffle)? loopAndShuffle,
+    TResult? Function(bool isfavorite)? isFavorite,
   }) {
     return continueSong?.call();
   }
@@ -449,6 +469,7 @@ class _$ContinueSongImpl implements ContinueSong {
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
     TResult Function(bool loop, bool shuffle)? loopAndShuffle,
+    TResult Function(bool isfavorite)? isFavorite,
     required TResult orElse(),
   }) {
     if (continueSong != null) {
@@ -465,6 +486,7 @@ class _$ContinueSongImpl implements ContinueSong {
     required TResult Function(ContinueSong value) continueSong,
     required TResult Function(OnSeek value) onSeek,
     required TResult Function(LoopAndShuffle value) loopAndShuffle,
+    required TResult Function(Isfavorite value) isFavorite,
   }) {
     return continueSong(this);
   }
@@ -477,6 +499,7 @@ class _$ContinueSongImpl implements ContinueSong {
     TResult? Function(ContinueSong value)? continueSong,
     TResult? Function(OnSeek value)? onSeek,
     TResult? Function(LoopAndShuffle value)? loopAndShuffle,
+    TResult? Function(Isfavorite value)? isFavorite,
   }) {
     return continueSong?.call(this);
   }
@@ -489,6 +512,7 @@ class _$ContinueSongImpl implements ContinueSong {
     TResult Function(ContinueSong value)? continueSong,
     TResult Function(OnSeek value)? onSeek,
     TResult Function(LoopAndShuffle value)? loopAndShuffle,
+    TResult Function(Isfavorite value)? isFavorite,
     required TResult orElse(),
   }) {
     if (continueSong != null) {
@@ -572,6 +596,7 @@ class _$OnSeekImpl implements OnSeek {
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
     required TResult Function(bool loop, bool shuffle) loopAndShuffle,
+    required TResult Function(bool isfavorite) isFavorite,
   }) {
     return onSeek(seektime);
   }
@@ -584,6 +609,7 @@ class _$OnSeekImpl implements OnSeek {
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
     TResult? Function(bool loop, bool shuffle)? loopAndShuffle,
+    TResult? Function(bool isfavorite)? isFavorite,
   }) {
     return onSeek?.call(seektime);
   }
@@ -596,6 +622,7 @@ class _$OnSeekImpl implements OnSeek {
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
     TResult Function(bool loop, bool shuffle)? loopAndShuffle,
+    TResult Function(bool isfavorite)? isFavorite,
     required TResult orElse(),
   }) {
     if (onSeek != null) {
@@ -612,6 +639,7 @@ class _$OnSeekImpl implements OnSeek {
     required TResult Function(ContinueSong value) continueSong,
     required TResult Function(OnSeek value) onSeek,
     required TResult Function(LoopAndShuffle value) loopAndShuffle,
+    required TResult Function(Isfavorite value) isFavorite,
   }) {
     return onSeek(this);
   }
@@ -624,6 +652,7 @@ class _$OnSeekImpl implements OnSeek {
     TResult? Function(ContinueSong value)? continueSong,
     TResult? Function(OnSeek value)? onSeek,
     TResult? Function(LoopAndShuffle value)? loopAndShuffle,
+    TResult? Function(Isfavorite value)? isFavorite,
   }) {
     return onSeek?.call(this);
   }
@@ -636,6 +665,7 @@ class _$OnSeekImpl implements OnSeek {
     TResult Function(ContinueSong value)? continueSong,
     TResult Function(OnSeek value)? onSeek,
     TResult Function(LoopAndShuffle value)? loopAndShuffle,
+    TResult Function(Isfavorite value)? isFavorite,
     required TResult orElse(),
   }) {
     if (onSeek != null) {
@@ -732,6 +762,7 @@ class _$LoopAndShuffleImpl implements LoopAndShuffle {
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
     required TResult Function(bool loop, bool shuffle) loopAndShuffle,
+    required TResult Function(bool isfavorite) isFavorite,
   }) {
     return loopAndShuffle(loop, shuffle);
   }
@@ -744,6 +775,7 @@ class _$LoopAndShuffleImpl implements LoopAndShuffle {
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
     TResult? Function(bool loop, bool shuffle)? loopAndShuffle,
+    TResult? Function(bool isfavorite)? isFavorite,
   }) {
     return loopAndShuffle?.call(loop, shuffle);
   }
@@ -756,6 +788,7 @@ class _$LoopAndShuffleImpl implements LoopAndShuffle {
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
     TResult Function(bool loop, bool shuffle)? loopAndShuffle,
+    TResult Function(bool isfavorite)? isFavorite,
     required TResult orElse(),
   }) {
     if (loopAndShuffle != null) {
@@ -772,6 +805,7 @@ class _$LoopAndShuffleImpl implements LoopAndShuffle {
     required TResult Function(ContinueSong value) continueSong,
     required TResult Function(OnSeek value) onSeek,
     required TResult Function(LoopAndShuffle value) loopAndShuffle,
+    required TResult Function(Isfavorite value) isFavorite,
   }) {
     return loopAndShuffle(this);
   }
@@ -784,6 +818,7 @@ class _$LoopAndShuffleImpl implements LoopAndShuffle {
     TResult? Function(ContinueSong value)? continueSong,
     TResult? Function(OnSeek value)? onSeek,
     TResult? Function(LoopAndShuffle value)? loopAndShuffle,
+    TResult? Function(Isfavorite value)? isFavorite,
   }) {
     return loopAndShuffle?.call(this);
   }
@@ -796,6 +831,7 @@ class _$LoopAndShuffleImpl implements LoopAndShuffle {
     TResult Function(ContinueSong value)? continueSong,
     TResult Function(OnSeek value)? onSeek,
     TResult Function(LoopAndShuffle value)? loopAndShuffle,
+    TResult Function(Isfavorite value)? isFavorite,
     required TResult orElse(),
   }) {
     if (loopAndShuffle != null) {
@@ -814,6 +850,164 @@ abstract class LoopAndShuffle implements PlayerEvent {
   bool get shuffle;
   @JsonKey(ignore: true)
   _$$LoopAndShuffleImplCopyWith<_$LoopAndShuffleImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$IsfavoriteImplCopyWith<$Res> {
+  factory _$$IsfavoriteImplCopyWith(
+          _$IsfavoriteImpl value, $Res Function(_$IsfavoriteImpl) then) =
+      __$$IsfavoriteImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isfavorite});
+}
+
+/// @nodoc
+class __$$IsfavoriteImplCopyWithImpl<$Res>
+    extends _$PlayerEventCopyWithImpl<$Res, _$IsfavoriteImpl>
+    implements _$$IsfavoriteImplCopyWith<$Res> {
+  __$$IsfavoriteImplCopyWithImpl(
+      _$IsfavoriteImpl _value, $Res Function(_$IsfavoriteImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isfavorite = null,
+  }) {
+    return _then(_$IsfavoriteImpl(
+      isfavorite: null == isfavorite
+          ? _value.isfavorite
+          : isfavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$IsfavoriteImpl implements Isfavorite {
+  _$IsfavoriteImpl({required this.isfavorite});
+
+  @override
+  final bool isfavorite;
+
+  @override
+  String toString() {
+    return 'PlayerEvent.isFavorite(isfavorite: $isfavorite)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$IsfavoriteImpl &&
+            (identical(other.isfavorite, isfavorite) ||
+                other.isfavorite == isfavorite));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isfavorite);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$IsfavoriteImplCopyWith<_$IsfavoriteImpl> get copyWith =>
+      __$$IsfavoriteImplCopyWithImpl<_$IsfavoriteImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int index, List<MySongModel> mysongs) playSong,
+    required TResult Function() pauseSong,
+    required TResult Function() continueSong,
+    required TResult Function(int seektime) onSeek,
+    required TResult Function(bool loop, bool shuffle) loopAndShuffle,
+    required TResult Function(bool isfavorite) isFavorite,
+  }) {
+    return isFavorite(isfavorite);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult? Function()? pauseSong,
+    TResult? Function()? continueSong,
+    TResult? Function(int seektime)? onSeek,
+    TResult? Function(bool loop, bool shuffle)? loopAndShuffle,
+    TResult? Function(bool isfavorite)? isFavorite,
+  }) {
+    return isFavorite?.call(isfavorite);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult Function()? pauseSong,
+    TResult Function()? continueSong,
+    TResult Function(int seektime)? onSeek,
+    TResult Function(bool loop, bool shuffle)? loopAndShuffle,
+    TResult Function(bool isfavorite)? isFavorite,
+    required TResult orElse(),
+  }) {
+    if (isFavorite != null) {
+      return isFavorite(isfavorite);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PlaySong value) playSong,
+    required TResult Function(PauseSong value) pauseSong,
+    required TResult Function(ContinueSong value) continueSong,
+    required TResult Function(OnSeek value) onSeek,
+    required TResult Function(LoopAndShuffle value) loopAndShuffle,
+    required TResult Function(Isfavorite value) isFavorite,
+  }) {
+    return isFavorite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PlaySong value)? playSong,
+    TResult? Function(PauseSong value)? pauseSong,
+    TResult? Function(ContinueSong value)? continueSong,
+    TResult? Function(OnSeek value)? onSeek,
+    TResult? Function(LoopAndShuffle value)? loopAndShuffle,
+    TResult? Function(Isfavorite value)? isFavorite,
+  }) {
+    return isFavorite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PlaySong value)? playSong,
+    TResult Function(PauseSong value)? pauseSong,
+    TResult Function(ContinueSong value)? continueSong,
+    TResult Function(OnSeek value)? onSeek,
+    TResult Function(LoopAndShuffle value)? loopAndShuffle,
+    TResult Function(Isfavorite value)? isFavorite,
+    required TResult orElse(),
+  }) {
+    if (isFavorite != null) {
+      return isFavorite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Isfavorite implements PlayerEvent {
+  factory Isfavorite({required final bool isfavorite}) = _$IsfavoriteImpl;
+
+  bool get isfavorite;
+  @JsonKey(ignore: true)
+  _$$IsfavoriteImplCopyWith<_$IsfavoriteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

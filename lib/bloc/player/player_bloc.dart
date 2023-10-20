@@ -40,6 +40,10 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     on<LoopAndShuffle>((event, emit) {
       emit(state.copyWith(loop: event.loop, shuffle: event.shuffle));
     });
+
+    on<Isfavorite>((event, emit) {
+      emit(state.copyWith(favorite: event.isfavorite));
+    });
   }
 
   playSong(String? url) async {
@@ -55,7 +59,8 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
           position = event.inMilliseconds + 100;
 
           emit(state.copyWith(position: position));
-          if (state.position >= state.songs[state.index!].duration!.toInt()) {
+          if (state.position >=
+              state.songs[state.index ?? 0].duration!.toInt()) {
             final randomIndex = Random().nextInt(state.songs.length);
             emit(state.copyWith(randomGenerated: true));
             if (state.loop) {

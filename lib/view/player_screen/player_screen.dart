@@ -89,7 +89,16 @@ class PlayerScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       IconButton(
-                          onPressed: () {}, icon: Icon(Icons.favorite_border)),
+                          onPressed: () {
+                            BlocProvider.of<PlayerBloc>(context)
+                                .add(Isfavorite(isfavorite: !state.favorite));
+                          },
+                          icon: state.favorite
+                              ? Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                )
+                              : Icon(Icons.favorite_border)),
                       IconButton(
                           onPressed: () {
                             playerBloc.add(LoopAndShuffle(
