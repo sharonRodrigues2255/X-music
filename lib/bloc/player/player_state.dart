@@ -10,15 +10,17 @@ class PlayerState with _$PlayerState {
     required bool shuffle,
     required bool favorite,
     required List<MySongModel> songs,
-    required bool miniOn,
+    required bool? miniOn,
+    required bool randomGenerated,
   }) = _PlayerState;
   factory PlayerState.playsong() => PlayerState(
-      index: 0,
+      index: null,
       playing: true,
       position: 0,
       loop: false,
       shuffle: false,
       miniOn: false,
       songs: allSongsList,
-      favorite: false);
+      favorite: false,
+      randomGenerated: false);
 }

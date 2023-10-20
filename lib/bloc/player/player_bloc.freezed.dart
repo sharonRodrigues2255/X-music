@@ -826,7 +826,8 @@ mixin _$PlayerState {
   bool get shuffle => throw _privateConstructorUsedError;
   bool get favorite => throw _privateConstructorUsedError;
   List<MySongModel> get songs => throw _privateConstructorUsedError;
-  bool get miniOn => throw _privateConstructorUsedError;
+  bool? get miniOn => throw _privateConstructorUsedError;
+  bool get randomGenerated => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlayerStateCopyWith<PlayerState> get copyWith =>
@@ -847,7 +848,8 @@ abstract class $PlayerStateCopyWith<$Res> {
       bool shuffle,
       bool favorite,
       List<MySongModel> songs,
-      bool miniOn});
+      bool? miniOn,
+      bool randomGenerated});
 }
 
 /// @nodoc
@@ -870,7 +872,8 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
     Object? shuffle = null,
     Object? favorite = null,
     Object? songs = null,
-    Object? miniOn = null,
+    Object? miniOn = freezed,
+    Object? randomGenerated = null,
   }) {
     return _then(_value.copyWith(
       index: freezed == index
@@ -901,9 +904,13 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
           ? _value.songs
           : songs // ignore: cast_nullable_to_non_nullable
               as List<MySongModel>,
-      miniOn: null == miniOn
+      miniOn: freezed == miniOn
           ? _value.miniOn
           : miniOn // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      randomGenerated: null == randomGenerated
+          ? _value.randomGenerated
+          : randomGenerated // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -925,7 +932,8 @@ abstract class _$$PlayerStateImplCopyWith<$Res>
       bool shuffle,
       bool favorite,
       List<MySongModel> songs,
-      bool miniOn});
+      bool? miniOn,
+      bool randomGenerated});
 }
 
 /// @nodoc
@@ -946,7 +954,8 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
     Object? shuffle = null,
     Object? favorite = null,
     Object? songs = null,
-    Object? miniOn = null,
+    Object? miniOn = freezed,
+    Object? randomGenerated = null,
   }) {
     return _then(_$PlayerStateImpl(
       index: freezed == index
@@ -977,9 +986,13 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
           ? _value._songs
           : songs // ignore: cast_nullable_to_non_nullable
               as List<MySongModel>,
-      miniOn: null == miniOn
+      miniOn: freezed == miniOn
           ? _value.miniOn
           : miniOn // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      randomGenerated: null == randomGenerated
+          ? _value.randomGenerated
+          : randomGenerated // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -996,7 +1009,8 @@ class _$PlayerStateImpl implements _PlayerState {
       required this.shuffle,
       required this.favorite,
       required final List<MySongModel> songs,
-      required this.miniOn})
+      required this.miniOn,
+      required this.randomGenerated})
       : _songs = songs;
 
   @override
@@ -1020,11 +1034,13 @@ class _$PlayerStateImpl implements _PlayerState {
   }
 
   @override
-  final bool miniOn;
+  final bool? miniOn;
+  @override
+  final bool randomGenerated;
 
   @override
   String toString() {
-    return 'PlayerState(index: $index, playing: $playing, position: $position, loop: $loop, shuffle: $shuffle, favorite: $favorite, songs: $songs, miniOn: $miniOn)';
+    return 'PlayerState(index: $index, playing: $playing, position: $position, loop: $loop, shuffle: $shuffle, favorite: $favorite, songs: $songs, miniOn: $miniOn, randomGenerated: $randomGenerated)';
   }
 
   @override
@@ -1041,12 +1057,23 @@ class _$PlayerStateImpl implements _PlayerState {
             (identical(other.favorite, favorite) ||
                 other.favorite == favorite) &&
             const DeepCollectionEquality().equals(other._songs, _songs) &&
-            (identical(other.miniOn, miniOn) || other.miniOn == miniOn));
+            (identical(other.miniOn, miniOn) || other.miniOn == miniOn) &&
+            (identical(other.randomGenerated, randomGenerated) ||
+                other.randomGenerated == randomGenerated));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, index, playing, position, loop,
-      shuffle, favorite, const DeepCollectionEquality().hash(_songs), miniOn);
+  int get hashCode => Object.hash(
+      runtimeType,
+      index,
+      playing,
+      position,
+      loop,
+      shuffle,
+      favorite,
+      const DeepCollectionEquality().hash(_songs),
+      miniOn,
+      randomGenerated);
 
   @JsonKey(ignore: true)
   @override
@@ -1064,7 +1091,8 @@ abstract class _PlayerState implements PlayerState {
       required final bool shuffle,
       required final bool favorite,
       required final List<MySongModel> songs,
-      required final bool miniOn}) = _$PlayerStateImpl;
+      required final bool? miniOn,
+      required final bool randomGenerated}) = _$PlayerStateImpl;
 
   @override
   int? get index;
@@ -1081,7 +1109,9 @@ abstract class _PlayerState implements PlayerState {
   @override
   List<MySongModel> get songs;
   @override
-  bool get miniOn;
+  bool? get miniOn;
+  @override
+  bool get randomGenerated;
   @override
   @JsonKey(ignore: true)
   _$$PlayerStateImplCopyWith<_$PlayerStateImpl> get copyWith =>

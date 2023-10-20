@@ -28,6 +28,7 @@ class BottomNavigationScreen extends StatelessWidget {
                     buildWhen: (previous, current) =>
                         previous.index != current.index!,
                     builder: (context, state) {
+                      print(state.miniOn);
                       return state.miniOn == true
                           ? SingleChildScrollView(
                               child: MIniPlayer(mysongs: state.songs))

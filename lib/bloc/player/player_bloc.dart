@@ -14,9 +14,13 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     positionStream();
     on<PlaySong>((event, emit) async {
       final index = event.index;
-      print(index);
       playSong(event.mysongs[index].url);
-      emit(state.copyWith(index: index, playing: true, miniOn: true));
+      emit(state.copyWith(
+        index: index,
+        playing: true,
+        miniOn: true,
+        songs: event.mysongs,
+      ));
     });
 
     on<PauseSong>((event, emit) async {
@@ -43,19 +47,22 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     await player.play();
   }
 
-  positionStream() {
+  positionStream() async {
     var position;
     try {
       Future.sync(() {
-        player.positionStream.listen((event) {
+        player.positionStream.listen((event) async {
           position = event.inMilliseconds + 100;
-          final randomIndex = Random().nextInt(state.songs.length);
+
           emit(state.copyWith(position: position));
           if (state.position >= state.songs[state.index!].duration!.toInt()) {
+            final randomIndex = Random().nextInt(state.songs.length);
+            emit(state.copyWith(randomGenerated: true));
             if (state.loop) {
-              add(PlaySong(index: state.index!, mysongs: state.songs));
-            } else if (state.shuffle) {
+              add(await PlaySong(index: state.index!, mysongs: state.songs));
+            } else if (state.shuffle && state.randomGenerated) {
               add(PlaySong(index: randomIndex, mysongs: state.songs));
+              emit(state.copyWith(randomGenerated: false));
             } else {
               add(PlaySong(index: state.index! + 1, mysongs: state.songs));
             }
