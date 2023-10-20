@@ -54,7 +54,20 @@ class PlaylistSongsScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    trailing: Icon(Icons.more_vert),
+                    trailing: PopupMenuButton(
+                        child: Icon(Icons.more_vert),
+                        itemBuilder: (ctx) {
+                          return [
+                            PopupMenuItem(
+                                onTap: () {
+                                  BlocProvider.of<PlaylistsBloc>(context).add(
+                                      PlaylistsEvent.deleteSong(
+                                          songIndex: i, playlistIndex: dbkey));
+                                },
+                                child: Text("Delete")),
+                            PopupMenuItem(child: Text("Share"))
+                          ];
+                        }),
                   ),
                 );
               },

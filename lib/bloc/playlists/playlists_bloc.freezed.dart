@@ -22,6 +22,7 @@ mixin _$PlaylistsEvent {
     required TResult Function(MyPlaylistModel playlist) addPlaylist,
     required TResult Function(MySongModel song, int index) addSong,
     required TResult Function(int index) deletePlaylist,
+    required TResult Function(int songIndex, int playlistIndex) deleteSong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$PlaylistsEvent {
     TResult? Function(MyPlaylistModel playlist)? addPlaylist,
     TResult? Function(MySongModel song, int index)? addSong,
     TResult? Function(int index)? deletePlaylist,
+    TResult? Function(int songIndex, int playlistIndex)? deleteSong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$PlaylistsEvent {
     TResult Function(MyPlaylistModel playlist)? addPlaylist,
     TResult Function(MySongModel song, int index)? addSong,
     TResult Function(int index)? deletePlaylist,
+    TResult Function(int songIndex, int playlistIndex)? deleteSong,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$PlaylistsEvent {
     required TResult Function(AddPlaylist value) addPlaylist,
     required TResult Function(AddSong value) addSong,
     required TResult Function(DeletePlaylist value) deletePlaylist,
+    required TResult Function(DeleteSong value) deleteSong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$PlaylistsEvent {
     TResult? Function(AddPlaylist value)? addPlaylist,
     TResult? Function(AddSong value)? addSong,
     TResult? Function(DeletePlaylist value)? deletePlaylist,
+    TResult? Function(DeleteSong value)? deleteSong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$PlaylistsEvent {
     TResult Function(AddPlaylist value)? addPlaylist,
     TResult Function(AddSong value)? addSong,
     TResult Function(DeletePlaylist value)? deletePlaylist,
+    TResult Function(DeleteSong value)? deleteSong,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$StartedImpl implements Started {
     required TResult Function(MyPlaylistModel playlist) addPlaylist,
     required TResult Function(MySongModel song, int index) addSong,
     required TResult Function(int index) deletePlaylist,
+    required TResult Function(int songIndex, int playlistIndex) deleteSong,
   }) {
     return started();
   }
@@ -139,6 +146,7 @@ class _$StartedImpl implements Started {
     TResult? Function(MyPlaylistModel playlist)? addPlaylist,
     TResult? Function(MySongModel song, int index)? addSong,
     TResult? Function(int index)? deletePlaylist,
+    TResult? Function(int songIndex, int playlistIndex)? deleteSong,
   }) {
     return started?.call();
   }
@@ -150,6 +158,7 @@ class _$StartedImpl implements Started {
     TResult Function(MyPlaylistModel playlist)? addPlaylist,
     TResult Function(MySongModel song, int index)? addSong,
     TResult Function(int index)? deletePlaylist,
+    TResult Function(int songIndex, int playlistIndex)? deleteSong,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -165,6 +174,7 @@ class _$StartedImpl implements Started {
     required TResult Function(AddPlaylist value) addPlaylist,
     required TResult Function(AddSong value) addSong,
     required TResult Function(DeletePlaylist value) deletePlaylist,
+    required TResult Function(DeleteSong value) deleteSong,
   }) {
     return started(this);
   }
@@ -176,6 +186,7 @@ class _$StartedImpl implements Started {
     TResult? Function(AddPlaylist value)? addPlaylist,
     TResult? Function(AddSong value)? addSong,
     TResult? Function(DeletePlaylist value)? deletePlaylist,
+    TResult? Function(DeleteSong value)? deleteSong,
   }) {
     return started?.call(this);
   }
@@ -187,6 +198,7 @@ class _$StartedImpl implements Started {
     TResult Function(AddPlaylist value)? addPlaylist,
     TResult Function(AddSong value)? addSong,
     TResult Function(DeletePlaylist value)? deletePlaylist,
+    TResult Function(DeleteSong value)? deleteSong,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -269,6 +281,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
     required TResult Function(MyPlaylistModel playlist) addPlaylist,
     required TResult Function(MySongModel song, int index) addSong,
     required TResult Function(int index) deletePlaylist,
+    required TResult Function(int songIndex, int playlistIndex) deleteSong,
   }) {
     return addPlaylist(playlist);
   }
@@ -280,6 +293,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
     TResult? Function(MyPlaylistModel playlist)? addPlaylist,
     TResult? Function(MySongModel song, int index)? addSong,
     TResult? Function(int index)? deletePlaylist,
+    TResult? Function(int songIndex, int playlistIndex)? deleteSong,
   }) {
     return addPlaylist?.call(playlist);
   }
@@ -291,6 +305,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
     TResult Function(MyPlaylistModel playlist)? addPlaylist,
     TResult Function(MySongModel song, int index)? addSong,
     TResult Function(int index)? deletePlaylist,
+    TResult Function(int songIndex, int playlistIndex)? deleteSong,
     required TResult orElse(),
   }) {
     if (addPlaylist != null) {
@@ -306,6 +321,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
     required TResult Function(AddPlaylist value) addPlaylist,
     required TResult Function(AddSong value) addSong,
     required TResult Function(DeletePlaylist value) deletePlaylist,
+    required TResult Function(DeleteSong value) deleteSong,
   }) {
     return addPlaylist(this);
   }
@@ -317,6 +333,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
     TResult? Function(AddPlaylist value)? addPlaylist,
     TResult? Function(AddSong value)? addSong,
     TResult? Function(DeletePlaylist value)? deletePlaylist,
+    TResult? Function(DeleteSong value)? deleteSong,
   }) {
     return addPlaylist?.call(this);
   }
@@ -328,6 +345,7 @@ class _$AddPlaylistImpl implements AddPlaylist {
     TResult Function(AddPlaylist value)? addPlaylist,
     TResult Function(AddSong value)? addSong,
     TResult Function(DeletePlaylist value)? deletePlaylist,
+    TResult Function(DeleteSong value)? deleteSong,
     required TResult orElse(),
   }) {
     if (addPlaylist != null) {
@@ -423,6 +441,7 @@ class _$AddSongImpl implements AddSong {
     required TResult Function(MyPlaylistModel playlist) addPlaylist,
     required TResult Function(MySongModel song, int index) addSong,
     required TResult Function(int index) deletePlaylist,
+    required TResult Function(int songIndex, int playlistIndex) deleteSong,
   }) {
     return addSong(song, index);
   }
@@ -434,6 +453,7 @@ class _$AddSongImpl implements AddSong {
     TResult? Function(MyPlaylistModel playlist)? addPlaylist,
     TResult? Function(MySongModel song, int index)? addSong,
     TResult? Function(int index)? deletePlaylist,
+    TResult? Function(int songIndex, int playlistIndex)? deleteSong,
   }) {
     return addSong?.call(song, index);
   }
@@ -445,6 +465,7 @@ class _$AddSongImpl implements AddSong {
     TResult Function(MyPlaylistModel playlist)? addPlaylist,
     TResult Function(MySongModel song, int index)? addSong,
     TResult Function(int index)? deletePlaylist,
+    TResult Function(int songIndex, int playlistIndex)? deleteSong,
     required TResult orElse(),
   }) {
     if (addSong != null) {
@@ -460,6 +481,7 @@ class _$AddSongImpl implements AddSong {
     required TResult Function(AddPlaylist value) addPlaylist,
     required TResult Function(AddSong value) addSong,
     required TResult Function(DeletePlaylist value) deletePlaylist,
+    required TResult Function(DeleteSong value) deleteSong,
   }) {
     return addSong(this);
   }
@@ -471,6 +493,7 @@ class _$AddSongImpl implements AddSong {
     TResult? Function(AddPlaylist value)? addPlaylist,
     TResult? Function(AddSong value)? addSong,
     TResult? Function(DeletePlaylist value)? deletePlaylist,
+    TResult? Function(DeleteSong value)? deleteSong,
   }) {
     return addSong?.call(this);
   }
@@ -482,6 +505,7 @@ class _$AddSongImpl implements AddSong {
     TResult Function(AddPlaylist value)? addPlaylist,
     TResult Function(AddSong value)? addSong,
     TResult Function(DeletePlaylist value)? deletePlaylist,
+    TResult Function(DeleteSong value)? deleteSong,
     required TResult orElse(),
   }) {
     if (addSong != null) {
@@ -571,6 +595,7 @@ class _$DeletePlaylistImpl implements DeletePlaylist {
     required TResult Function(MyPlaylistModel playlist) addPlaylist,
     required TResult Function(MySongModel song, int index) addSong,
     required TResult Function(int index) deletePlaylist,
+    required TResult Function(int songIndex, int playlistIndex) deleteSong,
   }) {
     return deletePlaylist(index);
   }
@@ -582,6 +607,7 @@ class _$DeletePlaylistImpl implements DeletePlaylist {
     TResult? Function(MyPlaylistModel playlist)? addPlaylist,
     TResult? Function(MySongModel song, int index)? addSong,
     TResult? Function(int index)? deletePlaylist,
+    TResult? Function(int songIndex, int playlistIndex)? deleteSong,
   }) {
     return deletePlaylist?.call(index);
   }
@@ -593,6 +619,7 @@ class _$DeletePlaylistImpl implements DeletePlaylist {
     TResult Function(MyPlaylistModel playlist)? addPlaylist,
     TResult Function(MySongModel song, int index)? addSong,
     TResult Function(int index)? deletePlaylist,
+    TResult Function(int songIndex, int playlistIndex)? deleteSong,
     required TResult orElse(),
   }) {
     if (deletePlaylist != null) {
@@ -608,6 +635,7 @@ class _$DeletePlaylistImpl implements DeletePlaylist {
     required TResult Function(AddPlaylist value) addPlaylist,
     required TResult Function(AddSong value) addSong,
     required TResult Function(DeletePlaylist value) deletePlaylist,
+    required TResult Function(DeleteSong value) deleteSong,
   }) {
     return deletePlaylist(this);
   }
@@ -619,6 +647,7 @@ class _$DeletePlaylistImpl implements DeletePlaylist {
     TResult? Function(AddPlaylist value)? addPlaylist,
     TResult? Function(AddSong value)? addSong,
     TResult? Function(DeletePlaylist value)? deletePlaylist,
+    TResult? Function(DeleteSong value)? deleteSong,
   }) {
     return deletePlaylist?.call(this);
   }
@@ -630,6 +659,7 @@ class _$DeletePlaylistImpl implements DeletePlaylist {
     TResult Function(AddPlaylist value)? addPlaylist,
     TResult Function(AddSong value)? addSong,
     TResult Function(DeletePlaylist value)? deletePlaylist,
+    TResult Function(DeleteSong value)? deleteSong,
     required TResult orElse(),
   }) {
     if (deletePlaylist != null) {
@@ -645,6 +675,170 @@ abstract class DeletePlaylist implements PlaylistsEvent {
   int get index;
   @JsonKey(ignore: true)
   _$$DeletePlaylistImplCopyWith<_$DeletePlaylistImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteSongImplCopyWith<$Res> {
+  factory _$$DeleteSongImplCopyWith(
+          _$DeleteSongImpl value, $Res Function(_$DeleteSongImpl) then) =
+      __$$DeleteSongImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int songIndex, int playlistIndex});
+}
+
+/// @nodoc
+class __$$DeleteSongImplCopyWithImpl<$Res>
+    extends _$PlaylistsEventCopyWithImpl<$Res, _$DeleteSongImpl>
+    implements _$$DeleteSongImplCopyWith<$Res> {
+  __$$DeleteSongImplCopyWithImpl(
+      _$DeleteSongImpl _value, $Res Function(_$DeleteSongImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? songIndex = null,
+    Object? playlistIndex = null,
+  }) {
+    return _then(_$DeleteSongImpl(
+      songIndex: null == songIndex
+          ? _value.songIndex
+          : songIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      playlistIndex: null == playlistIndex
+          ? _value.playlistIndex
+          : playlistIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteSongImpl implements DeleteSong {
+  _$DeleteSongImpl({required this.songIndex, required this.playlistIndex});
+
+  @override
+  final int songIndex;
+  @override
+  final int playlistIndex;
+
+  @override
+  String toString() {
+    return 'PlaylistsEvent.deleteSong(songIndex: $songIndex, playlistIndex: $playlistIndex)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteSongImpl &&
+            (identical(other.songIndex, songIndex) ||
+                other.songIndex == songIndex) &&
+            (identical(other.playlistIndex, playlistIndex) ||
+                other.playlistIndex == playlistIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, songIndex, playlistIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteSongImplCopyWith<_$DeleteSongImpl> get copyWith =>
+      __$$DeleteSongImplCopyWithImpl<_$DeleteSongImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(MyPlaylistModel playlist) addPlaylist,
+    required TResult Function(MySongModel song, int index) addSong,
+    required TResult Function(int index) deletePlaylist,
+    required TResult Function(int songIndex, int playlistIndex) deleteSong,
+  }) {
+    return deleteSong(songIndex, playlistIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(MyPlaylistModel playlist)? addPlaylist,
+    TResult? Function(MySongModel song, int index)? addSong,
+    TResult? Function(int index)? deletePlaylist,
+    TResult? Function(int songIndex, int playlistIndex)? deleteSong,
+  }) {
+    return deleteSong?.call(songIndex, playlistIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(MyPlaylistModel playlist)? addPlaylist,
+    TResult Function(MySongModel song, int index)? addSong,
+    TResult Function(int index)? deletePlaylist,
+    TResult Function(int songIndex, int playlistIndex)? deleteSong,
+    required TResult orElse(),
+  }) {
+    if (deleteSong != null) {
+      return deleteSong(songIndex, playlistIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(AddPlaylist value) addPlaylist,
+    required TResult Function(AddSong value) addSong,
+    required TResult Function(DeletePlaylist value) deletePlaylist,
+    required TResult Function(DeleteSong value) deleteSong,
+  }) {
+    return deleteSong(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(AddPlaylist value)? addPlaylist,
+    TResult? Function(AddSong value)? addSong,
+    TResult? Function(DeletePlaylist value)? deletePlaylist,
+    TResult? Function(DeleteSong value)? deleteSong,
+  }) {
+    return deleteSong?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(AddPlaylist value)? addPlaylist,
+    TResult Function(AddSong value)? addSong,
+    TResult Function(DeletePlaylist value)? deletePlaylist,
+    TResult Function(DeleteSong value)? deleteSong,
+    required TResult orElse(),
+  }) {
+    if (deleteSong != null) {
+      return deleteSong(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteSong implements PlaylistsEvent {
+  factory DeleteSong(
+      {required final int songIndex,
+      required final int playlistIndex}) = _$DeleteSongImpl;
+
+  int get songIndex;
+  int get playlistIndex;
+  @JsonKey(ignore: true)
+  _$$DeleteSongImplCopyWith<_$DeleteSongImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

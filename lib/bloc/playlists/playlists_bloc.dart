@@ -44,5 +44,16 @@ class PlaylistsBloc extends Bloc<PlaylistsEvent, PlaylistsState> {
 
       emit(state.copyWith(playlistModels: updatedPlaylistModels));
     });
+
+    on<DeleteSong>((event, emit) {
+      final MyPlaylistModel playlist = myDb.get(event.playlistIndex);
+      final updatedPlaylist = MyPlaylistModel(
+          id: playlist.id,
+          name: playlist.name,
+          playlistSongs: playlist.playlistSongs..removeAt(event.songIndex));
+      myDb.put(event.playlistIndex, updatedPlaylist);
+      final List UpdatedPlaylistModels = myDb.values.toList();
+      emit(state.copyWith(playlistModels: UpdatedPlaylistModels));
+    });
   }
 }

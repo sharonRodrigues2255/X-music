@@ -11,4 +11,9 @@ class PlaylistsEvent with _$PlaylistsEvent {
       {required MySongModel song, required int index}) = AddSong;
 
   factory PlaylistsEvent.deletePlaylist({required int index}) = DeletePlaylist;
+
+  factory PlaylistsEvent.deleteSong({
+    required int songIndex,
+    required int playlistIndex,
+  }) = DeleteSong;
 }
