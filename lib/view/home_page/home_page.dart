@@ -6,6 +6,7 @@ import 'package:musicplayer_project/utils/images/images_constants.dart';
 import 'package:musicplayer_project/view/favorites/favorites.dart';
 import 'package:musicplayer_project/view/home_page/widgets/button_square_button.dart';
 import 'package:musicplayer_project/view/home_page/widgets/carousal_slider_widget.dart';
+import 'package:musicplayer_project/view/search/search.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -20,7 +21,11 @@ class HomePage extends StatelessWidget {
           style: myfontBold(size: 28.0),
         ),
         actions: [
-          const Icon(Icons.search),
+          InkWell(
+              onTap: () {
+                showSearch(context: context, delegate: SearchScreen());
+              },
+              child: const Icon(Icons.search)),
           kwidth10,
           const Icon(Icons.more_vert),
           kwidth10
