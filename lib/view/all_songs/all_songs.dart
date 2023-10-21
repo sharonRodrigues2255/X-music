@@ -13,7 +13,7 @@ class AllSongs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Xusic"),
+        title: const Text("Xusic"),
         centerTitle: true,
       ),
       body: ListView.builder(
@@ -22,7 +22,7 @@ class AllSongs extends StatelessWidget {
           final song = allSongsList[index];
           return Card(
             child: ListTile(
-              tileColor: Colors.black45,
+              tileColor: Colors.black54,
               style: ListTileStyle.list,
               onTap: () {
                 Get.to(PlayerScreen(mysongs: allSongsList));
@@ -34,7 +34,7 @@ class AllSongs extends StatelessWidget {
               leading: QueryArtworkWidget(
                 id: song.id,
                 type: ArtworkType.AUDIO,
-                nullArtworkWidget: CircleAvatar(
+                nullArtworkWidget: const CircleAvatar(
                   radius: 25,
                   child: Icon(
                     Icons.music_note,
@@ -42,7 +42,7 @@ class AllSongs extends StatelessWidget {
                   ),
                 ),
               ),
-              trailing: Icon(Icons.more_vert),
+              trailing: const Icon(Icons.more_vert),
             ),
           );
         },

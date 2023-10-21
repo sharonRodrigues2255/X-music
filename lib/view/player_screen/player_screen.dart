@@ -91,14 +91,16 @@ class PlayerScreen extends StatelessWidget {
                       IconButton(
                           onPressed: () {
                             BlocProvider.of<PlayerBloc>(context)
-                                .add(Isfavorite(isfavorite: !state.favorite));
+                                .add(Isfavorite(song: mysongs[state.index!]));
                           },
-                          icon: state.favorite
+                          icon: state.favorite == true
                               ? Icon(
                                   Icons.favorite,
                                   color: Colors.red,
                                 )
-                              : Icon(Icons.favorite_border)),
+                              : state.favorite == false
+                                  ? Icon(Icons.favorite_border)
+                                  : Icon(Icons.favorite_border)),
                       IconButton(
                           onPressed: () {
                             playerBloc.add(LoopAndShuffle(

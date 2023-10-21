@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
 
@@ -10,18 +11,18 @@ part 'player_state.dart';
 part 'player_bloc.freezed.dart';
 
 class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
+  var myFavSongs = Hive.box("Favorites");
   PlayerBloc() : super(PlayerState.playsong()) {
     positionStream();
 
     on<PlaySong>((event, emit) async {
       final index = event.index;
-
       emit(state.copyWith(
-        index: index,
-        playing: true,
-        miniOn: true,
-        songs: event.mysongs,
-      ));
+          index: index,
+          playing: true,
+          miniOn: true,
+          songs: event.mysongs,
+          favorite: myFavSongs.containsKey(event.mysongs[index!].id)));
       if (state.index != null) {
         playSong(event.mysongs[state.index!].url);
       }
@@ -46,7 +47,14 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     });
 
     on<Isfavorite>((event, emit) {
-      emit(state.copyWith(favorite: event.isfavorite));
+      if (event.song.favorite == false || event.song.favorite == null) {
+        myFavSongs.put(event.song.id, event.song);
+        event.song.favorite = true;
+      } else {
+        myFavSongs.delete(event.song.id);
+        event.song.favorite = false;
+      }
+      emit(state.copyWith(favorite: myFavSongs.containsKey(event.song.id)));
     });
   }
 

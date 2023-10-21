@@ -4,6 +4,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
 import 'package:musicplayer_project/bloc/playlists/playlists_bloc.dart';
+import 'package:musicplayer_project/model/favorites/favorites_model.dart';
 import 'package:musicplayer_project/model/playlist_model/my_playlist_model.dart';
 import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
@@ -20,6 +21,11 @@ void main() async {
     Hive.registerAdapter(MyPlaylistModelAdapter());
   }
 
+  if (!Hive.isAdapterRegistered(3)) {
+    Hive.registerAdapter(FavoritesAdapter());
+  }
+
+  var box2 = Hive.openBox("Favorites");
   var box = Hive.openBox("MySongBox");
 
   runApp(const MyApp());

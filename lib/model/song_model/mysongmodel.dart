@@ -29,7 +29,7 @@ class MySongModel extends HiveObject {
       required this.title,
       required this.displayName,
       required this.artist,
-      this.favorite,
+      this.favorite = false,
       required this.duration,
       required this.url});
 }

@@ -9,6 +9,7 @@ class Favorites extends StatelessWidget {
       appBar: AppBar(
         title: Text("Favorites"),
       ),
+      body: ListView.builder(itemBuilder: (context, index) {}),
     );
   }
 }

@@ -8,7 +8,7 @@ class PlayerState with _$PlayerState {
     required int position,
     required bool loop,
     required bool shuffle,
-    required bool favorite,
+    required bool? favorite,
     required List<MySongModel> songs,
     required bool? miniOn,
     required bool randomGenerated,

@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
 import 'package:musicplayer_project/utils/constants/sizes.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
+import 'package:musicplayer_project/utils/images/images_constants.dart';
 import 'package:musicplayer_project/view/favorites/favorites.dart';
 import 'package:musicplayer_project/view/home_page/widgets/button_square_button.dart';
 import 'package:musicplayer_project/view/home_page/widgets/carousal_slider_widget.dart';
+import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,9 +21,9 @@ class HomePage extends StatelessWidget {
           style: myfontBold(size: 28.0),
         ),
         actions: [
-          Icon(Icons.search),
+          const Icon(Icons.search),
           kwidth10,
-          Icon(Icons.more_vert),
+          const Icon(Icons.more_vert),
           kwidth10
         ],
       ),
@@ -36,19 +38,20 @@ class HomePage extends StatelessWidget {
                 style: myfontBold(color: kred, size: 22.0),
               ),
             ),
-            CarousalSliderWidget(),
+            const CarousalSliderWidget(),
             kheight20,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 GestureDetector(
-                  onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => Favorites())),
-                  child: ButtonSquareCard(
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const Favorites())),
+                  child: const ButtonSquareCard(
                     title: 'Favourites',
+                    image: AssetImage(ImagesConstants.favorites),
                   ),
                 ),
-                ButtonSquareCard(title: "Best Playlists")
+                const ButtonSquareCard(title: "Best Playlists")
               ],
             )
           ],
@@ -63,7 +66,6 @@ String greeting() {
   if (time >= 23 && time <= 6) {
     return "Good Night!!";
   } else if (time >= 6 && time <= 12) {
-    print("time = $time");
     return "Good Morning!!";
   } else if (time >= 12 && time <= 17) {
     return "Good Afternoon!!";
