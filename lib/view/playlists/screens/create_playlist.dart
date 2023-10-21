@@ -67,5 +67,3 @@ class CreatePlaylist extends StatelessWidget {
     );
   }
 }
-
-List<MyPlaylistModel> playlistmodels = [];

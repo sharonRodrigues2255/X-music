@@ -6,7 +6,6 @@ import 'package:musicplayer_project/utils/images/images_constants.dart';
 import 'package:musicplayer_project/view/favorites/favorites.dart';
 import 'package:musicplayer_project/view/home_page/widgets/button_square_button.dart';
 import 'package:musicplayer_project/view/home_page/widgets/carousal_slider_widget.dart';
-import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -44,8 +43,10 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 GestureDetector(
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const Favorites())),
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const Favorites()));
+                  },
                   child: const ButtonSquareCard(
                     title: 'Favourites',
                     image: AssetImage(ImagesConstants.favorites),

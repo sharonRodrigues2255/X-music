@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:musicplayer_project/bloc/favorites/favorites_bloc.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
 import 'package:musicplayer_project/bloc/playlists/playlists_bloc.dart';
 import 'package:musicplayer_project/model/favorites/favorites_model.dart';
