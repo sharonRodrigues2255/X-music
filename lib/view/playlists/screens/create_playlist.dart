@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:musicplayer_project/bloc/playlists/playlists_bloc.dart';
 import 'package:musicplayer_project/model/playlist_model/my_playlist_model.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';

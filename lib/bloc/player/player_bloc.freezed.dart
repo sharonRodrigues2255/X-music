@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PlayerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int index, List<MySongModel> mysongs) playSong,
+    required TResult Function(int? index, List<MySongModel> mysongs) playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
@@ -28,7 +28,7 @@ mixin _$PlayerEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult? Function(int? index, List<MySongModel> mysongs)? playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
@@ -38,7 +38,7 @@ mixin _$PlayerEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult Function(int? index, List<MySongModel> mysongs)? playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
@@ -104,7 +104,7 @@ abstract class _$$PlaySongImplCopyWith<$Res> {
           _$PlaySongImpl value, $Res Function(_$PlaySongImpl) then) =
       __$$PlaySongImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int index, List<MySongModel> mysongs});
+  $Res call({int? index, List<MySongModel> mysongs});
 }
 
 /// @nodoc
@@ -118,14 +118,14 @@ class __$$PlaySongImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = null,
+    Object? index = freezed,
     Object? mysongs = null,
   }) {
     return _then(_$PlaySongImpl(
-      index: null == index
+      index: freezed == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       mysongs: null == mysongs
           ? _value._mysongs
           : mysongs // ignore: cast_nullable_to_non_nullable
@@ -142,7 +142,7 @@ class _$PlaySongImpl implements PlaySong {
       : _mysongs = mysongs;
 
   @override
-  final int index;
+  final int? index;
   final List<MySongModel> _mysongs;
   @override
   List<MySongModel> get mysongs {
@@ -178,7 +178,7 @@ class _$PlaySongImpl implements PlaySong {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int index, List<MySongModel> mysongs) playSong,
+    required TResult Function(int? index, List<MySongModel> mysongs) playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
@@ -191,7 +191,7 @@ class _$PlaySongImpl implements PlaySong {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult? Function(int? index, List<MySongModel> mysongs)? playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
@@ -204,7 +204,7 @@ class _$PlaySongImpl implements PlaySong {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult Function(int? index, List<MySongModel> mysongs)? playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
@@ -264,10 +264,10 @@ class _$PlaySongImpl implements PlaySong {
 
 abstract class PlaySong implements PlayerEvent {
   const factory PlaySong(
-      {required final int index,
+      {required final int? index,
       required final List<MySongModel> mysongs}) = _$PlaySongImpl;
 
-  int get index;
+  int? get index;
   List<MySongModel> get mysongs;
   @JsonKey(ignore: true)
   _$$PlaySongImplCopyWith<_$PlaySongImpl> get copyWith =>
@@ -312,7 +312,7 @@ class _$PauseSongImpl implements PauseSong {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int index, List<MySongModel> mysongs) playSong,
+    required TResult Function(int? index, List<MySongModel> mysongs) playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
@@ -325,7 +325,7 @@ class _$PauseSongImpl implements PauseSong {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult? Function(int? index, List<MySongModel> mysongs)? playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
@@ -338,7 +338,7 @@ class _$PauseSongImpl implements PauseSong {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult Function(int? index, List<MySongModel> mysongs)? playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
@@ -438,7 +438,7 @@ class _$ContinueSongImpl implements ContinueSong {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int index, List<MySongModel> mysongs) playSong,
+    required TResult Function(int? index, List<MySongModel> mysongs) playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
@@ -451,7 +451,7 @@ class _$ContinueSongImpl implements ContinueSong {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult? Function(int? index, List<MySongModel> mysongs)? playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
@@ -464,7 +464,7 @@ class _$ContinueSongImpl implements ContinueSong {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult Function(int? index, List<MySongModel> mysongs)? playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
@@ -591,7 +591,7 @@ class _$OnSeekImpl implements OnSeek {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int index, List<MySongModel> mysongs) playSong,
+    required TResult Function(int? index, List<MySongModel> mysongs) playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
@@ -604,7 +604,7 @@ class _$OnSeekImpl implements OnSeek {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult? Function(int? index, List<MySongModel> mysongs)? playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
@@ -617,7 +617,7 @@ class _$OnSeekImpl implements OnSeek {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult Function(int? index, List<MySongModel> mysongs)? playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
@@ -757,7 +757,7 @@ class _$LoopAndShuffleImpl implements LoopAndShuffle {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int index, List<MySongModel> mysongs) playSong,
+    required TResult Function(int? index, List<MySongModel> mysongs) playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
@@ -770,7 +770,7 @@ class _$LoopAndShuffleImpl implements LoopAndShuffle {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult? Function(int? index, List<MySongModel> mysongs)? playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
@@ -783,7 +783,7 @@ class _$LoopAndShuffleImpl implements LoopAndShuffle {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult Function(int? index, List<MySongModel> mysongs)? playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
@@ -918,7 +918,7 @@ class _$IsfavoriteImpl implements Isfavorite {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int index, List<MySongModel> mysongs) playSong,
+    required TResult Function(int? index, List<MySongModel> mysongs) playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
@@ -931,7 +931,7 @@ class _$IsfavoriteImpl implements Isfavorite {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult? Function(int? index, List<MySongModel> mysongs)? playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
@@ -944,7 +944,7 @@ class _$IsfavoriteImpl implements Isfavorite {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int index, List<MySongModel> mysongs)? playSong,
+    TResult Function(int? index, List<MySongModel> mysongs)? playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,

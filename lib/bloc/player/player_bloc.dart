@@ -12,15 +12,19 @@ part 'player_bloc.freezed.dart';
 class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
   PlayerBloc() : super(PlayerState.playsong()) {
     positionStream();
+
     on<PlaySong>((event, emit) async {
       final index = event.index;
-      playSong(event.mysongs[index].url);
+
       emit(state.copyWith(
         index: index,
         playing: true,
         miniOn: true,
         songs: event.mysongs,
       ));
+      if (state.index != null) {
+        playSong(event.mysongs[state.index!].url);
+      }
     });
 
     on<PauseSong>((event, emit) async {
@@ -48,7 +52,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
 
   playSong(String? url) async {
     await player.setUrl(url!);
-    await player.play();
+    player.play();
   }
 
   positionStream() async {
