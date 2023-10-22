@@ -4,6 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
 import 'package:musicplayer_project/bloc/your_top_ten/your_top_ten_bloc.dart';
+import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 import 'package:musicplayer_project/view/player_screen/player_screen.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
@@ -17,14 +18,16 @@ class MostlyPlayed extends StatelessWidget {
     BlocProvider.of<YourTopTenBloc>(context).add(YourTopTenEvent.mostly());
     return BlocBuilder<YourTopTenBloc, YourTopTenState>(
       builder: (context, state) {
-        print(state.songsLIst[1].playedTimes);
-        var mostly = List.from(state.songsLIst)
-          ..sort((a, b) => b.playedTimes.compareTo(a.playedTimes));
-        var mostlyPlayedSongs = state.songsLIst;
+        List<MySongModel> mostlyPlayedSongs = List.from(state.songsLIst)
+          ..sort(
+            (a, b) => b.playedTimes!.compareTo(a.playedTimes!),
+          );
+
         return ListView.builder(
           itemCount: mostlyPlayedSongs.length,
           itemBuilder: (context, index) {
             final song = mostlyPlayedSongs[index];
+            print(song.playedTimes);
 
             return Card(
               child: ListTile(

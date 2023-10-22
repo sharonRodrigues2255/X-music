@@ -21,6 +21,7 @@ class YourTopTenBloc extends Bloc<YourTopTenEvent, YourTopTenState> {
               displayName: e.displayName,
               artist: e.artist,
               duration: e.duration,
+              playedTimes: e.playedTimes,
               url: e.url))
           .toList();
       emit(state.copyWith(songsLIst: mostlySongslist));
