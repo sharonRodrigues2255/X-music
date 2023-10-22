@@ -1,8 +1,11 @@
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:musicplayer_project/bloc/your_top_ten/your_top_ten_bloc.dart';
 import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
 
@@ -12,6 +15,7 @@ part 'player_bloc.freezed.dart';
 
 class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
   var myFavSongs = Hive.box("Favorites");
+  var yourtoptenbloc = YourTopTenBloc();
   PlayerBloc() : super(PlayerState.playsong()) {
     positionStream();
 
@@ -23,8 +27,8 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
           miniOn: true,
           songs: event.mysongs,
           favorite: myFavSongs.containsKey(event.mysongs[index].id)));
-
       playSong(event.mysongs[state.index.toInt()].url);
+      yourtoptenbloc.mostlyPlayed(event.mysongs[state.index]);
     });
 
     on<PauseSong>((event, emit) async {

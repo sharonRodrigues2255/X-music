@@ -15,7 +15,7 @@ class MIniPlayer extends StatelessWidget {
   final List<MySongModel> mysongs;
   @override
   Widget build(BuildContext context) {
-    final playerBloc = PlayerBloc();
+    final playerBloc = BlocProvider.of<PlayerBloc>(context);
 
     return BlocBuilder<PlayerBloc, PlayerState>(
       buildWhen: (previous, current) => current.index != previous.index,
@@ -66,9 +66,12 @@ class MIniPlayer extends StatelessWidget {
                                 type: ArtworkType.AUDIO,
                                 nullArtworkWidget: Hero(
                                   tag: "player",
-                                  child: Icon(
-                                    Icons.music_video_rounded,
-                                    size: 20,
+                                  child: CircleAvatar(
+                                    radius: 21,
+                                    child: Icon(
+                                      Icons.music_note,
+                                      size: 20,
+                                    ),
                                   ),
                                 ),
                               ),

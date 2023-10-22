@@ -24,12 +24,16 @@ class MySongModel extends HiveObject {
   @HiveField(7)
   bool? favorite;
 
+  @HiveField(8)
+  int? playedTimes;
+
   MySongModel(
       {required this.id,
       required this.title,
       required this.displayName,
       required this.artist,
       this.favorite = false,
+      this.playedTimes = 0,
       required this.duration,
       required this.url});
 }

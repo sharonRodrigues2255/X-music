@@ -1,32 +1,35 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'favorites_model.dart';
+part of 'recently_played.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class FavoritesAdapter extends TypeAdapter<Favorites> {
+class RecentlyPlayedAdapter extends TypeAdapter<RecentlyPlayed> {
   @override
   final int typeId = 3;
 
   @override
-  Favorites read(BinaryReader reader) {
+  RecentlyPlayed read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Favorites(
-      favoriteSongs: (fields[0] as List).cast<MySongModel>(),
+    return RecentlyPlayed(
+      index: fields[0] as int,
+      song: fields[1] as MySongModel,
     );
   }
 
   @override
-  void write(BinaryWriter writer, Favorites obj) {
+  void write(BinaryWriter writer, RecentlyPlayed obj) {
     writer
-      ..writeByte(1)
+      ..writeByte(2)
       ..writeByte(0)
-      ..write(obj.favoriteSongs);
+      ..write(obj.index)
+      ..writeByte(1)
+      ..write(obj.song);
   }
 
   @override
@@ -35,7 +38,7 @@ class FavoritesAdapter extends TypeAdapter<Favorites> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is FavoritesAdapter &&
+      other is RecentlyPlayedAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

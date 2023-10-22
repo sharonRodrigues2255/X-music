@@ -15,6 +15,7 @@ import 'package:musicplayer_project/view/home_page/widgets/subtitile_widget.dart
 import 'package:musicplayer_project/view/player_screen/player_screen.dart';
 import 'package:musicplayer_project/view/search/search.dart';
 import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
+import 'package:musicplayer_project/view/your_top_10/your_top_ten_screen.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class HomePage extends StatelessWidget {
@@ -64,9 +65,15 @@ class HomePage extends StatelessWidget {
                     image: AssetImage(ImagesConstants.favorites),
                   ),
                 ),
-                const ButtonSquareCard(
-                  title: "Your top 10",
-                  image: AssetImage(ImagesConstants.top10),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => YourTopTen()));
+                  },
+                  child: const ButtonSquareCard(
+                    title: "Your top 10",
+                    image: AssetImage(ImagesConstants.top10),
+                  ),
                 ),
               ],
             ),
@@ -91,21 +98,18 @@ class HomePage extends StatelessWidget {
                         artworkFit: BoxFit.cover,
                         id: allSongsList[randomIndex].id,
                         type: ArtworkType.AUDIO,
-                        nullArtworkWidget: Hero(
-                          tag: "player",
-                          child: CircleAvatar(
-                            radius: 14,
-                            child: Icon(
-                              Icons.music_note,
-                              size: 25,
-                            ),
+                        nullArtworkWidget: CircleAvatar(
+                          radius: 14,
+                          child: Icon(
+                            Icons.music_note,
+                            size: 25,
                           ),
                         ),
                       ),
                     ),
                     kwidth20,
                     kwidth10,
-                    Container(
+                    SizedBox(
                       width: MediaQuery.sizeOf(context).width / 2,
                       child: Center(
                         child: Padding(
@@ -140,7 +144,6 @@ class HomePage extends StatelessWidget {
 
 String greeting() {
   final time = DateTime.now().hour;
-  print(time);
   if (time >= 23 && time <= 5) {
     return "Good Night!!";
   } else if (time >= 6 && time <= 11) {

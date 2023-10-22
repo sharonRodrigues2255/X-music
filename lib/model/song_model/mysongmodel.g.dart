@@ -22,6 +22,7 @@ class MySongModelAdapter extends TypeAdapter<MySongModel> {
       displayName: fields[2] as String,
       artist: fields[3] as String,
       favorite: fields[7] as bool?,
+      playedTimes: fields[8] as int?,
       duration: fields[6] as int?,
       url: fields[4] as String?,
     );
@@ -30,7 +31,7 @@ class MySongModelAdapter extends TypeAdapter<MySongModel> {
   @override
   void write(BinaryWriter writer, MySongModel obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -44,7 +45,9 @@ class MySongModelAdapter extends TypeAdapter<MySongModel> {
       ..writeByte(6)
       ..write(obj.duration)
       ..writeByte(7)
-      ..write(obj.favorite);
+      ..write(obj.favorite)
+      ..writeByte(8)
+      ..write(obj.playedTimes);
   }
 
   @override
