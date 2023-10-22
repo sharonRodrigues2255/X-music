@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -20,15 +19,19 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     positionStream();
 
     on<PlaySong>((event, emit) async {
-      final index = event.index;
-      emit(state.copyWith(
-          index: index!,
-          playing: true,
-          miniOn: true,
-          songs: event.mysongs,
-          favorite: myFavSongs.containsKey(event.mysongs[index].id)));
-      playSong(event.mysongs[state.index.toInt()].url);
-      yourtoptenbloc.mostlyPlayed(event.mysongs[state.index]);
+      if (state.songs[state.index].id != event.mysongs[event.index!].id ||
+          state.playing == false) {
+        final index = event.index;
+        emit(state.copyWith(
+            index: index!,
+            playing: true,
+            miniOn: true,
+            songs: event.mysongs,
+            favorite: myFavSongs.containsKey(event.mysongs[index].id)));
+
+        playSong(event.mysongs[state.index.toInt()].url);
+        yourtoptenbloc.mostlyPlayed(event.mysongs[state.index]);
+      }
     });
 
     on<PauseSong>((event, emit) async {

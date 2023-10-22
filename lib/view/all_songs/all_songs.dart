@@ -26,8 +26,8 @@ class AllSongs extends StatelessWidget {
               style: ListTileStyle.list,
               onTap: () {
                 Get.to(PlayerScreen(mysongs: allSongsList));
-                context.read<PlayerBloc>().add(
-                    PlayerEvent.playSong(index: index, mysongs: allSongsList));
+                BlocProvider.of<PlayerBloc>(context)
+                    .add(PlaySong(index: index, mysongs: allSongsList));
               },
               title: Text(song.displayName),
               subtitle: Text(song.artist),
