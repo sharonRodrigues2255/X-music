@@ -47,7 +47,7 @@ class PlayerScreen extends StatelessWidget {
                     width: mediaSize.width * .8,
                     height: mediaSize.width * .8,
                     child: QueryArtworkWidget(
-                      id: mysongs[state.index!].id,
+                      id: mysongs[state.index].id,
                       type: ArtworkType.AUDIO,
                       nullArtworkWidget: Hero(
                         tag: "player",
@@ -68,7 +68,7 @@ class PlayerScreen extends StatelessWidget {
                   return Hero(
                     tag: "name",
                     child: Text(
-                      mysongs[state.index!].title,
+                      mysongs[state.index].title,
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
@@ -80,7 +80,7 @@ class PlayerScreen extends StatelessWidget {
                   return previous.index != current.index;
                 },
                 builder: (context, state) {
-                  return Text(mysongs[state.index!].artist);
+                  return Text(mysongs[state.index].artist);
                 },
               ),
               BlocBuilder<PlayerBloc, PlayerState>(
@@ -91,7 +91,7 @@ class PlayerScreen extends StatelessWidget {
                       IconButton(
                           onPressed: () {
                             BlocProvider.of<PlayerBloc>(context)
-                                .add(Isfavorite(song: mysongs[state.index!]));
+                                .add(Isfavorite(song: mysongs[state.index]));
                           },
                           icon: state.favorite == true
                               ? Icon(

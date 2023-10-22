@@ -1,4 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:musicplayer_project/bloc/player/player_bloc.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
 import 'package:musicplayer_project/utils/constants/sizes.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
@@ -6,14 +10,19 @@ import 'package:musicplayer_project/utils/images/images_constants.dart';
 import 'package:musicplayer_project/view/favorites/favorites.dart';
 import 'package:musicplayer_project/view/home_page/widgets/button_square_button.dart';
 import 'package:musicplayer_project/view/home_page/widgets/carousal_slider_widget.dart';
+import 'package:musicplayer_project/view/home_page/widgets/search_songs.dart';
 import 'package:musicplayer_project/view/home_page/widgets/subtitile_widget.dart';
+import 'package:musicplayer_project/view/player_screen/player_screen.dart';
 import 'package:musicplayer_project/view/search/search.dart';
+import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
+import 'package:on_audio_query/on_audio_query.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var randomIndex = Random().nextInt(allSongsList.length);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kblack,
@@ -34,27 +43,7 @@ class HomePage extends StatelessWidget {
                 onTap: () {
                   showSearch(context: context, delegate: SearchScreen());
                 },
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.brown,
-                      borderRadius: BorderRadius.circular(10)),
-                  height: 43,
-                  width: double.infinity,
-                  child: Row(
-                    children: [
-                      kwidth10,
-                      Icon(
-                        Icons.search,
-                        size: 25,
-                      ),
-                      kwidth10,
-                      Text(
-                        "search for songs",
-                        style: myfontNormal(),
-                      ),
-                    ],
-                  ),
-                ),
+                child: SearchForSongsWidget(),
               ),
             ),
             SubtitleWidget(
@@ -83,6 +72,65 @@ class HomePage extends StatelessWidget {
             ),
             kheight10,
             SubtitleWidget(title: "Suggeted for you"),
+            Row(children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) =>
+                          PlayerScreen(mysongs: allSongsList)));
+                  BlocProvider.of<PlayerBloc>(context)
+                      .add(PlaySong(index: randomIndex, mysongs: allSongsList));
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    kwidth20,
+                    SizedBox(
+                      child: QueryArtworkWidget(
+                        artworkBorder: BorderRadius.circular(5),
+                        artworkFit: BoxFit.cover,
+                        id: allSongsList[randomIndex].id,
+                        type: ArtworkType.AUDIO,
+                        nullArtworkWidget: Hero(
+                          tag: "player",
+                          child: CircleAvatar(
+                            radius: 14,
+                            child: Icon(
+                              Icons.music_note,
+                              size: 25,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    kwidth20,
+                    kwidth10,
+                    Container(
+                      width: MediaQuery.sizeOf(context).width / 2,
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                allSongsList[randomIndex].displayName,
+                                style: myfontBold(size: 14.0),
+                              ),
+                              Text(
+                                allSongsList[randomIndex].artist,
+                                style: myfontNormal(size: 12.0),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ]),
+            kheight10
           ],
         ),
       ),

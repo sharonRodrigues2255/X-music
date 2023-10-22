@@ -62,7 +62,7 @@ class MIniPlayer extends StatelessWidget {
                               child: QueryArtworkWidget(
                                 artworkBorder: BorderRadius.circular(5),
                                 artworkFit: BoxFit.cover,
-                                id: mysongs[state.index!].id,
+                                id: mysongs[state.index].id,
                                 type: ArtworkType.AUDIO,
                                 nullArtworkWidget: Hero(
                                   tag: "player",
@@ -87,11 +87,11 @@ class MIniPlayer extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            mysongs[state.index!].displayName,
+                                            mysongs[state.index].displayName,
                                             style: myfontBold(size: 14.0),
                                           ),
                                           Text(
-                                            mysongs[state.index!].artist,
+                                            mysongs[state.index].artist,
                                             style: myfontNormal(size: 12.0),
                                           )
                                         ],

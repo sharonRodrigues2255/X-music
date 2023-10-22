@@ -18,14 +18,13 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     on<PlaySong>((event, emit) async {
       final index = event.index;
       emit(state.copyWith(
-          index: index,
+          index: index!,
           playing: true,
           miniOn: true,
           songs: event.mysongs,
-          favorite: myFavSongs.containsKey(event.mysongs[index!].id)));
-      if (state.index != null) {
-        playSong(event.mysongs[state.index!].url);
-      }
+          favorite: myFavSongs.containsKey(event.mysongs[index].id)));
+
+      playSong(event.mysongs[state.index.toInt()].url);
     });
 
     on<PauseSong>((event, emit) async {
@@ -71,17 +70,16 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
           position = event.inMilliseconds + 100;
 
           emit(state.copyWith(position: position));
-          if (state.position >=
-              state.songs[state.index ?? 0].duration!.toInt()) {
+          if (state.position >= state.songs[state.index].duration!.toInt()) {
             final randomIndex = Random().nextInt(state.songs.length);
             emit(state.copyWith(randomGenerated: true));
             if (state.loop) {
-              add(await PlaySong(index: state.index!, mysongs: state.songs));
+              add(PlaySong(index: state.index, mysongs: state.songs));
             } else if (state.shuffle && state.randomGenerated) {
               add(PlaySong(index: randomIndex, mysongs: state.songs));
               emit(state.copyWith(randomGenerated: false));
             } else {
-              add(PlaySong(index: state.index! + 1, mysongs: state.songs));
+              add(PlaySong(index: state.index + 1, mysongs: state.songs));
             }
           }
         });

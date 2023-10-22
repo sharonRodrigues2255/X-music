@@ -1012,7 +1012,7 @@ abstract class Isfavorite implements PlayerEvent {
 
 /// @nodoc
 mixin _$PlayerState {
-  int? get index => throw _privateConstructorUsedError;
+  int get index => throw _privateConstructorUsedError;
   bool get playing => throw _privateConstructorUsedError;
   int get position => throw _privateConstructorUsedError;
   bool get loop => throw _privateConstructorUsedError;
@@ -1034,7 +1034,7 @@ abstract class $PlayerStateCopyWith<$Res> {
       _$PlayerStateCopyWithImpl<$Res, PlayerState>;
   @useResult
   $Res call(
-      {int? index,
+      {int index,
       bool playing,
       int position,
       bool loop,
@@ -1058,7 +1058,7 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
     Object? playing = null,
     Object? position = null,
     Object? loop = null,
@@ -1069,10 +1069,10 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
     Object? randomGenerated = null,
   }) {
     return _then(_value.copyWith(
-      index: freezed == index
+      index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       playing: null == playing
           ? _value.playing
           : playing // ignore: cast_nullable_to_non_nullable
@@ -1118,7 +1118,7 @@ abstract class _$$PlayerStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? index,
+      {int index,
       bool playing,
       int position,
       bool loop,
@@ -1140,7 +1140,7 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
     Object? playing = null,
     Object? position = null,
     Object? loop = null,
@@ -1151,10 +1151,10 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
     Object? randomGenerated = null,
   }) {
     return _then(_$PlayerStateImpl(
-      index: freezed == index
+      index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       playing: null == playing
           ? _value.playing
           : playing // ignore: cast_nullable_to_non_nullable
@@ -1207,7 +1207,7 @@ class _$PlayerStateImpl implements _PlayerState {
       : _songs = songs;
 
   @override
-  final int? index;
+  final int index;
   @override
   final bool playing;
   @override
@@ -1277,7 +1277,7 @@ class _$PlayerStateImpl implements _PlayerState {
 
 abstract class _PlayerState implements PlayerState {
   const factory _PlayerState(
-      {required final int? index,
+      {required final int index,
       required final bool playing,
       required final int position,
       required final bool loop,
@@ -1288,7 +1288,7 @@ abstract class _PlayerState implements PlayerState {
       required final bool randomGenerated}) = _$PlayerStateImpl;
 
   @override
-  int? get index;
+  int get index;
   @override
   bool get playing;
   @override
