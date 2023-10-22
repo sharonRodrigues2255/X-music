@@ -140,13 +140,14 @@ class HomePage extends StatelessWidget {
 
 String greeting() {
   final time = DateTime.now().hour;
-  if (time >= 23 && time <= 6) {
+  print(time);
+  if (time >= 23 && time <= 5) {
     return "Good Night!!";
-  } else if (time >= 6 && time <= 12) {
+  } else if (time >= 6 && time <= 11) {
     return "Good Morning!!";
-  } else if (time >= 12 && time <= 17) {
+  } else if (time >= 12 && time <= 16) {
     return "Good Afternoon!!";
-  } else if (time >= 17 && time <= 23) {
+  } else if (time >= 17 && time <= 22) {
     return "Good Evening!!";
   } else {
     return "Parelel time";

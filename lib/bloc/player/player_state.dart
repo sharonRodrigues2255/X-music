@@ -14,8 +14,8 @@ class PlayerState with _$PlayerState {
     required bool randomGenerated,
   }) = _PlayerState;
   factory PlayerState.playsong() => PlayerState(
-      index: 1000,
-      playing: true,
+      index: 0,
+      playing: false,
       position: 0,
       loop: false,
       shuffle: false,
