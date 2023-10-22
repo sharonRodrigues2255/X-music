@@ -6,6 +6,7 @@ import 'package:musicplayer_project/utils/images/images_constants.dart';
 import 'package:musicplayer_project/view/favorites/favorites.dart';
 import 'package:musicplayer_project/view/home_page/widgets/button_square_button.dart';
 import 'package:musicplayer_project/view/home_page/widgets/carousal_slider_widget.dart';
+import 'package:musicplayer_project/view/home_page/widgets/subtitile_widget.dart';
 import 'package:musicplayer_project/view/search/search.dart';
 
 class HomePage extends StatelessWidget {
@@ -20,27 +21,44 @@ class HomePage extends StatelessWidget {
           greeting().toString(),
           style: myfontBold(size: 28.0),
         ),
-        actions: [
-          InkWell(
-              onTap: () {
-                showSearch(context: context, delegate: SearchScreen());
-              },
-              child: const Icon(Icons.search)),
-          kwidth10,
-          const Icon(Icons.more_vert),
-          kwidth10
-        ],
+        actions: [const Icon(Icons.more_vert), kwidth10],
       ),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Text(
-                "All Songs",
-                style: myfontBold(color: kred, size: 22.0),
+              padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 14),
+              child: InkWell(
+                onTap: () {
+                  showSearch(context: context, delegate: SearchScreen());
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.brown,
+                      borderRadius: BorderRadius.circular(10)),
+                  height: 43,
+                  width: double.infinity,
+                  child: Row(
+                    children: [
+                      kwidth10,
+                      Icon(
+                        Icons.search,
+                        size: 25,
+                      ),
+                      kwidth10,
+                      Text(
+                        "search for songs",
+                        style: myfontNormal(),
+                      ),
+                    ],
+                  ),
+                ),
               ),
+            ),
+            SubtitleWidget(
+              title: "All Songs",
             ),
             const CarousalSliderWidget(),
             kheight20,
@@ -57,9 +75,14 @@ class HomePage extends StatelessWidget {
                     image: AssetImage(ImagesConstants.favorites),
                   ),
                 ),
-                const ButtonSquareCard(title: "Best Playlists")
+                const ButtonSquareCard(
+                  title: "Your top 10",
+                  image: AssetImage(ImagesConstants.top10),
+                ),
               ],
-            )
+            ),
+            kheight10,
+            SubtitleWidget(title: "Suggeted for you"),
           ],
         ),
       ),

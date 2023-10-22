@@ -39,7 +39,7 @@ class Playlists extends StatelessWidget {
                           ),
                         );
                       },
-                      tileColor: Colors.black54,
+                      tileColor: Colors.black54.withOpacity(.6),
                       leading: CircleAvatar(
                         backgroundColor: kblack,
                         radius: 25,

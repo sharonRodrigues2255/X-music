@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
 import 'package:musicplayer_project/view/all_songs/all_songs.dart';
-import 'package:musicplayer_project/view/all_songs/widgets/mini_player.dart';
+import 'package:musicplayer_project/view/bottom_navigation/widgets/mini_player.dart';
 import 'package:musicplayer_project/view/home_page/home_page.dart';
 import 'package:musicplayer_project/view/playlists/playlists.dart';
 
