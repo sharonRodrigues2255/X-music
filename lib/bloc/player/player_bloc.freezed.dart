@@ -1013,7 +1013,7 @@ abstract class Isfavorite implements PlayerEvent {
 /// @nodoc
 mixin _$PlayerState {
   int get index => throw _privateConstructorUsedError;
-  bool get playing => throw _privateConstructorUsedError;
+  bool? get playing => throw _privateConstructorUsedError;
   int get position => throw _privateConstructorUsedError;
   bool get loop => throw _privateConstructorUsedError;
   bool get shuffle => throw _privateConstructorUsedError;
@@ -1035,7 +1035,7 @@ abstract class $PlayerStateCopyWith<$Res> {
   @useResult
   $Res call(
       {int index,
-      bool playing,
+      bool? playing,
       int position,
       bool loop,
       bool shuffle,
@@ -1059,7 +1059,7 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
   @override
   $Res call({
     Object? index = null,
-    Object? playing = null,
+    Object? playing = freezed,
     Object? position = null,
     Object? loop = null,
     Object? shuffle = null,
@@ -1073,10 +1073,10 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      playing: null == playing
+      playing: freezed == playing
           ? _value.playing
           : playing // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       position: null == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -1119,7 +1119,7 @@ abstract class _$$PlayerStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {int index,
-      bool playing,
+      bool? playing,
       int position,
       bool loop,
       bool shuffle,
@@ -1141,7 +1141,7 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? index = null,
-    Object? playing = null,
+    Object? playing = freezed,
     Object? position = null,
     Object? loop = null,
     Object? shuffle = null,
@@ -1155,10 +1155,10 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      playing: null == playing
+      playing: freezed == playing
           ? _value.playing
           : playing // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       position: null == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -1196,7 +1196,7 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
 class _$PlayerStateImpl implements _PlayerState {
   const _$PlayerStateImpl(
       {required this.index,
-      required this.playing,
+      this.playing,
       required this.position,
       required this.loop,
       required this.shuffle,
@@ -1209,7 +1209,7 @@ class _$PlayerStateImpl implements _PlayerState {
   @override
   final int index;
   @override
-  final bool playing;
+  final bool? playing;
   @override
   final int position;
   @override
@@ -1278,7 +1278,7 @@ class _$PlayerStateImpl implements _PlayerState {
 abstract class _PlayerState implements PlayerState {
   const factory _PlayerState(
       {required final int index,
-      required final bool playing,
+      final bool? playing,
       required final int position,
       required final bool loop,
       required final bool shuffle,
@@ -1290,7 +1290,7 @@ abstract class _PlayerState implements PlayerState {
   @override
   int get index;
   @override
-  bool get playing;
+  bool? get playing;
   @override
   int get position;
   @override

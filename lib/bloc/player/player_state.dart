@@ -4,7 +4,7 @@ part of 'player_bloc.dart';
 class PlayerState with _$PlayerState {
   const factory PlayerState({
     required int index,
-    required bool playing,
+    bool? playing,
     required int position,
     required bool loop,
     required bool shuffle,
@@ -15,7 +15,6 @@ class PlayerState with _$PlayerState {
   }) = _PlayerState;
   factory PlayerState.playsong() => PlayerState(
       index: 0,
-      playing: false,
       position: 0,
       loop: false,
       shuffle: false,

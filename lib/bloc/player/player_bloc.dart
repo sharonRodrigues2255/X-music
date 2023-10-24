@@ -20,7 +20,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
 
     on<PlaySong>((event, emit) async {
       if (state.songs[state.index].id != event.mysongs[event.index!].id ||
-          state.playing == false) {
+          state.playing == null) {
         final index = event.index;
         emit(state.copyWith(
             index: index!,
@@ -30,7 +30,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
             favorite: myFavSongs.containsKey(event.mysongs[index].id)));
 
         playSong(event.mysongs[state.index.toInt()].url);
-        yourtoptenbloc.mostlyPlayed(event.mysongs[state.index]);
+        yourtoptenbloc.mostlyAndRecentlyPlayed(event.mysongs[state.index]);
       }
     });
 

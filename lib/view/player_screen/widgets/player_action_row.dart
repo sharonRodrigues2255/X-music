@@ -23,7 +23,7 @@ class PlayerActionRow extends StatelessWidget {
         IconButton.filled(
           onPressed: () {
             playerBloc.add(PlaySong(
-                index: state.index! == 0 ? songs.length - 1 : state.index! - 1,
+                index: state.index == 0 ? songs.length - 1 : state.index - 1,
                 mysongs: songs));
           },
           icon: Icon(Icons.skip_previous),
@@ -51,7 +51,7 @@ class PlayerActionRow extends StatelessWidget {
             print(songs.length);
             print(state.index);
             playerBloc.add(PlaySong(
-                index: state.index! < songs.length - 1 ? state.index! + 1 : 0,
+                index: state.index < songs.length - 1 ? state.index + 1 : 0,
                 mysongs: songs));
           },
           icon: Icon(Icons.skip_next),

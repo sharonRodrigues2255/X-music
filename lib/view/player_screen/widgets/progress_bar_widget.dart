@@ -30,7 +30,7 @@ class ProgressBarWidget extends StatelessWidget {
                 onmini ? TimeLabelLocation.none : TimeLabelLocation.sides,
             thumbColor: Colors.red,
             progress: Duration(milliseconds: state.position),
-            total: Duration(milliseconds: mysongs[state.index!].duration!));
+            total: Duration(milliseconds: mysongs[state.index].duration!));
       },
     );
   }

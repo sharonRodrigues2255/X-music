@@ -41,7 +41,7 @@ class YourTopTenBloc extends Bloc<YourTopTenEvent, YourTopTenState> {
               .toList()));
     });
   }
-  mostlyPlayed(MySongModel song) {
+  mostlyAndRecentlyPlayed(MySongModel song) {
     song.playedTimes = song.playedTimes! + 1;
     var currentSong = MySongModel(
         id: song.id,
