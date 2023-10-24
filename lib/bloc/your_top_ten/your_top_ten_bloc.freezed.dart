@@ -20,6 +20,7 @@ mixin _$YourTopTenEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() mostly,
+    required TResult Function() recently,
     required TResult Function(List<dynamic> songslist)
         updateMostlyAndRecentlyPlayedList,
   }) =>
@@ -28,6 +29,7 @@ mixin _$YourTopTenEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? mostly,
+    TResult? Function()? recently,
     TResult? Function(List<dynamic> songslist)?
         updateMostlyAndRecentlyPlayedList,
   }) =>
@@ -36,6 +38,7 @@ mixin _$YourTopTenEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? mostly,
+    TResult Function()? recently,
     TResult Function(List<dynamic> songslist)?
         updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
@@ -45,6 +48,7 @@ mixin _$YourTopTenEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(Mostly value) mostly,
+    required TResult Function(Recently value) recently,
     required TResult Function(UpdateMostlyAndRecentlyPlayedList value)
         updateMostlyAndRecentlyPlayedList,
   }) =>
@@ -53,6 +57,7 @@ mixin _$YourTopTenEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(Mostly value)? mostly,
+    TResult? Function(Recently value)? recently,
     TResult? Function(UpdateMostlyAndRecentlyPlayedList value)?
         updateMostlyAndRecentlyPlayedList,
   }) =>
@@ -61,6 +66,7 @@ mixin _$YourTopTenEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(Mostly value)? mostly,
+    TResult Function(Recently value)? recently,
     TResult Function(UpdateMostlyAndRecentlyPlayedList value)?
         updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
@@ -126,6 +132,7 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() mostly,
+    required TResult Function() recently,
     required TResult Function(List<dynamic> songslist)
         updateMostlyAndRecentlyPlayedList,
   }) {
@@ -137,6 +144,7 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? mostly,
+    TResult? Function()? recently,
     TResult? Function(List<dynamic> songslist)?
         updateMostlyAndRecentlyPlayedList,
   }) {
@@ -148,6 +156,7 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? mostly,
+    TResult Function()? recently,
     TResult Function(List<dynamic> songslist)?
         updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
@@ -163,6 +172,7 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(Mostly value) mostly,
+    required TResult Function(Recently value) recently,
     required TResult Function(UpdateMostlyAndRecentlyPlayedList value)
         updateMostlyAndRecentlyPlayedList,
   }) {
@@ -174,6 +184,7 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(Mostly value)? mostly,
+    TResult? Function(Recently value)? recently,
     TResult? Function(UpdateMostlyAndRecentlyPlayedList value)?
         updateMostlyAndRecentlyPlayedList,
   }) {
@@ -185,6 +196,7 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(Mostly value)? mostly,
+    TResult Function(Recently value)? recently,
     TResult Function(UpdateMostlyAndRecentlyPlayedList value)?
         updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
@@ -240,6 +252,7 @@ class _$MostlyImpl implements Mostly {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() mostly,
+    required TResult Function() recently,
     required TResult Function(List<dynamic> songslist)
         updateMostlyAndRecentlyPlayedList,
   }) {
@@ -251,6 +264,7 @@ class _$MostlyImpl implements Mostly {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? mostly,
+    TResult? Function()? recently,
     TResult? Function(List<dynamic> songslist)?
         updateMostlyAndRecentlyPlayedList,
   }) {
@@ -262,6 +276,7 @@ class _$MostlyImpl implements Mostly {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? mostly,
+    TResult Function()? recently,
     TResult Function(List<dynamic> songslist)?
         updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
@@ -277,6 +292,7 @@ class _$MostlyImpl implements Mostly {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(Mostly value) mostly,
+    required TResult Function(Recently value) recently,
     required TResult Function(UpdateMostlyAndRecentlyPlayedList value)
         updateMostlyAndRecentlyPlayedList,
   }) {
@@ -288,6 +304,7 @@ class _$MostlyImpl implements Mostly {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(Mostly value)? mostly,
+    TResult? Function(Recently value)? recently,
     TResult? Function(UpdateMostlyAndRecentlyPlayedList value)?
         updateMostlyAndRecentlyPlayedList,
   }) {
@@ -299,6 +316,7 @@ class _$MostlyImpl implements Mostly {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(Mostly value)? mostly,
+    TResult Function(Recently value)? recently,
     TResult Function(UpdateMostlyAndRecentlyPlayedList value)?
         updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
@@ -312,6 +330,126 @@ class _$MostlyImpl implements Mostly {
 
 abstract class Mostly implements YourTopTenEvent {
   factory Mostly() = _$MostlyImpl;
+}
+
+/// @nodoc
+abstract class _$$RecentlyImplCopyWith<$Res> {
+  factory _$$RecentlyImplCopyWith(
+          _$RecentlyImpl value, $Res Function(_$RecentlyImpl) then) =
+      __$$RecentlyImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RecentlyImplCopyWithImpl<$Res>
+    extends _$YourTopTenEventCopyWithImpl<$Res, _$RecentlyImpl>
+    implements _$$RecentlyImplCopyWith<$Res> {
+  __$$RecentlyImplCopyWithImpl(
+      _$RecentlyImpl _value, $Res Function(_$RecentlyImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RecentlyImpl implements Recently {
+  _$RecentlyImpl();
+
+  @override
+  String toString() {
+    return 'YourTopTenEvent.recently()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RecentlyImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() mostly,
+    required TResult Function() recently,
+    required TResult Function(List<dynamic> songslist)
+        updateMostlyAndRecentlyPlayedList,
+  }) {
+    return recently();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? mostly,
+    TResult? Function()? recently,
+    TResult? Function(List<dynamic> songslist)?
+        updateMostlyAndRecentlyPlayedList,
+  }) {
+    return recently?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? mostly,
+    TResult Function()? recently,
+    TResult Function(List<dynamic> songslist)?
+        updateMostlyAndRecentlyPlayedList,
+    required TResult orElse(),
+  }) {
+    if (recently != null) {
+      return recently();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(Mostly value) mostly,
+    required TResult Function(Recently value) recently,
+    required TResult Function(UpdateMostlyAndRecentlyPlayedList value)
+        updateMostlyAndRecentlyPlayedList,
+  }) {
+    return recently(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(Mostly value)? mostly,
+    TResult? Function(Recently value)? recently,
+    TResult? Function(UpdateMostlyAndRecentlyPlayedList value)?
+        updateMostlyAndRecentlyPlayedList,
+  }) {
+    return recently?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(Mostly value)? mostly,
+    TResult Function(Recently value)? recently,
+    TResult Function(UpdateMostlyAndRecentlyPlayedList value)?
+        updateMostlyAndRecentlyPlayedList,
+    required TResult orElse(),
+  }) {
+    if (recently != null) {
+      return recently(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Recently implements YourTopTenEvent {
+  factory Recently() = _$RecentlyImpl;
 }
 
 /// @nodoc
@@ -395,6 +533,7 @@ class _$UpdateMostlyAndRecentlyPlayedListImpl
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() mostly,
+    required TResult Function() recently,
     required TResult Function(List<dynamic> songslist)
         updateMostlyAndRecentlyPlayedList,
   }) {
@@ -406,6 +545,7 @@ class _$UpdateMostlyAndRecentlyPlayedListImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? mostly,
+    TResult? Function()? recently,
     TResult? Function(List<dynamic> songslist)?
         updateMostlyAndRecentlyPlayedList,
   }) {
@@ -417,6 +557,7 @@ class _$UpdateMostlyAndRecentlyPlayedListImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? mostly,
+    TResult Function()? recently,
     TResult Function(List<dynamic> songslist)?
         updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
@@ -432,6 +573,7 @@ class _$UpdateMostlyAndRecentlyPlayedListImpl
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(Mostly value) mostly,
+    required TResult Function(Recently value) recently,
     required TResult Function(UpdateMostlyAndRecentlyPlayedList value)
         updateMostlyAndRecentlyPlayedList,
   }) {
@@ -443,6 +585,7 @@ class _$UpdateMostlyAndRecentlyPlayedListImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(Mostly value)? mostly,
+    TResult? Function(Recently value)? recently,
     TResult? Function(UpdateMostlyAndRecentlyPlayedList value)?
         updateMostlyAndRecentlyPlayedList,
   }) {
@@ -454,6 +597,7 @@ class _$UpdateMostlyAndRecentlyPlayedListImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(Mostly value)? mostly,
+    TResult Function(Recently value)? recently,
     TResult Function(UpdateMostlyAndRecentlyPlayedList value)?
         updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),

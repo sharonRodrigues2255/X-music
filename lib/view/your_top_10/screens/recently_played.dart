@@ -15,13 +15,15 @@ class RecentlyPlayed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<YourTopTenBloc>(context).add(YourTopTenEvent.mostly());
+    BlocProvider.of<YourTopTenBloc>(context).add(YourTopTenEvent.recently());
     return BlocBuilder<YourTopTenBloc, YourTopTenState>(
       builder: (context, state) {
-        List<MySongModel> recentlyPlayed = List.from(state.songsLIst)
+        List<MySongModel> recentlyPlayed = [];
+        List<MySongModel> sortedlist = List.from(state.songsLIst)
           ..sort(
             (a, b) => b.playedTime!.compareTo(a.playedTime!),
           );
+        recentlyPlayed.addAll(sortedlist);
 
         return ListView.builder(
           itemCount: recentlyPlayed.length,

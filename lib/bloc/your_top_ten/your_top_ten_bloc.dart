@@ -18,11 +18,23 @@ class YourTopTenBloc extends Bloc<YourTopTenEvent, YourTopTenState> {
               displayName: e.displayName,
               artist: e.artist,
               duration: e.duration,
-              playedTime: e.playedTime,
               playedTimes: e.playedTimes,
               url: e.url))
           .toList();
       emit(state.copyWith(songsLIst: mostlySongslist));
+    });
+    on<Recently>((event, emit) {
+      List<MySongModel> recentlyPlayed = mostlyandRecentlyDb.values
+          .map((e) => MySongModel(
+              id: e.id,
+              title: e.title,
+              displayName: e.displayName,
+              artist: e.artist,
+              duration: e.duration,
+              playedTime: e.playedTime,
+              url: e.url))
+          .toList();
+      emit(state.copyWith(songsLIst: recentlyPlayed));
     });
 
     on<UpdateMostlyAndRecentlyPlayedList>((event, emit) {

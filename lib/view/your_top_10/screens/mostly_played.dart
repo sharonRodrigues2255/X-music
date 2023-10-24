@@ -16,6 +16,7 @@ class MostlyPlayed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<YourTopTenBloc>(context).add(YourTopTenEvent.mostly());
+    BlocProvider.of<YourTopTenBloc>(context).add(YourTopTenEvent.recently());
     return BlocBuilder<YourTopTenBloc, YourTopTenState>(
       builder: (context, state) {
         List<MySongModel> mostlyPlayedSongs = List.from(state.songsLIst)
