@@ -20,21 +20,24 @@ mixin _$YourTopTenEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() mostly,
-    required TResult Function(List<dynamic> songslist) updateMostlyPlayedList,
+    required TResult Function(List<dynamic> songslist)
+        updateMostlyAndRecentlyPlayedList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? mostly,
-    TResult? Function(List<dynamic> songslist)? updateMostlyPlayedList,
+    TResult? Function(List<dynamic> songslist)?
+        updateMostlyAndRecentlyPlayedList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? mostly,
-    TResult Function(List<dynamic> songslist)? updateMostlyPlayedList,
+    TResult Function(List<dynamic> songslist)?
+        updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,22 +45,24 @@ mixin _$YourTopTenEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(Mostly value) mostly,
-    required TResult Function(UpdateMostlyPlayedList value)
-        updateMostlyPlayedList,
+    required TResult Function(UpdateMostlyAndRecentlyPlayedList value)
+        updateMostlyAndRecentlyPlayedList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(Mostly value)? mostly,
-    TResult? Function(UpdateMostlyPlayedList value)? updateMostlyPlayedList,
+    TResult? Function(UpdateMostlyAndRecentlyPlayedList value)?
+        updateMostlyAndRecentlyPlayedList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(Mostly value)? mostly,
-    TResult Function(UpdateMostlyPlayedList value)? updateMostlyPlayedList,
+    TResult Function(UpdateMostlyAndRecentlyPlayedList value)?
+        updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,7 +126,8 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() mostly,
-    required TResult Function(List<dynamic> songslist) updateMostlyPlayedList,
+    required TResult Function(List<dynamic> songslist)
+        updateMostlyAndRecentlyPlayedList,
   }) {
     return started();
   }
@@ -131,7 +137,8 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? mostly,
-    TResult? Function(List<dynamic> songslist)? updateMostlyPlayedList,
+    TResult? Function(List<dynamic> songslist)?
+        updateMostlyAndRecentlyPlayedList,
   }) {
     return started?.call();
   }
@@ -141,7 +148,8 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? mostly,
-    TResult Function(List<dynamic> songslist)? updateMostlyPlayedList,
+    TResult Function(List<dynamic> songslist)?
+        updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -155,8 +163,8 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(Mostly value) mostly,
-    required TResult Function(UpdateMostlyPlayedList value)
-        updateMostlyPlayedList,
+    required TResult Function(UpdateMostlyAndRecentlyPlayedList value)
+        updateMostlyAndRecentlyPlayedList,
   }) {
     return started(this);
   }
@@ -166,7 +174,8 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(Mostly value)? mostly,
-    TResult? Function(UpdateMostlyPlayedList value)? updateMostlyPlayedList,
+    TResult? Function(UpdateMostlyAndRecentlyPlayedList value)?
+        updateMostlyAndRecentlyPlayedList,
   }) {
     return started?.call(this);
   }
@@ -176,7 +185,8 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(Mostly value)? mostly,
-    TResult Function(UpdateMostlyPlayedList value)? updateMostlyPlayedList,
+    TResult Function(UpdateMostlyAndRecentlyPlayedList value)?
+        updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -230,7 +240,8 @@ class _$MostlyImpl implements Mostly {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() mostly,
-    required TResult Function(List<dynamic> songslist) updateMostlyPlayedList,
+    required TResult Function(List<dynamic> songslist)
+        updateMostlyAndRecentlyPlayedList,
   }) {
     return mostly();
   }
@@ -240,7 +251,8 @@ class _$MostlyImpl implements Mostly {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? mostly,
-    TResult? Function(List<dynamic> songslist)? updateMostlyPlayedList,
+    TResult? Function(List<dynamic> songslist)?
+        updateMostlyAndRecentlyPlayedList,
   }) {
     return mostly?.call();
   }
@@ -250,7 +262,8 @@ class _$MostlyImpl implements Mostly {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? mostly,
-    TResult Function(List<dynamic> songslist)? updateMostlyPlayedList,
+    TResult Function(List<dynamic> songslist)?
+        updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
   }) {
     if (mostly != null) {
@@ -264,8 +277,8 @@ class _$MostlyImpl implements Mostly {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(Mostly value) mostly,
-    required TResult Function(UpdateMostlyPlayedList value)
-        updateMostlyPlayedList,
+    required TResult Function(UpdateMostlyAndRecentlyPlayedList value)
+        updateMostlyAndRecentlyPlayedList,
   }) {
     return mostly(this);
   }
@@ -275,7 +288,8 @@ class _$MostlyImpl implements Mostly {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(Mostly value)? mostly,
-    TResult? Function(UpdateMostlyPlayedList value)? updateMostlyPlayedList,
+    TResult? Function(UpdateMostlyAndRecentlyPlayedList value)?
+        updateMostlyAndRecentlyPlayedList,
   }) {
     return mostly?.call(this);
   }
@@ -285,7 +299,8 @@ class _$MostlyImpl implements Mostly {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(Mostly value)? mostly,
-    TResult Function(UpdateMostlyPlayedList value)? updateMostlyPlayedList,
+    TResult Function(UpdateMostlyAndRecentlyPlayedList value)?
+        updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
   }) {
     if (mostly != null) {
@@ -300,22 +315,23 @@ abstract class Mostly implements YourTopTenEvent {
 }
 
 /// @nodoc
-abstract class _$$UpdateMostlyPlayedListImplCopyWith<$Res> {
-  factory _$$UpdateMostlyPlayedListImplCopyWith(
-          _$UpdateMostlyPlayedListImpl value,
-          $Res Function(_$UpdateMostlyPlayedListImpl) then) =
-      __$$UpdateMostlyPlayedListImplCopyWithImpl<$Res>;
+abstract class _$$UpdateMostlyAndRecentlyPlayedListImplCopyWith<$Res> {
+  factory _$$UpdateMostlyAndRecentlyPlayedListImplCopyWith(
+          _$UpdateMostlyAndRecentlyPlayedListImpl value,
+          $Res Function(_$UpdateMostlyAndRecentlyPlayedListImpl) then) =
+      __$$UpdateMostlyAndRecentlyPlayedListImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<dynamic> songslist});
 }
 
 /// @nodoc
-class __$$UpdateMostlyPlayedListImplCopyWithImpl<$Res>
-    extends _$YourTopTenEventCopyWithImpl<$Res, _$UpdateMostlyPlayedListImpl>
-    implements _$$UpdateMostlyPlayedListImplCopyWith<$Res> {
-  __$$UpdateMostlyPlayedListImplCopyWithImpl(
-      _$UpdateMostlyPlayedListImpl _value,
-      $Res Function(_$UpdateMostlyPlayedListImpl) _then)
+class __$$UpdateMostlyAndRecentlyPlayedListImplCopyWithImpl<$Res>
+    extends _$YourTopTenEventCopyWithImpl<$Res,
+        _$UpdateMostlyAndRecentlyPlayedListImpl>
+    implements _$$UpdateMostlyAndRecentlyPlayedListImplCopyWith<$Res> {
+  __$$UpdateMostlyAndRecentlyPlayedListImplCopyWithImpl(
+      _$UpdateMostlyAndRecentlyPlayedListImpl _value,
+      $Res Function(_$UpdateMostlyAndRecentlyPlayedListImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -323,7 +339,7 @@ class __$$UpdateMostlyPlayedListImplCopyWithImpl<$Res>
   $Res call({
     Object? songslist = null,
   }) {
-    return _then(_$UpdateMostlyPlayedListImpl(
+    return _then(_$UpdateMostlyAndRecentlyPlayedListImpl(
       songslist: null == songslist
           ? _value._songslist
           : songslist // ignore: cast_nullable_to_non_nullable
@@ -334,8 +350,10 @@ class __$$UpdateMostlyPlayedListImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UpdateMostlyPlayedListImpl implements UpdateMostlyPlayedList {
-  _$UpdateMostlyPlayedListImpl({required final List<dynamic> songslist})
+class _$UpdateMostlyAndRecentlyPlayedListImpl
+    implements UpdateMostlyAndRecentlyPlayedList {
+  _$UpdateMostlyAndRecentlyPlayedListImpl(
+      {required final List<dynamic> songslist})
       : _songslist = songslist;
 
   final List<dynamic> _songslist;
@@ -348,14 +366,14 @@ class _$UpdateMostlyPlayedListImpl implements UpdateMostlyPlayedList {
 
   @override
   String toString() {
-    return 'YourTopTenEvent.updateMostlyPlayedList(songslist: $songslist)';
+    return 'YourTopTenEvent.updateMostlyAndRecentlyPlayedList(songslist: $songslist)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UpdateMostlyPlayedListImpl &&
+            other is _$UpdateMostlyAndRecentlyPlayedListImpl &&
             const DeepCollectionEquality()
                 .equals(other._songslist, _songslist));
   }
@@ -367,18 +385,20 @@ class _$UpdateMostlyPlayedListImpl implements UpdateMostlyPlayedList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UpdateMostlyPlayedListImplCopyWith<_$UpdateMostlyPlayedListImpl>
-      get copyWith => __$$UpdateMostlyPlayedListImplCopyWithImpl<
-          _$UpdateMostlyPlayedListImpl>(this, _$identity);
+  _$$UpdateMostlyAndRecentlyPlayedListImplCopyWith<
+          _$UpdateMostlyAndRecentlyPlayedListImpl>
+      get copyWith => __$$UpdateMostlyAndRecentlyPlayedListImplCopyWithImpl<
+          _$UpdateMostlyAndRecentlyPlayedListImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() mostly,
-    required TResult Function(List<dynamic> songslist) updateMostlyPlayedList,
+    required TResult Function(List<dynamic> songslist)
+        updateMostlyAndRecentlyPlayedList,
   }) {
-    return updateMostlyPlayedList(songslist);
+    return updateMostlyAndRecentlyPlayedList(songslist);
   }
 
   @override
@@ -386,9 +406,10 @@ class _$UpdateMostlyPlayedListImpl implements UpdateMostlyPlayedList {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? mostly,
-    TResult? Function(List<dynamic> songslist)? updateMostlyPlayedList,
+    TResult? Function(List<dynamic> songslist)?
+        updateMostlyAndRecentlyPlayedList,
   }) {
-    return updateMostlyPlayedList?.call(songslist);
+    return updateMostlyAndRecentlyPlayedList?.call(songslist);
   }
 
   @override
@@ -396,11 +417,12 @@ class _$UpdateMostlyPlayedListImpl implements UpdateMostlyPlayedList {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? mostly,
-    TResult Function(List<dynamic> songslist)? updateMostlyPlayedList,
+    TResult Function(List<dynamic> songslist)?
+        updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
   }) {
-    if (updateMostlyPlayedList != null) {
-      return updateMostlyPlayedList(songslist);
+    if (updateMostlyAndRecentlyPlayedList != null) {
+      return updateMostlyAndRecentlyPlayedList(songslist);
     }
     return orElse();
   }
@@ -410,10 +432,10 @@ class _$UpdateMostlyPlayedListImpl implements UpdateMostlyPlayedList {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(Mostly value) mostly,
-    required TResult Function(UpdateMostlyPlayedList value)
-        updateMostlyPlayedList,
+    required TResult Function(UpdateMostlyAndRecentlyPlayedList value)
+        updateMostlyAndRecentlyPlayedList,
   }) {
-    return updateMostlyPlayedList(this);
+    return updateMostlyAndRecentlyPlayedList(this);
   }
 
   @override
@@ -421,9 +443,10 @@ class _$UpdateMostlyPlayedListImpl implements UpdateMostlyPlayedList {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(Mostly value)? mostly,
-    TResult? Function(UpdateMostlyPlayedList value)? updateMostlyPlayedList,
+    TResult? Function(UpdateMostlyAndRecentlyPlayedList value)?
+        updateMostlyAndRecentlyPlayedList,
   }) {
-    return updateMostlyPlayedList?.call(this);
+    return updateMostlyAndRecentlyPlayedList?.call(this);
   }
 
   @override
@@ -431,23 +454,26 @@ class _$UpdateMostlyPlayedListImpl implements UpdateMostlyPlayedList {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(Mostly value)? mostly,
-    TResult Function(UpdateMostlyPlayedList value)? updateMostlyPlayedList,
+    TResult Function(UpdateMostlyAndRecentlyPlayedList value)?
+        updateMostlyAndRecentlyPlayedList,
     required TResult orElse(),
   }) {
-    if (updateMostlyPlayedList != null) {
-      return updateMostlyPlayedList(this);
+    if (updateMostlyAndRecentlyPlayedList != null) {
+      return updateMostlyAndRecentlyPlayedList(this);
     }
     return orElse();
   }
 }
 
-abstract class UpdateMostlyPlayedList implements YourTopTenEvent {
-  factory UpdateMostlyPlayedList({required final List<dynamic> songslist}) =
-      _$UpdateMostlyPlayedListImpl;
+abstract class UpdateMostlyAndRecentlyPlayedList implements YourTopTenEvent {
+  factory UpdateMostlyAndRecentlyPlayedList(
+          {required final List<dynamic> songslist}) =
+      _$UpdateMostlyAndRecentlyPlayedListImpl;
 
   List<dynamic> get songslist;
   @JsonKey(ignore: true)
-  _$$UpdateMostlyPlayedListImplCopyWith<_$UpdateMostlyPlayedListImpl>
+  _$$UpdateMostlyAndRecentlyPlayedListImplCopyWith<
+          _$UpdateMostlyAndRecentlyPlayedListImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 

@@ -8,8 +8,8 @@ import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 import 'package:musicplayer_project/view/player_screen/player_screen.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
-class MostlyPlayed extends StatelessWidget {
-  const MostlyPlayed({
+class RecentlyPlayed extends StatelessWidget {
+  const RecentlyPlayed({
     super.key,
   });
 
@@ -18,24 +18,25 @@ class MostlyPlayed extends StatelessWidget {
     BlocProvider.of<YourTopTenBloc>(context).add(YourTopTenEvent.mostly());
     return BlocBuilder<YourTopTenBloc, YourTopTenState>(
       builder: (context, state) {
-        List<MySongModel> mostlyPlayedSongs = List.from(state.songsLIst)
+        List<MySongModel> recentlyPlayed = List.from(state.songsLIst)
           ..sort(
-            (a, b) => b.playedTimes!.compareTo(a.playedTimes!),
+            (a, b) => b.playedTime!.compareTo(a.playedTime!),
           );
 
         return ListView.builder(
-          itemCount: mostlyPlayedSongs.length,
+          itemCount: recentlyPlayed.length,
           itemBuilder: (context, index) {
-            final song = mostlyPlayedSongs[index];
+            final song = recentlyPlayed[index];
+            print('${song.playedTime} song now ${song.displayName}');
 
             return Card(
               child: ListTile(
                 tileColor: Colors.black54,
                 style: ListTileStyle.list,
                 onTap: () {
-                  Get.to(PlayerScreen(mysongs: mostlyPlayedSongs));
+                  Get.to(PlayerScreen(mysongs: recentlyPlayed));
                   context.read<PlayerBloc>().add(PlayerEvent.playSong(
-                      index: index, mysongs: mostlyPlayedSongs));
+                      index: index, mysongs: recentlyPlayed));
                 },
                 title: Text(song.displayName),
                 subtitle: Text(song.artist),

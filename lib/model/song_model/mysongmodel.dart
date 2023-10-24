@@ -27,6 +27,9 @@ class MySongModel extends HiveObject {
   @HiveField(8)
   int? playedTimes;
 
+  @HiveField(9)
+  int? playedTime;
+
   MySongModel(
       {required this.id,
       required this.title,
@@ -34,6 +37,7 @@ class MySongModel extends HiveObject {
       required this.artist,
       this.favorite = false,
       this.playedTimes = 0,
+      this.playedTime,
       required this.duration,
       required this.url});
 }

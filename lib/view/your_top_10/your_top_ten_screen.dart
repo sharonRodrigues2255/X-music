@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
 import 'package:musicplayer_project/view/your_top_10/screens/mostly_played.dart';
+import 'package:musicplayer_project/view/your_top_10/screens/recently_played.dart';
 
 class YourTopTen extends StatelessWidget {
   const YourTopTen({super.key});
@@ -36,7 +37,7 @@ class YourTopTen extends StatelessWidget {
             ),
           ),
         ),
-        body: TabBarView(children: [MostlyPlayed(), ListView()]),
+        body: TabBarView(children: [MostlyPlayed(), RecentlyPlayed()]),
       ),
     );
   }

@@ -25,8 +25,7 @@ void main() async {
   if (!Hive.isAdapterRegistered(3)) {
     Hive.registerAdapter(RecentlyPlayedAdapter());
   }
-  var box3 = Hive.openBox("MostPlayed");
-  var box4 = Hive.openBox("RecentlyPlayed");
+  var box3 = Hive.openBox("MostlyAndRecently");
   var box2 = Hive.openBox("Favorites");
   var box = Hive.openBox("MySongBox");
 

@@ -1,8 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:musicplayer_project/model/recently_played_model/recently_played.dart';
 import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 
 part 'your_top_ten_event.dart';
@@ -10,24 +8,24 @@ part 'your_top_ten_state.dart';
 part 'your_top_ten_bloc.freezed.dart';
 
 class YourTopTenBloc extends Bloc<YourTopTenEvent, YourTopTenState> {
-  var mostlyPlayedDB = Hive.box("MostPlayed");
-  var recentlyPlayedDB = Hive.box("RecentlyPlayed");
+  var mostlyandRecentlyDb = Hive.box("MostlyAndRecently");
   YourTopTenBloc() : super(YourTopTenState.initial()) {
     on<Mostly>((event, emit) {
-      List<MySongModel> mostlySongslist = mostlyPlayedDB.values
+      List<MySongModel> mostlySongslist = mostlyandRecentlyDb.values
           .map((e) => MySongModel(
               id: e.id,
               title: e.title,
               displayName: e.displayName,
               artist: e.artist,
               duration: e.duration,
+              playedTime: e.playedTime,
               playedTimes: e.playedTimes,
               url: e.url))
           .toList();
       emit(state.copyWith(songsLIst: mostlySongslist));
     });
 
-    on<UpdateMostlyPlayedList>((event, emit) {
+    on<UpdateMostlyAndRecentlyPlayedList>((event, emit) {
       emit(state.copyWith(
           songsLIst: event.songslist
               .map((e) => MySongModel(
@@ -35,6 +33,7 @@ class YourTopTenBloc extends Bloc<YourTopTenEvent, YourTopTenState> {
                   title: e.title,
                   displayName: e.displayName,
                   playedTimes: e.playedTimes,
+                  playedTime: e.playedTime,
                   artist: e.artist,
                   duration: e.duration,
                   url: e.url))
@@ -47,16 +46,13 @@ class YourTopTenBloc extends Bloc<YourTopTenEvent, YourTopTenState> {
         id: song.id,
         title: song.title,
         displayName: song.displayName,
+        playedTime: DateTime.now().millisecondsSinceEpoch,
         artist: song.artist,
         duration: song.duration,
         playedTimes: song.playedTimes,
         url: song.url);
-    mostlyPlayedDB.put(song.id, currentSong);
-    var songList = mostlyPlayedDB.values.toList();
-    add(UpdateMostlyPlayedList(songslist: songList));
-  }
-
-  recentlyPlayed(RecentlyPlayed recentlyPlayed) {
-    recentlyPlayedDB.put(recentlyPlayed.song.id, recentlyPlayed);
+    mostlyandRecentlyDb.put(song.id, currentSong);
+    var songList = mostlyandRecentlyDb.values.toList();
+    add(UpdateMostlyAndRecentlyPlayedList(songslist: songList));
   }
 }
