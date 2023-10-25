@@ -20,7 +20,6 @@ class Playlists extends StatelessWidget {
       ),
       body: BlocBuilder<PlaylistsBloc, PlaylistsState>(
         builder: (context, state) {
-          print("sld");
           return ListView.builder(
               itemCount: state.playlistModels.length,
               itemBuilder: (context, index) {

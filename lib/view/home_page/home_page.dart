@@ -81,58 +81,61 @@ class HomePage extends StatelessWidget {
             SubtitleWidget(title: "Suggeted for you"),
             Row(children: [
               GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>
-                          PlayerScreen(mysongs: allSongsList)));
-                  BlocProvider.of<PlayerBloc>(context)
-                      .add(PlaySong(index: randomIndex, mysongs: allSongsList));
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    kwidth20,
-                    SizedBox(
-                      child: QueryArtworkWidget(
-                        artworkBorder: BorderRadius.circular(5),
-                        artworkFit: BoxFit.cover,
-                        id: allSongsList[randomIndex].id,
-                        type: ArtworkType.AUDIO,
-                        nullArtworkWidget: CircleAvatar(
-                          radius: 14,
-                          child: Icon(
-                            Icons.music_note,
-                            size: 25,
-                          ),
-                        ),
-                      ),
-                    ),
-                    kwidth20,
-                    kwidth10,
-                    SizedBox(
-                      width: MediaQuery.sizeOf(context).width / 2,
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                allSongsList[randomIndex].displayName,
-                                style: myfontBold(size: 14.0),
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) =>
+                            PlayerScreen(mysongs: allSongsList)));
+                    BlocProvider.of<PlayerBloc>(context).add(
+                        PlaySong(index: randomIndex, mysongs: allSongsList));
+                  },
+                  child: randomIndex >= 0
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            kwidth20,
+                            SizedBox(
+                              child: QueryArtworkWidget(
+                                artworkBorder: BorderRadius.circular(5),
+                                artworkFit: BoxFit.cover,
+                                id: allSongsList[randomIndex].id,
+                                type: ArtworkType.AUDIO,
+                                nullArtworkWidget: CircleAvatar(
+                                  radius: 14,
+                                  child: Icon(
+                                    Icons.music_note,
+                                    size: 25,
+                                  ),
+                                ),
                               ),
-                              Text(
-                                allSongsList[randomIndex].artist,
-                                style: myfontNormal(size: 12.0),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                            ),
+                            kwidth20,
+                            kwidth10,
+                            SizedBox(
+                              width: MediaQuery.sizeOf(context).width / 2,
+                              child: Center(
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 5),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        allSongsList[randomIndex].displayName,
+                                        style: myfontBold(size: 14.0),
+                                      ),
+                                      Text(
+                                        allSongsList[randomIndex].artist,
+                                        style: myfontNormal(size: 12.0),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      : SizedBox()),
             ]),
             kheight10
           ],

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:just_audio_background/just_audio_background.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
 import 'package:musicplayer_project/bloc/playlists/playlists_bloc.dart';
 import 'package:musicplayer_project/bloc/your_top_ten/your_top_ten_bloc.dart';
 import 'package:musicplayer_project/model/playlist_model/my_playlist_model.dart';
-import 'package:musicplayer_project/model/recently_played_model/recently_played.dart';
 import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
 import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
@@ -22,12 +22,15 @@ void main() async {
     Hive.registerAdapter(MyPlaylistModelAdapter());
   }
 
-  if (!Hive.isAdapterRegistered(3)) {
-    Hive.registerAdapter(RecentlyPlayedAdapter());
-  }
   var box3 = Hive.openBox("MostlyAndRecently");
   var box2 = Hive.openBox("Favorites");
   var box = Hive.openBox("MySongBox");
+
+  await JustAudioBackground.init(
+    androidNotificationChannelId: 'com.ryanheise.bg_demo.channel.audio',
+    androidNotificationChannelName: 'Audio playback',
+    androidNotificationOngoing: true,
+  );
 
   runApp(const MyApp());
 }

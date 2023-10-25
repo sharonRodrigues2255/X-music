@@ -40,6 +40,7 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   just_audio: ^0.9.35
+  just_audio_background: ^0.0.1-beta.10
   on_audio_query: ^2.9.0
   permission_handler: ^11.0.1
 

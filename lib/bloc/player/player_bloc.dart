@@ -4,6 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:just_audio_background/just_audio_background.dart';
 import 'package:musicplayer_project/bloc/your_top_ten/your_top_ten_bloc.dart';
 import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
@@ -29,7 +31,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
             miniOn: true,
             songs: songs,
             favorite: myFavSongs.containsKey(songs[index].id)));
-        playSong(event.mysongs[state.index.toInt()].url);
+        playSong(event.mysongs[state.index.toInt()]);
         yourtoptenbloc.mostlyAndRecentlyPlayed(event.mysongs[state.index]);
       } else {
         emit(state.copyWith(
@@ -69,8 +71,13 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     });
   }
 
-  playSong(String? url) async {
-    await player.setUrl(url!);
+  playSong(MySongModel song) async {
+    await player.setAudioSource(AudioSource.uri(Uri.parse(song.url!),
+        tag: MediaItem(
+          id: song.id.toString(),
+          title: song.title,
+          artist: song.artist,
+        )));
     player.play();
   }
 
@@ -91,7 +98,11 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
               add(PlaySong(index: randomIndex, mysongs: state.songs));
               emit(state.copyWith(randomGenerated: false));
             } else {
-              add(PlaySong(index: state.index + 1, mysongs: state.songs));
+              add(PlaySong(
+                  index: state.index < state.songs.length - 1
+                      ? state.index + 1
+                      : 0,
+                  mysongs: state.songs));
             }
           }
         });

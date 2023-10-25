@@ -1,9 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:musicplayer_project/model/playlist_model/my_playlist_model.dart';
 import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
-import 'package:musicplayer_project/view/playlists/screens/create_playlist.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 part 'playlists_event.dart';
