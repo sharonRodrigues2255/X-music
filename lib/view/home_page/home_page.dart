@@ -83,10 +83,14 @@ class HomePage extends StatelessWidget {
               GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) =>
-                            PlayerScreen(mysongs: allSongsList)));
-                    BlocProvider.of<PlayerBloc>(context).add(
-                        PlaySong(index: randomIndex, mysongs: allSongsList));
+                        builder: (context) => PlayerScreen(
+                              mysongs: allSongsList,
+                              title: "Home",
+                            )));
+                    BlocProvider.of<PlayerBloc>(context).add(PlaySong(
+                        index: randomIndex,
+                        mysongs: allSongsList,
+                        from: "Home"));
                   },
                   child: randomIndex >= 0
                       ? Row(

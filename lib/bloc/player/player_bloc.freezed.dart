@@ -18,7 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PlayerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? index, List<MySongModel> mysongs) playSong,
+    required TResult Function(
+            int? index, List<MySongModel> mysongs, String from)
+        playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
@@ -28,7 +30,8 @@ mixin _$PlayerEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, List<MySongModel> mysongs)? playSong,
+    TResult? Function(int? index, List<MySongModel> mysongs, String from)?
+        playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
@@ -38,7 +41,8 @@ mixin _$PlayerEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, List<MySongModel> mysongs)? playSong,
+    TResult Function(int? index, List<MySongModel> mysongs, String from)?
+        playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
@@ -104,7 +108,7 @@ abstract class _$$PlaySongImplCopyWith<$Res> {
           _$PlaySongImpl value, $Res Function(_$PlaySongImpl) then) =
       __$$PlaySongImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int? index, List<MySongModel> mysongs});
+  $Res call({int? index, List<MySongModel> mysongs, String from});
 }
 
 /// @nodoc
@@ -120,6 +124,7 @@ class __$$PlaySongImplCopyWithImpl<$Res>
   $Res call({
     Object? index = freezed,
     Object? mysongs = null,
+    Object? from = null,
   }) {
     return _then(_$PlaySongImpl(
       index: freezed == index
@@ -130,6 +135,10 @@ class __$$PlaySongImplCopyWithImpl<$Res>
           ? _value._mysongs
           : mysongs // ignore: cast_nullable_to_non_nullable
               as List<MySongModel>,
+      from: null == from
+          ? _value.from
+          : from // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -138,7 +147,9 @@ class __$$PlaySongImplCopyWithImpl<$Res>
 
 class _$PlaySongImpl implements PlaySong {
   const _$PlaySongImpl(
-      {required this.index, required final List<MySongModel> mysongs})
+      {required this.index,
+      required final List<MySongModel> mysongs,
+      required this.from})
       : _mysongs = mysongs;
 
   @override
@@ -152,8 +163,11 @@ class _$PlaySongImpl implements PlaySong {
   }
 
   @override
+  final String from;
+
+  @override
   String toString() {
-    return 'PlayerEvent.playSong(index: $index, mysongs: $mysongs)';
+    return 'PlayerEvent.playSong(index: $index, mysongs: $mysongs, from: $from)';
   }
 
   @override
@@ -162,12 +176,13 @@ class _$PlaySongImpl implements PlaySong {
         (other.runtimeType == runtimeType &&
             other is _$PlaySongImpl &&
             (identical(other.index, index) || other.index == index) &&
-            const DeepCollectionEquality().equals(other._mysongs, _mysongs));
+            const DeepCollectionEquality().equals(other._mysongs, _mysongs) &&
+            (identical(other.from, from) || other.from == from));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, index, const DeepCollectionEquality().hash(_mysongs));
+      runtimeType, index, const DeepCollectionEquality().hash(_mysongs), from);
 
   @JsonKey(ignore: true)
   @override
@@ -178,33 +193,37 @@ class _$PlaySongImpl implements PlaySong {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? index, List<MySongModel> mysongs) playSong,
+    required TResult Function(
+            int? index, List<MySongModel> mysongs, String from)
+        playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
     required TResult Function(bool loop, bool shuffle) loopAndShuffle,
     required TResult Function(MySongModel song) isFavorite,
   }) {
-    return playSong(index, mysongs);
+    return playSong(index, mysongs, from);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, List<MySongModel> mysongs)? playSong,
+    TResult? Function(int? index, List<MySongModel> mysongs, String from)?
+        playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
     TResult? Function(bool loop, bool shuffle)? loopAndShuffle,
     TResult? Function(MySongModel song)? isFavorite,
   }) {
-    return playSong?.call(index, mysongs);
+    return playSong?.call(index, mysongs, from);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, List<MySongModel> mysongs)? playSong,
+    TResult Function(int? index, List<MySongModel> mysongs, String from)?
+        playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
@@ -213,7 +232,7 @@ class _$PlaySongImpl implements PlaySong {
     required TResult orElse(),
   }) {
     if (playSong != null) {
-      return playSong(index, mysongs);
+      return playSong(index, mysongs, from);
     }
     return orElse();
   }
@@ -265,10 +284,12 @@ class _$PlaySongImpl implements PlaySong {
 abstract class PlaySong implements PlayerEvent {
   const factory PlaySong(
       {required final int? index,
-      required final List<MySongModel> mysongs}) = _$PlaySongImpl;
+      required final List<MySongModel> mysongs,
+      required final String from}) = _$PlaySongImpl;
 
   int? get index;
   List<MySongModel> get mysongs;
+  String get from;
   @JsonKey(ignore: true)
   _$$PlaySongImplCopyWith<_$PlaySongImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -312,7 +333,9 @@ class _$PauseSongImpl implements PauseSong {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? index, List<MySongModel> mysongs) playSong,
+    required TResult Function(
+            int? index, List<MySongModel> mysongs, String from)
+        playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
@@ -325,7 +348,8 @@ class _$PauseSongImpl implements PauseSong {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, List<MySongModel> mysongs)? playSong,
+    TResult? Function(int? index, List<MySongModel> mysongs, String from)?
+        playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
@@ -338,7 +362,8 @@ class _$PauseSongImpl implements PauseSong {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, List<MySongModel> mysongs)? playSong,
+    TResult Function(int? index, List<MySongModel> mysongs, String from)?
+        playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
@@ -438,7 +463,9 @@ class _$ContinueSongImpl implements ContinueSong {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? index, List<MySongModel> mysongs) playSong,
+    required TResult Function(
+            int? index, List<MySongModel> mysongs, String from)
+        playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
@@ -451,7 +478,8 @@ class _$ContinueSongImpl implements ContinueSong {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, List<MySongModel> mysongs)? playSong,
+    TResult? Function(int? index, List<MySongModel> mysongs, String from)?
+        playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
@@ -464,7 +492,8 @@ class _$ContinueSongImpl implements ContinueSong {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, List<MySongModel> mysongs)? playSong,
+    TResult Function(int? index, List<MySongModel> mysongs, String from)?
+        playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
@@ -591,7 +620,9 @@ class _$OnSeekImpl implements OnSeek {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? index, List<MySongModel> mysongs) playSong,
+    required TResult Function(
+            int? index, List<MySongModel> mysongs, String from)
+        playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
@@ -604,7 +635,8 @@ class _$OnSeekImpl implements OnSeek {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, List<MySongModel> mysongs)? playSong,
+    TResult? Function(int? index, List<MySongModel> mysongs, String from)?
+        playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
@@ -617,7 +649,8 @@ class _$OnSeekImpl implements OnSeek {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, List<MySongModel> mysongs)? playSong,
+    TResult Function(int? index, List<MySongModel> mysongs, String from)?
+        playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
@@ -757,7 +790,9 @@ class _$LoopAndShuffleImpl implements LoopAndShuffle {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? index, List<MySongModel> mysongs) playSong,
+    required TResult Function(
+            int? index, List<MySongModel> mysongs, String from)
+        playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
@@ -770,7 +805,8 @@ class _$LoopAndShuffleImpl implements LoopAndShuffle {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, List<MySongModel> mysongs)? playSong,
+    TResult? Function(int? index, List<MySongModel> mysongs, String from)?
+        playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
@@ -783,7 +819,8 @@ class _$LoopAndShuffleImpl implements LoopAndShuffle {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, List<MySongModel> mysongs)? playSong,
+    TResult Function(int? index, List<MySongModel> mysongs, String from)?
+        playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
@@ -917,7 +954,9 @@ class _$IsfavoriteImpl implements Isfavorite {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? index, List<MySongModel> mysongs) playSong,
+    required TResult Function(
+            int? index, List<MySongModel> mysongs, String from)
+        playSong,
     required TResult Function() pauseSong,
     required TResult Function() continueSong,
     required TResult Function(int seektime) onSeek,
@@ -930,7 +969,8 @@ class _$IsfavoriteImpl implements Isfavorite {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, List<MySongModel> mysongs)? playSong,
+    TResult? Function(int? index, List<MySongModel> mysongs, String from)?
+        playSong,
     TResult? Function()? pauseSong,
     TResult? Function()? continueSong,
     TResult? Function(int seektime)? onSeek,
@@ -943,7 +983,8 @@ class _$IsfavoriteImpl implements Isfavorite {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, List<MySongModel> mysongs)? playSong,
+    TResult Function(int? index, List<MySongModel> mysongs, String from)?
+        playSong,
     TResult Function()? pauseSong,
     TResult Function()? continueSong,
     TResult Function(int seektime)? onSeek,
@@ -1020,6 +1061,7 @@ mixin _$PlayerState {
   bool? get favorite => throw _privateConstructorUsedError;
   List<MySongModel> get songs => throw _privateConstructorUsedError;
   bool? get miniOn => throw _privateConstructorUsedError;
+  String get from => throw _privateConstructorUsedError;
   bool get randomGenerated => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1042,6 +1084,7 @@ abstract class $PlayerStateCopyWith<$Res> {
       bool? favorite,
       List<MySongModel> songs,
       bool? miniOn,
+      String from,
       bool randomGenerated});
 }
 
@@ -1066,6 +1109,7 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
     Object? favorite = freezed,
     Object? songs = null,
     Object? miniOn = freezed,
+    Object? from = null,
     Object? randomGenerated = null,
   }) {
     return _then(_value.copyWith(
@@ -1101,6 +1145,10 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
           ? _value.miniOn
           : miniOn // ignore: cast_nullable_to_non_nullable
               as bool?,
+      from: null == from
+          ? _value.from
+          : from // ignore: cast_nullable_to_non_nullable
+              as String,
       randomGenerated: null == randomGenerated
           ? _value.randomGenerated
           : randomGenerated // ignore: cast_nullable_to_non_nullable
@@ -1126,6 +1174,7 @@ abstract class _$$PlayerStateImplCopyWith<$Res>
       bool? favorite,
       List<MySongModel> songs,
       bool? miniOn,
+      String from,
       bool randomGenerated});
 }
 
@@ -1148,6 +1197,7 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
     Object? favorite = freezed,
     Object? songs = null,
     Object? miniOn = freezed,
+    Object? from = null,
     Object? randomGenerated = null,
   }) {
     return _then(_$PlayerStateImpl(
@@ -1183,6 +1233,10 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
           ? _value.miniOn
           : miniOn // ignore: cast_nullable_to_non_nullable
               as bool?,
+      from: null == from
+          ? _value.from
+          : from // ignore: cast_nullable_to_non_nullable
+              as String,
       randomGenerated: null == randomGenerated
           ? _value.randomGenerated
           : randomGenerated // ignore: cast_nullable_to_non_nullable
@@ -1203,6 +1257,7 @@ class _$PlayerStateImpl implements _PlayerState {
       required this.favorite,
       required final List<MySongModel> songs,
       required this.miniOn,
+      required this.from,
       required this.randomGenerated})
       : _songs = songs;
 
@@ -1229,11 +1284,13 @@ class _$PlayerStateImpl implements _PlayerState {
   @override
   final bool? miniOn;
   @override
+  final String from;
+  @override
   final bool randomGenerated;
 
   @override
   String toString() {
-    return 'PlayerState(index: $index, playing: $playing, position: $position, loop: $loop, shuffle: $shuffle, favorite: $favorite, songs: $songs, miniOn: $miniOn, randomGenerated: $randomGenerated)';
+    return 'PlayerState(index: $index, playing: $playing, position: $position, loop: $loop, shuffle: $shuffle, favorite: $favorite, songs: $songs, miniOn: $miniOn, from: $from, randomGenerated: $randomGenerated)';
   }
 
   @override
@@ -1251,6 +1308,7 @@ class _$PlayerStateImpl implements _PlayerState {
                 other.favorite == favorite) &&
             const DeepCollectionEquality().equals(other._songs, _songs) &&
             (identical(other.miniOn, miniOn) || other.miniOn == miniOn) &&
+            (identical(other.from, from) || other.from == from) &&
             (identical(other.randomGenerated, randomGenerated) ||
                 other.randomGenerated == randomGenerated));
   }
@@ -1266,6 +1324,7 @@ class _$PlayerStateImpl implements _PlayerState {
       favorite,
       const DeepCollectionEquality().hash(_songs),
       miniOn,
+      from,
       randomGenerated);
 
   @JsonKey(ignore: true)
@@ -1285,6 +1344,7 @@ abstract class _PlayerState implements PlayerState {
       required final bool? favorite,
       required final List<MySongModel> songs,
       required final bool? miniOn,
+      required final String from,
       required final bool randomGenerated}) = _$PlayerStateImpl;
 
   @override
@@ -1303,6 +1363,8 @@ abstract class _PlayerState implements PlayerState {
   List<MySongModel> get songs;
   @override
   bool? get miniOn;
+  @override
+  String get from;
   @override
   bool get randomGenerated;
   @override

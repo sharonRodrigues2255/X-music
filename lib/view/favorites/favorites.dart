@@ -40,10 +40,12 @@ class Favorites extends StatelessWidget {
               tileColor: Colors.black54,
               style: ListTileStyle.list,
               onTap: () {
-                Get.to(PlayerScreen(mysongs: favSongs));
-                context
-                    .read<PlayerBloc>()
-                    .add(PlayerEvent.playSong(index: index, mysongs: favSongs));
+                Get.to(PlayerScreen(
+                  mysongs: favSongs,
+                  title: "Favorites",
+                ));
+                context.read<PlayerBloc>().add(PlayerEvent.playSong(
+                    index: index, mysongs: favSongs, from: "Favorites"));
               },
               title: Text(song.displayName),
               subtitle: Text(song.artist),

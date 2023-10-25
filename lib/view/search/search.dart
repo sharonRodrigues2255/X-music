@@ -46,9 +46,12 @@ class SearchScreen extends SearchDelegate {
             tileColor: Colors.black54,
             style: ListTileStyle.list,
             onTap: () {
-              Get.to(PlayerScreen(mysongs: searchsonglist));
-              context.read<PlayerBloc>().add(
-                  PlayerEvent.playSong(index: index, mysongs: searchsonglist));
+              Get.to(PlayerScreen(
+                mysongs: searchsonglist,
+                title: "Search",
+              ));
+              context.read<PlayerBloc>().add(PlayerEvent.playSong(
+                  index: index, mysongs: searchsonglist, from: 'Search'));
             },
             title: Text(song.displayName),
             subtitle: Text(song.artist),
@@ -89,9 +92,12 @@ class SearchScreen extends SearchDelegate {
             tileColor: Colors.black54,
             style: ListTileStyle.list,
             onTap: () {
-              Get.to(PlayerScreen(mysongs: searchsonglist));
-              context.read<PlayerBloc>().add(
-                  PlayerEvent.playSong(index: index, mysongs: searchsonglist));
+              Get.to(PlayerScreen(
+                mysongs: searchsonglist,
+                title: "Search",
+              ));
+              context.read<PlayerBloc>().add(PlayerEvent.playSong(
+                  index: index, mysongs: searchsonglist, from: "Search"));
             },
             title: Text(song.displayName),
             subtitle: Text(song.artist),

@@ -30,6 +30,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
             playing: true,
             miniOn: true,
             songs: songs,
+            from: event.from,
             favorite: myFavSongs.containsKey(songs[index].id)));
         playSong(event.mysongs[state.index.toInt()]);
         yourtoptenbloc.mostlyAndRecentlyPlayed(event.mysongs[state.index]);
@@ -37,7 +38,10 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
         emit(state.copyWith(
             index: index!,
             songs: songs,
-            favorite: myFavSongs.containsKey(songs[index].id)));
+            favorite: myFavSongs.containsKey(
+              songs[index].id,
+            ),
+            from: event.from));
       }
     });
 
@@ -77,7 +81,9 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
           id: song.id.toString(),
           title: song.title,
           artist: song.artist,
+          duration: Duration(seconds: song.duration!),
         )));
+
     player.play();
   }
 
@@ -93,16 +99,19 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
             final randomIndex = Random().nextInt(state.songs.length);
             emit(state.copyWith(randomGenerated: true));
             if (state.loop) {
-              add(PlaySong(index: state.index, mysongs: state.songs));
+              add(PlaySong(
+                  index: state.index, mysongs: state.songs, from: state.from));
             } else if (state.shuffle && state.randomGenerated) {
-              add(PlaySong(index: randomIndex, mysongs: state.songs));
+              add(PlaySong(
+                  index: randomIndex, mysongs: state.songs, from: state.from));
               emit(state.copyWith(randomGenerated: false));
             } else {
               add(PlaySong(
                   index: state.index < state.songs.length - 1
                       ? state.index + 1
                       : 0,
-                  mysongs: state.songs));
+                  mysongs: state.songs,
+                  from: state.from));
             }
           }
         });

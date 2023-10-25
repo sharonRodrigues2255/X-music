@@ -34,9 +34,14 @@ class MostlyPlayed extends StatelessWidget {
                 tileColor: Colors.black54,
                 style: ListTileStyle.list,
                 onTap: () {
-                  Get.to(PlayerScreen(mysongs: mostlyPlayedSongs));
+                  Get.to(PlayerScreen(
+                    mysongs: mostlyPlayedSongs,
+                    title: "Mostly Played",
+                  ));
                   context.read<PlayerBloc>().add(PlayerEvent.playSong(
-                      index: index, mysongs: mostlyPlayedSongs));
+                      index: index,
+                      mysongs: mostlyPlayedSongs,
+                      from: "Mostly Played"));
                 },
                 title: Text(song.displayName),
                 subtitle: Text(song.artist),

@@ -36,9 +36,14 @@ class RecentlyPlayed extends StatelessWidget {
                 tileColor: Colors.black54,
                 style: ListTileStyle.list,
                 onTap: () {
-                  Get.to(PlayerScreen(mysongs: recentlyPlayed));
+                  Get.to(PlayerScreen(
+                    mysongs: recentlyPlayed,
+                    title: "Recently Played",
+                  ));
                   context.read<PlayerBloc>().add(PlayerEvent.playSong(
-                      index: index, mysongs: recentlyPlayed));
+                      index: index,
+                      mysongs: recentlyPlayed,
+                      from: "Recently Played"));
                 },
                 title: Text(song.displayName),
                 subtitle: Text(song.artist),

@@ -37,9 +37,14 @@ class PlaylistSongsScreen extends StatelessWidget {
                     style: ListTileStyle.list,
                     onTap: () {
                       print(playlist.playlistSongs);
-                      Get.to(PlayerScreen(mysongs: playlist.playlistSongs));
+                      Get.to(PlayerScreen(
+                        mysongs: playlist.playlistSongs,
+                        title: playlist.name,
+                      ));
                       context.read<PlayerBloc>().add(PlayerEvent.playSong(
-                          index: i, mysongs: playlist.playlistSongs));
+                          index: i,
+                          mysongs: playlist.playlistSongs,
+                          from: playlist.name));
                     },
                     title: Text(song.displayName),
                     subtitle: Text(song.artist),

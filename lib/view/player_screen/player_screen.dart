@@ -4,14 +4,17 @@ import 'package:musicplayer_project/bloc/player/player_bloc.dart';
 import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
 import 'package:musicplayer_project/utils/constants/sizes.dart';
+import 'package:musicplayer_project/utils/constants/text_styles.dart';
 import 'package:musicplayer_project/view/player_screen/widgets/player_action_row.dart';
 import 'package:musicplayer_project/view/player_screen/widgets/progress_bar_widget.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class PlayerScreen extends StatelessWidget {
-  const PlayerScreen({Key? key, required this.mysongs}) : super(key: key);
+  const PlayerScreen({Key? key, required this.mysongs, required this.title})
+      : super(key: key);
 
   final List<MySongModel> mysongs;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,16 @@ class PlayerScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           backgroundColor: Colors.black,
+          title: BlocBuilder<PlayerBloc, PlayerState>(
+            builder: (context, state) {
+              return Text(
+                "Playing From ${state.from}",
+                style: myfontBold(color: kred),
+              );
+            },
+          ),
           leading: IconButton(
             onPressed: () {
               Navigator.of(context).pop();

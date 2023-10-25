@@ -25,7 +25,10 @@ class MIniPlayer extends StatelessWidget {
             onVerticalDragUpdate: (details) {
               if (details.primaryDelta! < 0) {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => PlayerScreen(mysongs: mysongs)));
+                    builder: (context) => PlayerScreen(
+                          mysongs: mysongs,
+                          title: "",
+                        )));
               }
             },
             child: Card(
@@ -52,8 +55,10 @@ class MIniPlayer extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  PlayerScreen(mysongs: mysongs)));
+                              builder: (context) => PlayerScreen(
+                                    mysongs: mysongs,
+                                    title: "",
+                                  )));
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,

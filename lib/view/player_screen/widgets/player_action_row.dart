@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:musicplayer_project/bloc/player/player_bloc.dart';
 import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 import 'package:musicplayer_project/utils/constants/sizes.dart';
+import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
 
 class PlayerActionRow extends StatelessWidget {
   const PlayerActionRow(
@@ -24,7 +25,8 @@ class PlayerActionRow extends StatelessWidget {
           onPressed: () {
             playerBloc.add(PlaySong(
                 index: state.index == 0 ? songs.length - 1 : state.index - 1,
-                mysongs: songs));
+                mysongs: songs,
+                from: state.from));
           },
           icon: Icon(Icons.skip_previous),
           iconSize: size,
@@ -39,7 +41,7 @@ class PlayerActionRow extends StatelessWidget {
                   playerBloc.add(ContinueSong());
                 }
               },
-              icon: state.playing == false
+              icon: state.playing == false || player.playing == false
                   ? Icon(Icons.play_circle)
                   : Icon(Icons.pause_circle),
               iconSize: size,
@@ -52,7 +54,8 @@ class PlayerActionRow extends StatelessWidget {
             print(state.index);
             playerBloc.add(PlaySong(
                 index: state.index < songs.length - 1 ? state.index + 1 : 0,
-                mysongs: songs));
+                mysongs: songs,
+                from: state.from));
           },
           icon: Icon(Icons.skip_next),
           iconSize: size,
