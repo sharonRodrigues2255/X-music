@@ -13,7 +13,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     checkPermission();
 
-    Future.delayed(Duration(seconds: 2)).then((value) {
+    Future.delayed(Duration(seconds: 3)).then((value) {
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => BottomNavigationScreen()));
     });
@@ -42,12 +42,16 @@ class SplashScreen extends StatelessWidget {
     final songs = externalSongs.map((e) => MySongModel(
         id: e.id,
         title: e.title,
-        displayName: e.displayName,
+        displayName: e.displayNameWOExt,
         artist: e.artist!,
         duration: e.duration,
+        data: e.data,
         url: e.uri));
 
     allSongsList.addAll(songs);
+    print(allSongsList[2].artist);
+    print(externalSongs[1].getMap);
+    print(externalSongs[2].data);
   }
 }
 

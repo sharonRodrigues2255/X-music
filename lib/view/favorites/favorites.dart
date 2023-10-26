@@ -25,13 +25,13 @@ class Favorites extends StatelessWidget {
                   .values
                   .map(
                     (e) => MySongModel(
-                      id: e.id,
-                      title: e.title,
-                      displayName: e.displayName,
-                      artist: e.artist,
-                      duration: e.duration,
-                      url: e.url,
-                    ),
+                        id: e.id,
+                        title: e.title,
+                        displayName: e.displayName,
+                        artist: e.artist,
+                        duration: e.duration,
+                        url: e.url,
+                        data: e.data),
                   )
                   .toList();
           final song = favSongs.elementAt(index);

@@ -15,6 +15,7 @@ class YourTopTenBloc extends Bloc<YourTopTenEvent, YourTopTenState> {
           .map((e) => MySongModel(
               id: e.id,
               title: e.title,
+              data: e.data,
               displayName: e.displayName,
               artist: e.artist,
               duration: e.duration,
@@ -27,6 +28,7 @@ class YourTopTenBloc extends Bloc<YourTopTenEvent, YourTopTenState> {
       List<MySongModel> recentlyPlayed = mostlyandRecentlyDb.values
           .map((e) => MySongModel(
               id: e.id,
+              data: e.data,
               title: e.title,
               displayName: e.displayName,
               artist: e.artist,
@@ -47,6 +49,7 @@ class YourTopTenBloc extends Bloc<YourTopTenEvent, YourTopTenState> {
                   playedTimes: e.playedTimes,
                   playedTime: e.playedTime,
                   artist: e.artist,
+                  data: e.data,
                   duration: e.duration,
                   url: e.url))
               .toList()));
@@ -62,6 +65,7 @@ class YourTopTenBloc extends Bloc<YourTopTenEvent, YourTopTenState> {
         artist: song.artist,
         duration: song.duration,
         playedTimes: song.playedTimes,
+        data: song.data,
         url: song.url);
     mostlyandRecentlyDb.put(song.id, currentSong);
     var songList = mostlyandRecentlyDb.values.toList();
