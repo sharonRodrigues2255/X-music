@@ -5,6 +5,7 @@ import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
 import 'package:musicplayer_project/utils/constants/sizes.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
+import 'package:musicplayer_project/view/player_screen/screens/add_song_to_playlist_screen.dart';
 import 'package:musicplayer_project/view/player_screen/widgets/player_action_row.dart';
 import 'package:musicplayer_project/view/player_screen/widgets/progress_bar_widget.dart';
 import 'package:on_audio_query/on_audio_query.dart';
@@ -137,7 +138,13 @@ class PlayerScreen extends StatelessWidget {
                             color: state.shuffle ? kred : kwhite,
                           )),
                       IconButton(
-                          onPressed: () {}, icon: Icon(Icons.playlist_add)),
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => AddsongToPlaylist(
+                                      song: mysongs[state.index],
+                                    )));
+                          },
+                          icon: Icon(Icons.playlist_add)),
                     ],
                   );
                 },
