@@ -23,7 +23,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var randomIndex = Random().nextInt(allSongsList.length);
+    int? randomIndex;
+    if (allSongsList.isNotEmpty) {
+      randomIndex = Random().nextInt(allSongsList.length);
+    } else {
+      randomIndex = null;
+    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kblack,
@@ -92,7 +97,7 @@ class HomePage extends StatelessWidget {
                         mysongs: allSongsList,
                         from: "Home"));
                   },
-                  child: randomIndex >= 0
+                  child: randomIndex != null
                       ? Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [

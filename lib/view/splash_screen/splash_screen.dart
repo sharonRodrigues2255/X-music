@@ -49,9 +49,6 @@ class SplashScreen extends StatelessWidget {
         url: e.uri));
 
     allSongsList.addAll(songs);
-    print(allSongsList[2].artist);
-    print(externalSongs[1].getMap);
-    print(externalSongs[2].data);
   }
 }
 

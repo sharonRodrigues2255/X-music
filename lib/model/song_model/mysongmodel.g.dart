@@ -25,7 +25,7 @@ class MySongModelAdapter extends TypeAdapter<MySongModel> {
       playedTimes: fields[8] as int?,
       playedTime: fields[9] as int?,
       duration: fields[6] as int?,
-      data: fields[10] as String,
+      data: fields[10] as String?,
       url: fields[4] as String?,
     );
   }

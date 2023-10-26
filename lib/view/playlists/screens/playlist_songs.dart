@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -8,6 +10,7 @@ import 'package:musicplayer_project/utils/constants/text_styles.dart';
 import 'package:musicplayer_project/view/player_screen/player_screen.dart';
 import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+import 'package:share_plus/share_plus.dart';
 
 class PlaylistSongsScreen extends StatelessWidget {
   const PlaylistSongsScreen(
@@ -70,7 +73,12 @@ class PlaylistSongsScreen extends StatelessWidget {
                                           songIndex: i, playlistIndex: dbkey));
                                 },
                                 child: Text("Delete")),
-                            PopupMenuItem(child: Text("Share"))
+                            PopupMenuItem(
+                                onTap: () {
+                                  Share.shareXFiles([XFile(song.data)],
+                                      subject: song.title, text: song.title);
+                                },
+                                child: Text("Share"))
                           ];
                         }),
                   ),

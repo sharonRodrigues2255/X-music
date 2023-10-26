@@ -43,6 +43,7 @@ dependencies:
   just_audio_background: ^0.0.1-beta.10
   on_audio_query: ^2.9.0
   permission_handler: ^11.0.1
+  share_plus: ^7.0.1
 
 dev_dependencies:
   build_runner: ^2.4.6

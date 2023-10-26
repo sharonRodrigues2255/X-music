@@ -29,7 +29,6 @@ class RecentlyPlayed extends StatelessWidget {
           itemCount: recentlyPlayed.length,
           itemBuilder: (context, index) {
             final song = recentlyPlayed[index];
-            print('${song.playedTime} song now ${song.displayName}');
 
             return Card(
               child: ListTile(
