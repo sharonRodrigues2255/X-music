@@ -23,28 +23,33 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     on<PlaySong>((event, emit) async {
       final index = event.index;
       final songs = event.mysongs;
-      if (state.songs[state.index].id != event.mysongs[event.index!].id ||
-          state.playing == null) {
-        emit(state.copyWith(
-            index: index!,
-            playing: true,
-            miniOn: true,
-            songs: songs,
-            from: event.from,
-            id: event.id,
-            favorite: myFavSongs.containsKey(songs[index].id)));
-        playSong(event.mysongs[state.index.toInt()]);
-        yourtoptenbloc.mostlyAndRecentlyPlayed(event.mysongs[state.index]);
-      } else {
-        print("called");
-        emit(state.copyWith(
-            index: index!,
-            songs: songs,
-            id: event.id,
-            favorite: myFavSongs.containsKey(
-              songs[index].id,
-            ),
-            from: event.from));
+      try {
+        if (state.songs[state.index].id != event.mysongs[event.index!].id ||
+            state.playing == null) {
+          emit(state.copyWith(
+              index: index!,
+              playing: true,
+              miniOn: true,
+              songs: songs,
+              from: event.from,
+              id: event.id,
+              favorite: myFavSongs.containsKey(songs[index].id)));
+
+          playSong(event.mysongs[state.index.toInt()]);
+          yourtoptenbloc.mostlyAndRecentlyPlayed(event.mysongs[state.index]);
+        } else {
+          print("called");
+          emit(state.copyWith(
+              index: index!,
+              songs: songs,
+              id: event.id,
+              favorite: myFavSongs.containsKey(
+                songs[index].id,
+              ),
+              from: event.from));
+        }
+      } catch (e) {
+        print(e);
       }
     });
 
@@ -79,8 +84,13 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
 
     on<StopAll>((event, emit) {
       player.stop();
-      emit(
-          state.copyWith(miniOn: false, shuffle: false, from: "", loop: false));
+      emit(state.copyWith(
+        miniOn: false,
+        shuffle: false,
+        from: "",
+        loop: false,
+        id: null,
+      ));
     });
   }
 
@@ -104,30 +114,38 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
           position = event.inMilliseconds + 100;
 
           emit(state.copyWith(position: position));
-          if (state.position >= state.songs[state.index].duration!.toInt()) {
-            final randomIndex = Random().nextInt(state.songs.length);
-            emit(state.copyWith(randomGenerated: true));
-            if (state.loop) {
-              add(PlaySong(
-                  index: state.index,
-                  mysongs: state.songs,
-                  from: state.from,
-                  id: state.songs[state.index].id));
-            } else if (state.shuffle && state.randomGenerated) {
-              add(PlaySong(
-                  index: randomIndex,
-                  mysongs: state.songs,
-                  from: state.from,
-                  id: state.songs[state.index].id));
-              emit(state.copyWith(randomGenerated: false));
-            } else {
-              add(PlaySong(
-                  index: state.index < state.songs.length - 1
-                      ? state.index + 1
-                      : 0,
-                  mysongs: state.songs,
-                  id: state.songs[state.index].id,
-                  from: state.from));
+          try {
+            if (state.position >= state.songs[state.index].duration!.toInt()) {
+              final randomIndex = Random().nextInt(state.songs.length);
+              emit(state.copyWith(randomGenerated: true));
+              if (state.loop) {
+                add(PlaySong(
+                    index: state.index,
+                    mysongs: state.songs,
+                    from: state.from,
+                    id: state.songs[state.index].id));
+              } else if (state.shuffle && state.randomGenerated) {
+                add(PlaySong(
+                    index: randomIndex,
+                    mysongs: state.songs,
+                    from: state.from,
+                    id: state.songs[state.index].id));
+                emit(state.copyWith(randomGenerated: false));
+              } else {
+                add(PlaySong(
+                    index: state.index < state.songs.length - 1
+                        ? state.index + 1
+                        : 0,
+                    mysongs: state.songs,
+                    id: state.songs[state.index].id,
+                    from: state.from));
+              }
+            }
+          } catch (e) {
+            print(e);
+
+            if (e is RangeError) {
+              emit(state.copyWith(index: state.index - 1));
             }
           }
         });

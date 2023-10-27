@@ -78,7 +78,8 @@ class PlaylistSongsScreen extends StatelessWidget {
               elevation: 3,
               child: TextButton.icon(
                   onPressed: () {
-                    showPLaylistBottomSheet(context, playlist.name, dbkey);
+                    showPLaylistBottomSheet(
+                        context, playlist.name, dbkey, playlist);
                   },
                   icon: const Icon(
                     Icons.add_chart,
@@ -197,10 +198,7 @@ class PlaylistSongsScreen extends StatelessWidget {
 }
 
 showPLaylistBottomSheet(
-  BuildContext ctx,
-  String name,
-  int dbkey,
-) {
+    BuildContext ctx, String name, int dbkey, MyPlaylistModel playlistModel) {
   showModalBottomSheet(
       context: ctx,
       builder: (context) {
@@ -241,8 +239,19 @@ showPLaylistBottomSheet(
                         ),
                         trailing: InkWell(
                             onTap: () {
-                              BlocProvider.of<PlaylistsBloc>(ctx)
-                                  .add(AddSong(song: song, index: dbkey));
+                              List list = playlistModel.playlistSongs
+                                  .map((e) => e.id)
+                                  .toList();
+                              if (!list.contains(song.id)) {
+                                BlocProvider.of<PlaylistsBloc>(context).add(
+                                    AddSong(
+                                        song: song, index: playlistModel.id));
+                                Navigator.of(context).pop();
+                              } else {
+                                Fluttertoast.showToast(
+                                    msg:
+                                        "Song already exists in ${playlistModel.name}");
+                              }
                             },
                             child: const Icon(Icons.add)),
                       ),

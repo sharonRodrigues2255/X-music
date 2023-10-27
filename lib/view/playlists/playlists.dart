@@ -108,6 +108,7 @@ class Playlists extends StatelessWidget {
                           id: null,
                           mysongs: playlist.playlistSongs,
                           from: playlist.name));
+                      Navigator.of(context).pop();
                     },
                     child: Text(
                       "Play and shuffle Playlist",

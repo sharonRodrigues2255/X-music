@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:musicplayer_project/bloc/playlists/playlists_bloc.dart';
 import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
@@ -48,9 +49,18 @@ class AddsongToPlaylist extends StatelessWidget {
                     elevation: 4,
                     child: ListTile(
                       onTap: () {
-                        BlocProvider.of<PlaylistsBloc>(context)
-                            .add(AddSong(song: song, index: playlistmodel.id));
-                        Navigator.of(context).pop();
+                        List list = playlistmodel.playlistSongs
+                            .map((e) => e.id)
+                            .toList();
+                        if (!list.contains(song.id)) {
+                          BlocProvider.of<PlaylistsBloc>(context).add(
+                              AddSong(song: song, index: playlistmodel.id));
+                          Navigator.of(context).pop();
+                        } else {
+                          Fluttertoast.showToast(
+                              msg:
+                                  "Song already exists in ${playlistmodel.name}");
+                        }
                       },
                       tileColor: Colors.black54.withOpacity(.6),
                       leading: CircleAvatar(
