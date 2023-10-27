@@ -45,7 +45,10 @@ class Favorites extends StatelessWidget {
                   title: "Favorites",
                 ));
                 context.read<PlayerBloc>().add(PlayerEvent.playSong(
-                    index: index, mysongs: favSongs, from: "Favorites"));
+                    index: index,
+                    mysongs: favSongs,
+                    from: "Favorites",
+                    id: song.id));
               },
               title: Text(song.displayName),
               subtitle: Text(song.artist),

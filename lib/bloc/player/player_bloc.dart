@@ -31,13 +31,16 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
             miniOn: true,
             songs: songs,
             from: event.from,
+            id: event.id,
             favorite: myFavSongs.containsKey(songs[index].id)));
         playSong(event.mysongs[state.index.toInt()]);
         yourtoptenbloc.mostlyAndRecentlyPlayed(event.mysongs[state.index]);
       } else {
+        print("called");
         emit(state.copyWith(
             index: index!,
             songs: songs,
+            id: event.id,
             favorite: myFavSongs.containsKey(
               songs[index].id,
             ),
@@ -73,6 +76,12 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
       }
       emit(state.copyWith(favorite: myFavSongs.containsKey(event.song.id)));
     });
+
+    on<StopAll>((event, emit) {
+      player.stop();
+      emit(
+          state.copyWith(miniOn: false, shuffle: false, from: "", loop: false));
+    });
   }
 
   playSong(MySongModel song) async {
@@ -100,10 +109,16 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
             emit(state.copyWith(randomGenerated: true));
             if (state.loop) {
               add(PlaySong(
-                  index: state.index, mysongs: state.songs, from: state.from));
+                  index: state.index,
+                  mysongs: state.songs,
+                  from: state.from,
+                  id: state.songs[state.index].id));
             } else if (state.shuffle && state.randomGenerated) {
               add(PlaySong(
-                  index: randomIndex, mysongs: state.songs, from: state.from));
+                  index: randomIndex,
+                  mysongs: state.songs,
+                  from: state.from,
+                  id: state.songs[state.index].id));
               emit(state.copyWith(randomGenerated: false));
             } else {
               add(PlaySong(
@@ -111,6 +126,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
                       ? state.index + 1
                       : 0,
                   mysongs: state.songs,
+                  id: state.songs[state.index].id,
                   from: state.from));
             }
           }

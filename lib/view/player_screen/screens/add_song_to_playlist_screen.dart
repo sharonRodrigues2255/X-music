@@ -68,15 +68,6 @@ class AddsongToPlaylist extends StatelessWidget {
                       subtitle: Text(
                           playlistmodel.playlistSongs.length.toString() +
                               " Songs"),
-                      trailing: IconButton(
-                          onPressed: () {
-                            BlocProvider.of<PlaylistsBloc>(context)
-                                .add(DeletePlaylist(index: playlistmodel.id));
-                          },
-                          icon: Icon(
-                            Icons.delete_forever,
-                            color: kred,
-                          )),
                     ),
                   ),
                 );

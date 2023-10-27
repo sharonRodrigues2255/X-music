@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:musicplayer_project/bloc/player/player_bloc.dart';
 import 'package:musicplayer_project/model/playlist_model/my_playlist_model.dart';
 import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -7,6 +8,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 part 'playlists_event.dart';
 part 'playlists_state.dart';
 part 'playlists_bloc.freezed.dart';
+
+var playerbloc = PlayerBloc();
 
 class PlaylistsBloc extends Bloc<PlaylistsEvent, PlaylistsState> {
   var myDb = Hive.box("MySongBox");
@@ -50,8 +53,10 @@ class PlaylistsBloc extends Bloc<PlaylistsEvent, PlaylistsState> {
           name: playlist.name,
           playlistSongs: playlist.playlistSongs..removeAt(event.songIndex));
       myDb.put(event.playlistIndex, updatedPlaylist);
-      final List UpdatedPlaylistModels = myDb.values.toList();
-      emit(state.copyWith(playlistModels: UpdatedPlaylistModels));
+
+      final List updatedPlaylistModels = myDb.values.toList();
+
+      emit(state.copyWith(playlistModels: updatedPlaylistModels));
     });
   }
 }

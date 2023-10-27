@@ -40,6 +40,7 @@ class RecentlyPlayed extends StatelessWidget {
                     title: "Recently Played",
                   ));
                   context.read<PlayerBloc>().add(PlayerEvent.playSong(
+                      id: song.id,
                       index: index,
                       mysongs: recentlyPlayed,
                       from: "Recently Played"));

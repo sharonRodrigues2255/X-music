@@ -95,6 +95,7 @@ class HomePage extends StatelessWidget {
                     BlocProvider.of<PlayerBloc>(context).add(PlaySong(
                         index: randomIndex,
                         mysongs: allSongsList,
+                        id: allSongsList[randomIndex!].id,
                         from: "Home"));
                   },
                   child: randomIndex != null

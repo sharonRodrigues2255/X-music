@@ -36,9 +36,11 @@ class CarousalSliderWidget extends StatelessWidget {
                             ),
                           ),
                           kheight10,
-                          Text(
-                            allSongsList[index].displayName,
-                            style: myfontBold(),
+                          Center(
+                            child: Text(
+                              allSongsList[index].displayName,
+                              style: myfontBold(),
+                            ),
                           )
                         ],
                       ),

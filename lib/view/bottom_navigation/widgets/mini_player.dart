@@ -26,7 +26,7 @@ class MIniPlayer extends StatelessWidget {
               if (details.primaryDelta! < 0) {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => PlayerScreen(
-                          mysongs: mysongs,
+                          mysongs: state.songs,
                           title: "",
                         )));
               }
@@ -56,7 +56,7 @@ class MIniPlayer extends StatelessWidget {
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => PlayerScreen(
-                                    mysongs: mysongs,
+                                    mysongs: state.songs,
                                     title: "",
                                   )));
                         },
@@ -67,7 +67,7 @@ class MIniPlayer extends StatelessWidget {
                               child: QueryArtworkWidget(
                                 artworkBorder: BorderRadius.circular(5),
                                 artworkFit: BoxFit.cover,
-                                id: mysongs[state.index].id,
+                                id: state.songs[state.index].id,
                                 type: ArtworkType.AUDIO,
                                 nullArtworkWidget: Hero(
                                   tag: "player",
@@ -84,7 +84,7 @@ class MIniPlayer extends StatelessWidget {
                             Hero(
                               tag: "name",
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width / 2.7,
+                                width: MediaQuery.sizeOf(context).width / 3,
                                 child: SingleChildScrollView(
                                   child: Center(
                                     child: Padding(
@@ -95,11 +95,12 @@ class MIniPlayer extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            mysongs[state.index].displayName,
+                                            state
+                                                .songs[state.index].displayName,
                                             style: myfontBold(size: 14.0),
                                           ),
                                           Text(
-                                            mysongs[state.index].artist,
+                                            state.songs[state.index].artist,
                                             style: myfontNormal(size: 12.0),
                                           )
                                         ],
@@ -113,15 +114,25 @@ class MIniPlayer extends StatelessWidget {
                         ),
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Hero(
                             tag: "action",
                             child: PlayerActionRow(
                               state: state,
-                              songs: mysongs,
-                              size: 35,
+                              songs: state.songs,
+                              size: 30,
                             ),
                           ),
+                          InkWell(
+                            onTap: () {
+                              playerBloc.add(StopAll());
+                            },
+                            child: Icon(
+                              Icons.close_rounded,
+                              size: 17,
+                            ),
+                          )
                         ],
                       )
                     ]),

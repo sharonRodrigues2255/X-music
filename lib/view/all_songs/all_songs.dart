@@ -30,7 +30,10 @@ class AllSongs extends StatelessWidget {
                   title: "All Songs",
                 ));
                 BlocProvider.of<PlayerBloc>(context).add(PlaySong(
-                    index: index, mysongs: allSongsList, from: "All Songs"));
+                    index: index,
+                    mysongs: allSongsList,
+                    from: "All Songs",
+                    id: song.id));
               },
               title: Text(song.displayName),
               subtitle: Text(song.artist),

@@ -39,6 +39,7 @@ class MostlyPlayed extends StatelessWidget {
                     title: "Mostly Played",
                   ));
                   context.read<PlayerBloc>().add(PlayerEvent.playSong(
+                      id: song.id,
                       index: index,
                       mysongs: mostlyPlayedSongs,
                       from: "Mostly Played"));
