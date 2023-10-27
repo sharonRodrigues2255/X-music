@@ -54,7 +54,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     });
 
     on<ContinueSong>((event, emit) async {
-      emit(state.copyWith(playing: true));
+      emit(state.copyWith(playing: true, miniOn: true));
       await player.play();
     });
 

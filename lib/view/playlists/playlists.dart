@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:musicplayer_project/bloc/player/player_bloc.dart';
 import 'package:musicplayer_project/bloc/playlists/playlists_bloc.dart';
+import 'package:musicplayer_project/model/playlist_model/my_playlist_model.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
+import 'package:musicplayer_project/utils/constants/sizes.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
 import 'package:musicplayer_project/view/playlists/screens/create_playlist.dart';
 
@@ -56,11 +60,10 @@ class Playlists extends StatelessWidget {
                               " Songs"),
                       trailing: IconButton(
                           onPressed: () {
-                            BlocProvider.of<PlaylistsBloc>(context)
-                                .add(DeletePlaylist(index: playlistmodel.id));
+                            showbottomSheet(context, playlistmodel);
                           },
                           icon: Icon(
-                            Icons.delete_forever,
+                            Icons.more_vert,
                             color: kred,
                           )),
                     ),
@@ -81,5 +84,57 @@ class Playlists extends StatelessWidget {
         child: const Icon(Icons.playlist_add_sharp),
       ),
     );
+  }
+
+  showbottomSheet(BuildContext context, MyPlaylistModel playlist) {
+    showModalBottomSheet(
+        context: context,
+        builder: (ctx) {
+          return Container(
+            height: MediaQuery.of(context).size.height / 5,
+            color: kblack,
+            child: Column(
+              children: [
+                Container(
+                  height: 3,
+                  width: 70,
+                  color: kwhite,
+                ),
+                kheight20,
+                TextButton(
+                    onPressed: () {
+                      BlocProvider.of<PlayerBloc>(context).add(PlaySong(
+                          index: 0,
+                          id: null,
+                          mysongs: playlist.playlistSongs,
+                          from: playlist.name));
+                    },
+                    child: Text(
+                      "Play and shuffle Playlist",
+                      style: myfontNormal(),
+                    )),
+                BlocBuilder<PlayerBloc, PlayerState>(
+                  builder: (context, state) {
+                    return TextButton(
+                        onPressed: () {
+                          if (state.from != playlist.name) {
+                            BlocProvider.of<PlaylistsBloc>(context)
+                                .add(DeletePlaylist(index: playlist.id));
+                          } else {
+                            Fluttertoast.showToast(
+                                msg:
+                                    "Playlist is currently playing \n can't delete now");
+                          }
+                        },
+                        child: Text(
+                          "Delete Playlist",
+                          style: myfontNormal(),
+                        ));
+                  },
+                )
+              ],
+            ),
+          );
+        });
   }
 }

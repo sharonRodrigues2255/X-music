@@ -7,7 +7,7 @@ xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
     <application
-        android:label="musicplayer_project"
+        android:label="X-Music"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
