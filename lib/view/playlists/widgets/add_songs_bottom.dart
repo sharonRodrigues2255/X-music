@@ -56,7 +56,6 @@ showAddsongsbottom(
                                 BlocProvider.of<PlaylistsBloc>(context).add(
                                     AddSong(
                                         song: song, index: playlistModel.id));
-                                Navigator.of(context).pop();
                               } else {
                                 Fluttertoast.showToast(
                                     msg:

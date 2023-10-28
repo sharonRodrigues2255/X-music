@@ -163,7 +163,7 @@ class HomePage extends StatelessWidget {
                         )
                       : SizedBox()),
             ]),
-            kheight10
+            kheight20
           ],
         ),
       ),
