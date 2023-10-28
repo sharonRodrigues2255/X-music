@@ -40,6 +40,8 @@ class YourTopTenBloc extends Bloc<YourTopTenEvent, YourTopTenState> {
     });
 
     on<UpdateMostlyAndRecentlyPlayedList>((event, emit) {
+      print(event.songslist[1].playedTimes);
+      print("//////////////////////////////////////////////");
       emit(state.copyWith(
           songsLIst: event.songslist
               .map((e) => MySongModel(
@@ -56,7 +58,8 @@ class YourTopTenBloc extends Bloc<YourTopTenEvent, YourTopTenState> {
     });
   }
   mostlyAndRecentlyPlayed(MySongModel song) {
-    song.playedTimes = song.playedTimes! + 1;
+    song.playedTimes = song.playedTimes == null ? 0 : song.playedTimes! + 1;
+
     var currentSong = MySongModel(
         id: song.id,
         title: song.title,
@@ -68,7 +71,9 @@ class YourTopTenBloc extends Bloc<YourTopTenEvent, YourTopTenState> {
         data: song.data,
         url: song.url);
     mostlyandRecentlyDb.put(song.id, currentSong);
+
     var songList = mostlyandRecentlyDb.values.toList();
+    print(songList[1].title);
     add(UpdateMostlyAndRecentlyPlayedList(songslist: songList));
   }
 }

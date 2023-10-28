@@ -28,6 +28,7 @@ class MostlyPlayed extends StatelessWidget {
           itemCount: mostlyPlayedSongs.length,
           itemBuilder: (context, index) {
             final song = mostlyPlayedSongs[index];
+            print(song.title + " ${song.playedTimes}");
 
             return Card(
               child: ListTile(

@@ -8,6 +8,7 @@ import 'package:musicplayer_project/model/playlist_model/my_playlist_model.dart'
 import 'package:musicplayer_project/utils/constants/colors.dart';
 import 'package:musicplayer_project/utils/constants/sizes.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
+import 'package:musicplayer_project/utils/images/images_constants.dart';
 import 'package:musicplayer_project/view/playlists/screens/create_playlist.dart';
 
 import 'screens/playlist_songs.dart';
@@ -20,6 +21,13 @@ class Playlists extends StatelessWidget {
     BlocProvider.of<PlaylistsBloc>(context).add(Started());
     return Scaffold(
       appBar: AppBar(
+        leading: Container(
+          height: 20,
+          width: 20,
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(image: AssetImage(ImagesConstants.logo))),
+        ),
         title: const Text("Play lists"),
       ),
       body: BlocBuilder<PlaylistsBloc, PlaylistsState>(

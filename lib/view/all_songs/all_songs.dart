@@ -8,6 +8,7 @@ import 'package:musicplayer_project/bloc/player/player_bloc.dart';
 import 'package:musicplayer_project/model/song_model/mysongmodel.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
+import 'package:musicplayer_project/utils/images/images_constants.dart';
 import 'package:musicplayer_project/view/player_screen/player_screen.dart';
 import 'package:musicplayer_project/view/player_screen/screens/add_song_to_playlist_screen.dart';
 import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
@@ -21,8 +22,15 @@ class AllSongs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Xusic"),
-        centerTitle: true,
+        leading: Container(
+          height: 20,
+          width: 20,
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(image: AssetImage(ImagesConstants.logo))),
+        ),
+        backgroundColor: kblack,
+        title: const Text("X-Music"),
       ),
       body: ListView.builder(
         itemCount: allSongsList.length,
@@ -83,7 +91,45 @@ class AllSongs extends StatelessWidget {
                   width: 80,
                   color: Colors.white,
                 ),
-                //////////////////////////////////////////////////////// delete from playlist boookmark
+
+                TextButton(
+                    onPressed: () {
+                      Navigator.of(ctx).pop();
+                      Get.to(PlayerScreen(
+                        mysongs: allSongsList,
+                        title: "All songs",
+                      ));
+                      context.read<PlayerBloc>().add(PlayerEvent.playSong(
+                          id: song.id,
+                          index: i,
+                          mysongs: allSongsList,
+                          from: "All songs"));
+                    },
+                    child: Text(
+                      "Play",
+                      style: myfontNormal(),
+                    )),
+                TextButton(
+                    onPressed: () {
+                      Share.shareXFiles([XFile(song.data!)],
+                          subject: song.title, text: song.title);
+                      Navigator.of(ctx).pop();
+                    },
+                    child: Text(
+                      "Share",
+                      style: myfontNormal(),
+                    )),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => AddsongToPlaylist(song: song)));
+                  },
+                  child: Text(
+                    "Add to Playlist",
+                    style: myfontNormal(),
+                  ),
+                ), //////////////////////////////////////////////////////// delete from playlist boookmark
                 BlocBuilder<PlayerBloc, PlayerState>(
                   builder: (context, state) {
                     return TextButton(
@@ -119,51 +165,13 @@ class AllSongs extends StatelessWidget {
                           width: double.infinity,
                           child: Center(
                             child: Text(
-                              "Remove song from your phone",
+                              "Delete",
                               style: myfontNormal(),
                             ),
                           ),
                         ));
                   },
                 ),
-                TextButton(
-                    onPressed: () {
-                      Share.shareXFiles([XFile(song.data!)],
-                          subject: song.title, text: song.title);
-                      Navigator.of(ctx).pop();
-                    },
-                    child: Text(
-                      "Share",
-                      style: myfontNormal(),
-                    )),
-                TextButton(
-                    onPressed: () {
-                      Navigator.of(ctx).pop();
-                      Get.to(PlayerScreen(
-                        mysongs: allSongsList,
-                        title: "All songs",
-                      ));
-                      context.read<PlayerBloc>().add(PlayerEvent.playSong(
-                          id: song.id,
-                          index: i,
-                          mysongs: allSongsList,
-                          from: "All songs"));
-                    },
-                    child: Text(
-                      "Play",
-                      style: myfontNormal(),
-                    )),
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => AddsongToPlaylist(song: song)));
-                  },
-                  child: Text(
-                    "Add to Playlist",
-                    style: myfontNormal(),
-                  ),
-                )
               ],
             ),
           );

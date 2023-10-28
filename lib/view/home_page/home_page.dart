@@ -31,6 +31,13 @@ class HomePage extends StatelessWidget {
     }
     return Scaffold(
       appBar: AppBar(
+        leading: Container(
+          height: 20,
+          width: 20,
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(image: AssetImage(ImagesConstants.logo))),
+        ),
         backgroundColor: kblack,
         title: Text(
           greeting().toString(),

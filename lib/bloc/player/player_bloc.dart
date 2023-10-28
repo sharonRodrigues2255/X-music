@@ -23,33 +23,34 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     on<PlaySong>((event, emit) async {
       final index = event.index;
       final songs = event.mysongs;
-      try {
-        if (state.songs[state.index].id != event.mysongs[event.index!].id ||
-            state.playing == null) {
-          emit(state.copyWith(
-              index: index!,
-              playing: true,
-              miniOn: true,
-              songs: songs,
-              from: event.from,
-              id: event.id,
-              favorite: myFavSongs.containsKey(songs[index].id)));
 
-          playSong(event.mysongs[state.index.toInt()]);
-          yourtoptenbloc.mostlyAndRecentlyPlayed(event.mysongs[state.index]);
-        } else {
-          print("called");
-          emit(state.copyWith(
-              index: index!,
-              songs: songs,
-              id: event.id,
-              favorite: myFavSongs.containsKey(
-                songs[index].id,
-              ),
-              from: event.from));
+      if (state.songs[state.index].id != event.mysongs[event.index!].id ||
+          state.playing == null) {
+        emit(state.copyWith(
+            index: index!,
+            playing: true,
+            miniOn: true,
+            songs: songs,
+            from: event.from,
+            id: event.id,
+            favorite: myFavSongs.containsKey(songs[index].id)));
+
+        playSong(event.mysongs[state.index.toInt()]);
+        yourtoptenbloc.mostlyAndRecentlyPlayed(event.mysongs[state.index]);
+      } else {
+        print("called");
+        if (!player.playing) {
+          add(ContinueSong());
         }
-      } catch (e) {
-        print(e);
+        emit(state.copyWith(
+            miniOn: true,
+            index: index!,
+            songs: songs,
+            id: event.id,
+            favorite: myFavSongs.containsKey(
+              songs[index].id,
+            ),
+            from: event.from));
       }
     });
 

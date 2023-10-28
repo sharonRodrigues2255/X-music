@@ -116,13 +116,10 @@ class MIniPlayer extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Hero(
-                            tag: "action",
-                            child: PlayerActionRow(
-                              state: state,
-                              songs: state.songs,
-                              size: 30,
-                            ),
+                          PlayerActionRow(
+                            state: state,
+                            songs: state.songs,
+                            size: 30,
                           ),
                           InkWell(
                             onTap: () {

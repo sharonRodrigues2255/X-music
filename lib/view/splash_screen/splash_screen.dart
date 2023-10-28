@@ -12,6 +12,13 @@ import 'package:permission_handler/permission_handler.dart';
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
+  // @override
+  // void initState() {
+
+  //   super.initState();
+
+  // }
+
   @override
   Widget build(BuildContext context) {
     checkPermission(context);
