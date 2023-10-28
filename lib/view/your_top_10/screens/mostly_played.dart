@@ -23,6 +23,7 @@ class MostlyPlayed extends StatelessWidget {
           ..sort(
             (a, b) => b.playedTimes!.compareTo(a.playedTimes!),
           );
+        mostlyPlayedSongs.length <= 10;
 
         return ListView.builder(
           itemCount: mostlyPlayedSongs.length,
@@ -58,7 +59,6 @@ class MostlyPlayed extends StatelessWidget {
                     ),
                   ),
                 ),
-                trailing: const Icon(Icons.more_vert),
               ),
             );
           },

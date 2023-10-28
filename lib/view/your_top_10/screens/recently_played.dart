@@ -25,6 +25,8 @@ class RecentlyPlayed extends StatelessWidget {
           );
         recentlyPlayed.addAll(sortedlist);
 
+        recentlyPlayed.length <= 10;
+
         return ListView.builder(
           itemCount: recentlyPlayed.length,
           itemBuilder: (context, index) {
@@ -58,7 +60,6 @@ class RecentlyPlayed extends StatelessWidget {
                     ),
                   ),
                 ),
-                trailing: const Icon(Icons.more_vert),
               ),
             );
           },

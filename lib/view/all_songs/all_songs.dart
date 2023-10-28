@@ -91,7 +91,6 @@ class AllSongs extends StatelessWidget {
                   width: 80,
                   color: Colors.white,
                 ),
-
                 TextButton(
                     onPressed: () {
                       Navigator.of(ctx).pop();
@@ -129,7 +128,7 @@ class AllSongs extends StatelessWidget {
                     "Add to Playlist",
                     style: myfontNormal(),
                   ),
-                ), //////////////////////////////////////////////////////// delete from playlist boookmark
+                ),
                 BlocBuilder<PlayerBloc, PlayerState>(
                   builder: (context, state) {
                     return TextButton(

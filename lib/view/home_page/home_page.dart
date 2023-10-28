@@ -43,7 +43,10 @@ class HomePage extends StatelessWidget {
           greeting().toString(),
           style: myfontBold(size: 28.0),
         ),
-        actions: [const Icon(Icons.more_vert), kwidth10],
+        actions: [
+          InkWell(onTap: () {}, child: const Icon(Icons.more_vert)),
+          kwidth10
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(

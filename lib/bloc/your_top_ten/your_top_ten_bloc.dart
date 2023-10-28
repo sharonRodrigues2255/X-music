@@ -34,14 +34,13 @@ class YourTopTenBloc extends Bloc<YourTopTenEvent, YourTopTenState> {
               artist: e.artist,
               duration: e.duration,
               playedTime: e.playedTime,
+              playedTimes: e.playedTimes,
               url: e.url))
           .toList();
       emit(state.copyWith(songsLIst: recentlyPlayed));
     });
 
     on<UpdateMostlyAndRecentlyPlayedList>((event, emit) {
-      print(event.songslist[1].playedTimes);
-      print("//////////////////////////////////////////////");
       emit(state.copyWith(
           songsLIst: event.songslist
               .map((e) => MySongModel(
