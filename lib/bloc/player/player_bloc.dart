@@ -118,7 +118,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
           try {
             if (state.position >= state.songs[state.index].duration!.toInt()) {
               final randomIndex = Random().nextInt(state.songs.length);
-              emit(state.copyWith(randomGenerated: true));
+              emit(state.copyWith(randomGenerated: true, playing: null));
               if (state.loop) {
                 add(PlaySong(
                     index: state.index,

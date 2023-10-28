@@ -71,7 +71,12 @@ class HomePage extends StatelessWidget {
             SubtitleWidget(
               title: "All Songs",
             ),
-            const CarousalSliderWidget(),
+            if (allSongsList.isNotEmpty)
+              const CarousalSliderWidget()
+            else
+              Center(
+                child: Text("No songs to show yet"),
+              ),
             kheight20,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

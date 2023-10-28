@@ -15,7 +15,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Settings")),
+      appBar: AppBar(title: const Text("Settings")),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -70,7 +70,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               min: 1.0,
               max: 10.0,
               onChanged: (double value) {
-                print(player.volume);
                 volumevalue = value;
 
                 double volumeLevel;
@@ -96,10 +95,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             TextButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => PrivacyPolicy()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const PrivacyPolicy()));
                 },
-                child: Container(
+                child: SizedBox(
                   width: double.infinity,
                   child: Text(
                     "Privacy policy",
@@ -111,7 +110,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => UserAgreement()));
                 },
-                child: Container(
+                child: SizedBox(
                   width: double.infinity,
                   child: Text(
                     "User agreement",

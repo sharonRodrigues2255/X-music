@@ -21,60 +21,63 @@ class AllSongs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Container(
-          height: 20,
-          width: 20,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(image: AssetImage(ImagesConstants.logo))),
+        appBar: AppBar(
+          leading: Container(
+            height: 20,
+            width: 20,
+            decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image:
+                    DecorationImage(image: AssetImage(ImagesConstants.logo))),
+          ),
+          backgroundColor: kblack,
+          title: const Text("X-Music"),
         ),
-        backgroundColor: kblack,
-        title: const Text("X-Music"),
-      ),
-      body: ListView.builder(
-        itemCount: allSongsList.length,
-        itemBuilder: (context, index) {
-          final song = allSongsList[index];
-          return Card(
-            child: ListTile(
-              tileColor: Colors.black54,
-              style: ListTileStyle.list,
-              onTap: () {
-                Get.to(PlayerScreen(
-                  mysongs: allSongsList,
-                  title: "All Songs",
-                ));
-                BlocProvider.of<PlayerBloc>(context).add(PlaySong(
-                    index: index,
-                    mysongs: allSongsList,
-                    from: "All Songs",
-                    id: song.id));
-              },
-              title: Text(song.displayName),
-              subtitle: Text(song.artist),
-              leading: QueryArtworkWidget(
-                id: song.id,
-                type: ArtworkType.AUDIO,
-                nullArtworkWidget: const CircleAvatar(
-                  radius: 25,
-                  child: Icon(
-                    Icons.music_note,
-                    size: 20,
-                  ),
-                ),
-              ),
-              trailing: InkWell(
-                  onTap: () {
-                    print(allSongsList[1].data);
-                    showSongMorevertbottomSheet(context, index, song);
-                  },
-                  child: const Icon(Icons.more_vert)),
-            ),
-          );
-        },
-      ),
-    );
+        body: allSongsList.isNotEmpty
+            ? ListView.builder(
+                itemCount: allSongsList.length,
+                itemBuilder: (context, index) {
+                  final song = allSongsList[index];
+                  return Card(
+                    child: ListTile(
+                      tileColor: Colors.black54,
+                      style: ListTileStyle.list,
+                      onTap: () {
+                        Get.to(PlayerScreen(
+                          mysongs: allSongsList,
+                          title: "All Songs",
+                        ));
+                        BlocProvider.of<PlayerBloc>(context).add(PlaySong(
+                            index: index,
+                            mysongs: allSongsList,
+                            from: "All Songs",
+                            id: song.id));
+                      },
+                      title: Text(song.displayName),
+                      subtitle: Text(song.artist),
+                      leading: QueryArtworkWidget(
+                        id: song.id,
+                        type: ArtworkType.AUDIO,
+                        nullArtworkWidget: const CircleAvatar(
+                          radius: 25,
+                          child: Icon(
+                            Icons.music_note,
+                            size: 20,
+                          ),
+                        ),
+                      ),
+                      trailing: InkWell(
+                          onTap: () {
+                            showSongMorevertbottomSheet(context, index, song);
+                          },
+                          child: const Icon(Icons.more_vert)),
+                    ),
+                  );
+                },
+              )
+            : const Center(
+                child: Text("No songs to play"),
+              ));
   }
 
   showSongMorevertbottomSheet(BuildContext context, int i, MySongModel song) {
@@ -140,7 +143,6 @@ class AllSongs extends StatelessWidget {
                             file.deleteSync();
                             Fluttertoast.showToast(
                                 msg: "Song is removed from playlist");
-                            print(state.index);
 
                             BlocProvider.of<PlayerBloc>(context).add(PlaySong(
                                 index: 0,
