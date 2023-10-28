@@ -14,6 +14,7 @@ import 'package:musicplayer_project/view/home_page/widgets/search_songs.dart';
 import 'package:musicplayer_project/view/home_page/widgets/subtitile_widget.dart';
 import 'package:musicplayer_project/view/player_screen/player_screen.dart';
 import 'package:musicplayer_project/view/search/search.dart';
+import 'package:musicplayer_project/view/settings/settings.dart';
 import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
 import 'package:musicplayer_project/view/your_top_10/your_top_ten_screen.dart';
 import 'package:on_audio_query/on_audio_query.dart';
@@ -44,7 +45,12 @@ class HomePage extends StatelessWidget {
           style: myfontBold(size: 28.0),
         ),
         actions: [
-          InkWell(onTap: () {}, child: const Icon(Icons.more_vert)),
+          InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const SettingsScreen()));
+              },
+              child: const Icon(Icons.more_vert)),
           kwidth10
         ],
       ),
