@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const SettingsScreen()));
               },
-              child: const Icon(Icons.more_vert)),
+              child: const Icon(Icons.settings)),
           kwidth10
         ],
       ),
