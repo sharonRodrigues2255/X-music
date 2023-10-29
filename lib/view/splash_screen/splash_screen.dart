@@ -56,16 +56,17 @@ class SplashScreen extends StatelessWidget {
         uriType: UriType.EXTERNAL,
         ignoreCase: true);
 
-    final songs = externalSongs.map((e) => MySongModel(
-        id: e.id,
-        title: e.title,
-        displayName: e.displayNameWOExt,
-        artist: e.artist!,
-        duration: e.duration,
-        data: e.data,
-        url: e.uri));
+    allSongsList = externalSongs
+        .map((e) => MySongModel(
+            id: e.id,
+            title: e.title,
+            displayName: e.displayNameWOExt,
+            artist: e.artist!,
+            duration: e.duration,
+            data: e.data,
+            url: e.uri))
+        .toList();
 
-    allSongsList.addAll(songs);
     Future.delayed(Duration(seconds: 3)).then((value) {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const BottomNavigationScreen()));

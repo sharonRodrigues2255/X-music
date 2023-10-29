@@ -46,6 +46,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<YourTopTenBloc>(create: (context) => YourTopTenBloc())
       ],
       child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Xusic',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

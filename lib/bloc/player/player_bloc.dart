@@ -108,7 +108,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
   }
 
   positionStream() async {
-    var position;
+    int position;
     try {
       Future.sync(() {
         player.positionStream.listen((event) async {

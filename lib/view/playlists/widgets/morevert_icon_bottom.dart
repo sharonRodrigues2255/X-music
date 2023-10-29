@@ -41,11 +41,13 @@ showPlaylistMorevertbottomSheet(BuildContext context, int i, int dbkey,
                               msg: "Song is removed from playlist");
                           print(state.index);
 
-                          BlocProvider.of<PlayerBloc>(context).add(PlaySong(
-                              index: state.index - 1,
-                              mysongs: playlist.playlistSongs,
-                              id: song.id,
-                              from: playlist.name));
+                          if (state.index > i) {
+                            BlocProvider.of<PlayerBloc>(context).add(PlaySong(
+                                index: state.index - 1,
+                                mysongs: playlist.playlistSongs,
+                                id: song.id,
+                                from: playlist.name));
+                          }
                           print(playlist.playlistSongs.length);
 
                           Navigator.of(ctx).pop();
