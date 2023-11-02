@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:musicplayer_project/bloc/playlists/playlists_bloc.dart';
 import 'package:musicplayer_project/model/playlist_model/my_playlist_model.dart';
 import 'package:musicplayer_project/utils/constants/colors.dart';
@@ -12,6 +14,7 @@ class CreatePlaylist extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var myDb = Hive.box("MySongBox");
     final playlistsbloc = BlocProvider.of<PlaylistsBloc>(context);
     TextEditingController textEditingController = TextEditingController();
     return Scaffold(
@@ -48,13 +51,18 @@ class CreatePlaylist extends StatelessWidget {
                 TextButton(
                     onPressed: () {
                       final text = textEditingController.text;
+                      final playlistLIst = myDb.values.map((e) => e.name);
+                      if (playlistLIst.contains(text)) {
+                        Fluttertoast.showToast(
+                            msg: "Playlist name is already taken");
+                      } else {
+                        final id = DateTime.now().millisecond.toInt();
+                        playlistsbloc.add(AddPlaylist(
+                            playlist: MyPlaylistModel(
+                                name: text, playlistSongs: [], id: id)));
 
-                      final id = DateTime.now().millisecond.toInt();
-                      playlistsbloc.add(AddPlaylist(
-                          playlist: MyPlaylistModel(
-                              name: text, playlistSongs: [], id: id)));
-
-                      Get.back();
+                        Get.back();
+                      }
                     },
                     child: Text(
                       "Create",

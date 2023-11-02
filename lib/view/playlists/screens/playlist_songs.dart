@@ -95,7 +95,7 @@ class PlaylistSongsScreen extends StatelessWidget {
               return state.miniOn == true
                   ? SingleChildScrollView(
                       child: MIniPlayer(mysongs: state.songs))
-                  : SizedBox();
+                  : const SizedBox();
             },
           ),
         );
