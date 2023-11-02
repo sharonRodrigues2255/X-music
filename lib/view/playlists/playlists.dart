@@ -111,11 +111,14 @@ class Playlists extends StatelessWidget {
                 kheight20,
                 TextButton(
                     onPressed: () {
+                      BlocProvider.of<PlayerBloc>(context)
+                          .add(LoopAndShuffle(loop: false, shuffle: true));
                       BlocProvider.of<PlayerBloc>(context).add(PlaySong(
                           index: 0,
                           id: null,
                           mysongs: playlist.playlistSongs,
                           from: playlist.name));
+
                       Navigator.of(context).pop();
                     },
                     child: Text(
@@ -129,6 +132,7 @@ class Playlists extends StatelessWidget {
                           if (state.from != playlist.name) {
                             BlocProvider.of<PlaylistsBloc>(context)
                                 .add(DeletePlaylist(index: playlist.id));
+                            Navigator.of(context).pop();
                           } else {
                             Fluttertoast.showToast(
                                 msg:
