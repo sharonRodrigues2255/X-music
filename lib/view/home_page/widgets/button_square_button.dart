@@ -12,7 +12,6 @@ class ButtonSquareCard extends StatelessWidget {
     return Column(
       children: [
         Container(
-          color: Colors.amber,
           child: image != null
               ? Image(
                   image: image!,

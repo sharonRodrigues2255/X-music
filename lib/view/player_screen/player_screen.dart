@@ -82,10 +82,14 @@ class PlayerScreen extends StatelessWidget {
                   builder: (context, state) {
                     return Hero(
                       tag: "name",
-                      child: Text(
-                        mysongs[state.index].title,
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Text(
+                          mysongs[state.index].title,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
                       ),
                     );
                   },
@@ -96,7 +100,10 @@ class PlayerScreen extends StatelessWidget {
                     return previous.index != current.index;
                   },
                   builder: (context, state) {
-                    return Text(mysongs[state.index].artist);
+                    return Text(
+                      mysongs[state.index].artist,
+                      textAlign: TextAlign.center,
+                    );
                   },
                 ),
                 kheight20,
