@@ -187,6 +187,6 @@ String greeting() {
   } else if (time >= 17 && time <= 22) {
     return "Good Evening!!";
   } else {
-    return "Parelel time";
+    return "Good night!!";
   }
 }

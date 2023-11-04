@@ -5,6 +5,7 @@ import 'package:musicplayer_project/utils/constants/colors.dart';
 import 'package:musicplayer_project/utils/constants/sizes.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
 import 'package:musicplayer_project/utils/images/images_constants.dart';
+import 'package:musicplayer_project/view/all_songs/all_songs.dart';
 import 'package:musicplayer_project/view/bottom_navigation/bottom_navigation.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -66,6 +67,7 @@ class SplashScreen extends StatelessWidget {
             data: e.data,
             url: e.uri))
         .toList();
+    songslist.value.addAll(allSongsList);
 
     Future.delayed(Duration(seconds: 3)).then((value) {
       Navigator.of(context).pushReplacement(MaterialPageRoute(

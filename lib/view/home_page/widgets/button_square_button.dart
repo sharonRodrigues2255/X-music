@@ -13,7 +13,12 @@ class ButtonSquareCard extends StatelessWidget {
       children: [
         Container(
           color: Colors.amber,
-          child: image != null ? Image(image: image!) : null,
+          child: image != null
+              ? Image(
+                  image: image!,
+                  fit: BoxFit.cover,
+                )
+              : null,
           height: MediaQuery.of(context).size.width / 2.5,
           width: MediaQuery.of(context).size.width / 2.5,
         ),

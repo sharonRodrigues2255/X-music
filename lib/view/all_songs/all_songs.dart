@@ -15,6 +15,8 @@ import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:share_plus/share_plus.dart';
 
+final songslist = ValueNotifier<List<MySongModel>>([]);
+
 class AllSongs extends StatelessWidget {
   const AllSongs({Key? key});
 
@@ -34,47 +36,52 @@ class AllSongs extends StatelessWidget {
           title: const Text("X-Music"),
         ),
         body: allSongsList.isNotEmpty
-            ? ListView.builder(
-                itemCount: allSongsList.length,
-                itemBuilder: (context, index) {
-                  final song = allSongsList[index];
-                  return Card(
-                    child: ListTile(
-                      tileColor: Colors.black54,
-                      style: ListTileStyle.list,
-                      onTap: () {
-                        Get.to(PlayerScreen(
-                          mysongs: allSongsList,
-                          title: "All Songs",
-                        ));
-                        BlocProvider.of<PlayerBloc>(context).add(PlaySong(
-                            index: index,
-                            mysongs: allSongsList,
-                            from: "All Songs",
-                            id: song.id));
-                      },
-                      title: Text(song.displayName),
-                      subtitle: Text(song.artist),
-                      leading: QueryArtworkWidget(
-                        id: song.id,
-                        type: ArtworkType.AUDIO,
-                        nullArtworkWidget: const CircleAvatar(
-                          radius: 25,
-                          child: Icon(
-                            Icons.music_note,
-                            size: 20,
-                          ),
-                        ),
-                      ),
-                      trailing: InkWell(
+            ? ValueListenableBuilder(
+                valueListenable: songslist,
+                builder: (context, value, _) {
+                  return ListView.builder(
+                    itemCount: value.length,
+                    itemBuilder: (context, index) {
+                      final song = value[index];
+                      return Card(
+                        child: ListTile(
+                          tileColor: Colors.black54,
+                          style: ListTileStyle.list,
                           onTap: () {
-                            showSongMorevertbottomSheet(context, index, song);
+                            Get.to(PlayerScreen(
+                              mysongs: value,
+                              title: "All Songs",
+                            ));
+                            BlocProvider.of<PlayerBloc>(context).add(PlaySong(
+                                index: index,
+                                mysongs: value,
+                                from: "All Songs",
+                                id: song.id));
                           },
-                          child: const Icon(Icons.more_vert)),
-                    ),
+                          title: Text(song.displayName),
+                          subtitle: Text(song.artist),
+                          leading: QueryArtworkWidget(
+                            id: song.id,
+                            type: ArtworkType.AUDIO,
+                            nullArtworkWidget: const CircleAvatar(
+                              radius: 25,
+                              child: Icon(
+                                Icons.music_note,
+                                size: 20,
+                              ),
+                            ),
+                          ),
+                          trailing: InkWell(
+                              onTap: () {
+                                showSongMorevertbottomSheet(
+                                    context, index, song);
+                              },
+                              child: const Icon(Icons.more_vert)),
+                        ),
+                      );
+                    },
                   );
-                },
-              )
+                })
             : const Center(
                 child: Text("No songs to play"),
               ));
@@ -104,7 +111,7 @@ class AllSongs extends StatelessWidget {
                       context.read<PlayerBloc>().add(PlayerEvent.playSong(
                           id: song.id,
                           index: i,
-                          mysongs: allSongsList,
+                          mysongs: songslist.value,
                           from: "All songs"));
                     },
                     child: Text(
@@ -132,47 +139,48 @@ class AllSongs extends StatelessWidget {
                     style: myfontNormal(),
                   ),
                 ),
-                BlocBuilder<PlayerBloc, PlayerState>(
-                  builder: (context, state) {
-                    return TextButton(
-                        onPressed: () {
-                          if (state.songs[state.index].id != song.id) {
-                            allSongsList.removeAt(i);
-                            final file = File(song.data!);
-                            file.delete();
-                            file.deleteSync();
-                            Fluttertoast.showToast(
-                                msg: "Song is removed from playlist");
+                // BlocBuilder<PlayerBloc, PlayerState>(
+                //   builder: (context, state) {
+                //     return TextButton(
+                //         onPressed: () {
+                //           if (state.songs[state.index].id != song.id) {
+                //             allSongsList.removeAt(i);
+                //             songslist.value.removeAt(i);
+                //             final file = File(song.data!);
+                //             file.delete();
+                //             file.deleteSync();
+                //             Fluttertoast.showToast(
+                //                 msg: "Song is removed from playlist");
 
-                            BlocProvider.of<PlayerBloc>(context).add(PlaySong(
-                                index: 0,
-                                mysongs: allSongsList,
-                                id: song.id,
-                                from: "All songs"));
+                //             BlocProvider.of<PlayerBloc>(context).add(PlaySong(
+                //                 index: 0,
+                //                 mysongs: allSongsList,
+                //                 id: song.id,
+                //                 from: "All songs"));
 
-                            Navigator.of(ctx).pop();
-                          } else {
-                            Fluttertoast.showToast(
-                                textColor: kwhite,
-                                fontSize: 16.0,
-                                gravity: ToastGravity.CENTER,
-                                toastLength: Toast.LENGTH_LONG,
-                                msg:
-                                    "The Song is currently running \n change the running song to delete");
-                            Navigator.of(context).pop();
-                          }
-                        },
-                        child: SizedBox(
-                          width: double.infinity,
-                          child: Center(
-                            child: Text(
-                              "Delete",
-                              style: myfontNormal(),
-                            ),
-                          ),
-                        ));
-                  },
-                ),
+                //             Navigator.of(ctx).pop();
+                //           } else {
+                //             Fluttertoast.showToast(
+                //                 textColor: kwhite,
+                //                 fontSize: 16.0,
+                //                 gravity: ToastGravity.CENTER,
+                //                 toastLength: Toast.LENGTH_LONG,
+                //                 msg:
+                //                     "The Song is currently running \n change the running song to delete");
+                //             Navigator.of(context).pop();
+                //           }
+                //         },
+                //         child: SizedBox(
+                //           width: double.infinity,
+                //           child: Center(
+                //             child: Text(
+                //               "Delete",
+                //               style: myfontNormal(),
+                //             ),
+                //           ),
+                //         ));
+                //   },
+                // ),
               ],
             ),
           );

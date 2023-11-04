@@ -51,7 +51,10 @@ class SearchScreen extends SearchDelegate {
                 title: "Search",
               ));
               context.read<PlayerBloc>().add(PlayerEvent.playSong(
-                  index: index, mysongs: [song], from: 'Search', id: song.id));
+                  index: index,
+                  mysongs: searchsonglist,
+                  from: 'Search',
+                  id: song.id));
             },
             title: Text(song.displayName),
             subtitle: Text(song.artist),
@@ -93,7 +96,7 @@ class SearchScreen extends SearchDelegate {
             style: ListTileStyle.list,
             onTap: () {
               Get.to(PlayerScreen(
-                mysongs: [song],
+                mysongs: searchsonglist,
                 title: "Search",
               ));
               context.read<PlayerBloc>().add(PlayerEvent.playSong(
