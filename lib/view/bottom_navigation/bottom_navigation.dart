@@ -18,56 +18,66 @@ class BottomNavigationScreen extends StatelessWidget {
     return ValueListenableBuilder(
         valueListenable: selectedIndex,
         builder: ((context, value, child) {
-          return Scaffold(
-            body: _pages[selectedIndex.value],
-            bottomNavigationBar: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  BlocBuilder<PlayerBloc, PlayerState>(
-                    buildWhen: (previous, current) =>
-                        previous.index != current.index ||
-                        previous.playing != current.playing ||
-                        previous.miniOn != current.miniOn,
-                    builder: (context, state) {
-                      return state.miniOn == true
-                          ? SingleChildScrollView(
-                              child: MIniPlayer(mysongs: state.songs))
-                          : SizedBox();
-                    },
-                  ),
-                  Container(
-                    height: 55,
-                    width: double.infinity,
-                    child: Center(
-                      child: BottomNavigationBar(
-                          onTap: (value) {
-                            selectedIndex.value = value;
-                          },
-                          currentIndex: selectedIndex.value,
-                          backgroundColor: kblack,
-                          selectedIconTheme: IconThemeData(size: 22),
-                          unselectedIconTheme: IconThemeData(size: 18),
-                          items: [
-                            BottomNavigationBarItem(
-                                icon: Icon(
-                                  Icons.home,
-                                ),
-                                label: "Home"),
-                            BottomNavigationBarItem(
-                                icon: Icon(
-                                  Icons.explore,
-                                ),
-                                label: "All Songs"),
-                            BottomNavigationBarItem(
-                                icon: Icon(
-                                  Icons.playlist_play_rounded,
-                                ),
-                                label: "PlayLists")
-                          ]),
+          return WillPopScope(
+            onWillPop: () async {
+              if (value == 0) {
+                return true;
+              } else {
+                selectedIndex.value = 0;
+                return false;
+              }
+            },
+            child: Scaffold(
+              body: _pages[selectedIndex.value],
+              bottomNavigationBar: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    BlocBuilder<PlayerBloc, PlayerState>(
+                      buildWhen: (previous, current) =>
+                          previous.index != current.index ||
+                          previous.playing != current.playing ||
+                          previous.miniOn != current.miniOn,
+                      builder: (context, state) {
+                        return state.miniOn == true
+                            ? SingleChildScrollView(
+                                child: MIniPlayer(mysongs: state.songs))
+                            : SizedBox();
+                      },
                     ),
-                  )
-                ],
+                    Container(
+                      height: 55,
+                      width: double.infinity,
+                      child: Center(
+                        child: BottomNavigationBar(
+                            onTap: (value) {
+                              selectedIndex.value = value;
+                            },
+                            currentIndex: selectedIndex.value,
+                            backgroundColor: kblack,
+                            selectedIconTheme: IconThemeData(size: 22),
+                            unselectedIconTheme: IconThemeData(size: 18),
+                            items: [
+                              BottomNavigationBarItem(
+                                  icon: Icon(
+                                    Icons.home,
+                                  ),
+                                  label: "Home"),
+                              BottomNavigationBarItem(
+                                  icon: Icon(
+                                    Icons.explore,
+                                  ),
+                                  label: "All Songs"),
+                              BottomNavigationBarItem(
+                                  icon: Icon(
+                                    Icons.playlist_play_rounded,
+                                  ),
+                                  label: "PlayLists")
+                            ]),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           );
