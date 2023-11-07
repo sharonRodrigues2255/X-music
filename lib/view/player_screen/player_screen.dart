@@ -64,7 +64,7 @@ class PlayerScreen extends StatelessWidget {
                         id: mysongs[state.index].id,
                         type: ArtworkType.AUDIO,
                         nullArtworkWidget: Hero(
-                          tag: "player",
+                          tag: "name",
                           child: Icon(
                             Icons.music_note_sharp,
                             size: 60,
@@ -80,16 +80,13 @@ class PlayerScreen extends StatelessWidget {
                     return previous.index != current.index;
                   },
                   builder: (context, state) {
-                    return Hero(
-                      tag: "name",
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Text(
-                          mysongs[state.index].title,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Text(
+                        mysongs[state.index].title,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     );
                   },
