@@ -107,16 +107,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 )),
             TextButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => UserAgreement()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => TermsAndConditions()));
                 },
                 child: SizedBox(
                   width: double.infinity,
                   child: Text(
-                    "User agreement",
+                    "Terms and conditions",
                     style: myfontNormal(),
                   ),
-                ))
+                )),
           ],
         ),
       ),

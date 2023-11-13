@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-class UserAgreement extends StatelessWidget {
+class TermsAndConditions extends StatelessWidget {
+  const TermsAndConditions({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("User Agreement"),
+        title: Text("Terms and Conditions"),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -15,7 +17,7 @@ class UserAgreement extends StatelessWidget {
             text: TextSpan(
               children: <TextSpan>[
                 TextSpan(
-                  text: 'User Agreement for X Music\n\n',
+                  text: 'Terms and Conditions for X Music\n\n',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
@@ -24,14 +26,14 @@ class UserAgreement extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                      'This User Agreement ("Agreement") sets forth the terms and conditions under which you ("User" or "you") may use the X Music offline mobile application ("App"). By using the App, you agree to comply with and be bound by this Agreement. If you do not agree to these terms, please do not use the App.\n\n',
+                      'By using the X Music mobile application ("App"), you agree to comply with and be bound by the following terms and conditions. Please read these terms carefully before using the App.\n\n',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.white,
                   ),
                 ),
                 TextSpan(
-                  text: 'Use of the App\n',
+                  text: '1. Acceptance of Terms\n',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
@@ -40,14 +42,14 @@ class UserAgreement extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                      'The App is provided for your personal, non-commercial use. You may not use the App in any way that violates applicable laws or regulations or in a manner that could harm, disable, overburden, or impair the App.\n\n',
+                      'By accessing or using the App, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you may not use the App.\n\n',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.white,
                   ),
                 ),
                 TextSpan(
-                  text: 'User Content\n',
+                  text: '2. User Responsibilities\n',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
@@ -56,14 +58,14 @@ class UserAgreement extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                      'The App may allow you to submit, post, or display user-generated content. You are solely responsible for the content you provide and must not violate the rights of others or post content that is unlawful, offensive, or harmful.\n\n',
+                      'You are responsible for maintaining the confidentiality of your account and password and for restricting access to your device. You agree to accept responsibility for all activities that occur under your account or password.\n\n',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.white,
                   ),
                 ),
                 TextSpan(
-                  text: 'Intellectual Property\n',
+                  text: '3. Prohibited Activities\n',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
@@ -72,14 +74,14 @@ class UserAgreement extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                      'All intellectual property rights related to the App, including copyrights, trademarks, and patents, are owned by X Music. You may not reproduce, distribute, or modify any part of the App without our explicit consent.\n\n',
+                      'You may not engage in any activities that violate the law or the rights of others while using the App. Prohibited activities include, but are not limited to, unauthorized access, data mining, or any action that disrupts the normal functioning of the App.\n\n',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.white,
                   ),
                 ),
                 TextSpan(
-                  text: 'Termination\n',
+                  text: '4. Intellectual Property\n',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
@@ -88,14 +90,14 @@ class UserAgreement extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                      'We may terminate or suspend your access to the App at our discretion if you violate this Agreement or engage in any activity that may harm the App or other users.\n\n',
+                      'The content, features, and functionality of the App are the exclusive property of X Music. You may not reproduce, distribute, modify, or create derivative works of any part of the App without our express consent.\n\n',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.white,
                   ),
                 ),
                 TextSpan(
-                  text: 'Disclaimer\n',
+                  text: '5. Limitation of Liability\n',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
@@ -104,7 +106,39 @@ class UserAgreement extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                      'The App is provided "as is" and without warranties. We do not guarantee the accuracy, availability, or security of the App. You use the App at your own risk.\n\n',
+                      'X Music and its affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from your use of the App.\n\n',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white,
+                  ),
+                ),
+                TextSpan(
+                  text: '6. Governing Law\n',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+                TextSpan(
+                  text:
+                      'These Terms and Conditions are governed by and construed in accordance with the laws of [Your Country], and you irrevocably submit to the exclusive jurisdiction of the courts in that state or location.\n\n',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white,
+                  ),
+                ),
+                TextSpan(
+                  text: '7. Changes to Terms\n',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+                TextSpan(
+                  text:
+                      'We reserve the right, at our sole discretion, to modify or replace these Terms and Conditions at any time. By continuing to access or use the App after those revisions become effective, you agree to be bound by the revised terms.\n\n',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.white,
@@ -120,7 +154,7 @@ class UserAgreement extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                      'If you have any questions or concerns about this User Agreement or the use of the App, please contact us at [sr979151@gmail.com].\n\n',
+                      'If you have any questions about these Terms and Conditions, please contact us at [sr979151@gmail.com].\n\n',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.white,
@@ -128,7 +162,7 @@ class UserAgreement extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                      'Please note that this user agreement is a general template, and you should consult with a legal professional to ensure that it complies with applicable legal regulations and specific requirements for your offline app.\n\n',
+                      'Please note that this terms and conditions template is a general guide, and you should seek legal advice to ensure it complies with the specific legal requirements for your application and jurisdiction.\n',
                   style: TextStyle(
                     color: Colors.grey,
                     fontSize: 12,
