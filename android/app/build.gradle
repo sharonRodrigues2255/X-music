@@ -22,14 +22,14 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
-  def keystoreProperties = new Properties()
-   def keystorePropertiesFile = rootProject.file('key.properties')
-   if (keystorePropertiesFile.exists()) {
-       keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-   }
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
 
 android {
-    namespace "com.example.musicplayer_project"
+    namespace "com.sharonrodrigues.xmusic"
     compileSdkVersion 33
     ndkVersion flutter.ndkVersion
 
@@ -47,16 +47,14 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.musicplayer_project"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+        applicationId "com.sharonrodrigues.xmusic"
         minSdkVersion 21
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
-  signingConfigs {
+
+    signingConfigs {
        release {
            keyAlias keystoreProperties['keyAlias']
            keyPassword keystoreProperties['keyPassword']
@@ -64,11 +62,11 @@ android {
            storePassword keystoreProperties['storePassword']
        }
    }
-    buildTypes {
+   buildTypes {
        release {
            signingConfig signingConfigs.release
        }
-    }
+   }
 }
 
 flutter {
@@ -76,5 +74,5 @@ flutter {
 }
 
 dependencies {
-  
+    // Your dependencies go here
 }

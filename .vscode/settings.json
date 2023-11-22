@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "C:/Users/acer/musicplayer_project/linux"
+    "cmake.sourceDirectory": "C:/Users/acer/musicplayer_project/linux",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
