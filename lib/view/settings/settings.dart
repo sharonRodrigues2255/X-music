@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:musicplayer_project/utils/constants/text_styles.dart';
 import 'package:musicplayer_project/view/settings/screens/privacy_policy.dart';
-import 'package:musicplayer_project/view/settings/screens/user_agreement.dart';
+import 'package:musicplayer_project/view/settings/screens/terms_and_conditions.dart';
 import 'package:musicplayer_project/view/splash_screen/splash_screen.dart';
 
 class SettingsScreen extends StatefulWidget {

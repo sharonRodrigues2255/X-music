@@ -46,7 +46,7 @@ class BottomNavigationScreen extends StatelessWidget {
                       },
                     ),
                     Container(
-                      height: 55,
+                      height: 60,
                       width: double.infinity,
                       child: Center(
                         child: BottomNavigationBar(
